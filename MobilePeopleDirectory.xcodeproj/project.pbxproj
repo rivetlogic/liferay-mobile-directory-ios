@@ -174,6 +174,7 @@
 		0F82FDC91A5C569D008EE20B /* flat7-gradient-form.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F82FD2E1A5C569D008EE20B /* flat7-gradient-form.png */; };
 		0F82FDCA1A5C569D008EE20B /* flat7-gradient-form@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F82FD2F1A5C569D008EE20B /* flat7-gradient-form@2x.png */; };
 		9444FCA35B99DC549877D20D /* libPods-MobilePeopleDirectory.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D43E8E39248C7CF591616D3 /* libPods-MobilePeopleDirectory.a */; };
+		BA6726291A671ECE00379DA3 /* LRPeopledirectoryService_v62.m in Sources */ = {isa = PBXBuildFile; fileRef = BA6726281A671ECE00379DA3 /* LRPeopledirectoryService_v62.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -375,6 +376,8 @@
 		37E714DFC70E485E5F6AAF1D /* Pods-MobilePeopleDirectory.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobilePeopleDirectory.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MobilePeopleDirectory/Pods-MobilePeopleDirectory.debug.xcconfig"; sourceTree = "<group>"; };
 		700E0C06DDBC38A8CF934A3B /* Pods-MobilePeopleDirectory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobilePeopleDirectory.release.xcconfig"; path = "Pods/Target Support Files/Pods-MobilePeopleDirectory/Pods-MobilePeopleDirectory.release.xcconfig"; sourceTree = "<group>"; };
 		7D43E8E39248C7CF591616D3 /* libPods-MobilePeopleDirectory.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MobilePeopleDirectory.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA6726271A671ECE00379DA3 /* LRPeopledirectoryService_v62.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRPeopledirectoryService_v62.h; sourceTree = "<group>"; };
+		BA6726281A671ECE00379DA3 /* LRPeopledirectoryService_v62.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRPeopledirectoryService_v62.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -399,6 +402,7 @@
 		0F82FC1D1A5C5048008EE20B = {
 			isa = PBXGroup;
 			children = (
+				BA6726261A671ECE00379DA3 /* PeopleDirectorySDK */,
 				0F82FC511A5C569D008EE20B /* Liferay-Screens */,
 				0F82FC281A5C5048008EE20B /* MobilePeopleDirectory */,
 				0F82FC431A5C5048008EE20B /* MobilePeopleDirectoryTests */,
@@ -986,6 +990,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BA6726261A671ECE00379DA3 /* PeopleDirectorySDK */ = {
+			isa = PBXGroup;
+			children = (
+				BA6726271A671ECE00379DA3 /* LRPeopledirectoryService_v62.h */,
+				BA6726281A671ECE00379DA3 /* LRPeopledirectoryService_v62.m */,
+			);
+			path = PeopleDirectorySDK;
+			sourceTree = "<group>";
+		};
 		F8FFA0D2E54B2A1587E20979 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1217,6 +1230,7 @@
 				0F82FC2F1A5C5048008EE20B /* MobilePeopleDirectory.xcdatamodeld in Sources */,
 				0F82FD501A5C569D008EE20B /* LiferayServerContext.swift in Sources */,
 				0F82FD7B1A5C569D008EE20B /* AssetListView_default.swift in Sources */,
+				BA6726291A671ECE00379DA3 /* LRPeopledirectoryService_v62.m in Sources */,
 				0F82FD691A5C569D008EE20B /* DDLFieldNumber.swift in Sources */,
 				0F82FD6A1A5C569D008EE20B /* DDLFieldString.swift in Sources */,
 				0F82FD4B1A5C569D008EE20B /* BaseScreenlet+progress.swift in Sources */,

@@ -46,3 +46,6 @@ FOUNDATION_EXPORT const unsigned char liferay_screens_VersionString[];
 #import "LRBatchSession.h"
 #import "LRError.h"
 #import "LRJSONObjectWrapper.h"
+
+// Rivet Logic Custom Services
+#import "LRPeopledirectoryService_v62.h"
