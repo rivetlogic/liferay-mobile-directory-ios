@@ -28,7 +28,7 @@ class ForgotPasswordViewController: UIViewController, ForgotPasswordScreenletDel
         self.gotoLogin()
     }
     
-	func gotoLogin() {
+    func gotoLogin() {
         appHelper.getAppDelegate().login()
     }
     

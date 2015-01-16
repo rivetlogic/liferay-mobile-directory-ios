@@ -51,7 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         }
     }
 
-	func forgotPassword() {
+    func forgotPassword() {
         let controller = Storyboards.Login.Storyboard().instantiateViewControllerWithIdentifier("forgotPasswordView") as? ForgotPasswordViewController
         if let window = self.window {
             window.rootViewController = controller

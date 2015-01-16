@@ -9,7 +9,8 @@
 import UIKit
 
 class AppHelper {
-	func getAppDelegate() -> AppDelegate {
+    
+    func getAppDelegate() -> AppDelegate {
     	return UIApplication.sharedApplication().delegate as AppDelegate
     }
 }
