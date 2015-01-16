@@ -175,6 +175,9 @@
 		0F82FDCA1A5C569D008EE20B /* flat7-gradient-form@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F82FD2F1A5C569D008EE20B /* flat7-gradient-form@2x.png */; };
 		9444FCA35B99DC549877D20D /* libPods-MobilePeopleDirectory.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D43E8E39248C7CF591616D3 /* libPods-MobilePeopleDirectory.a */; };
 		BA6726291A671ECE00379DA3 /* LRPeopledirectoryService_v62.m in Sources */ = {isa = PBXBuildFile; fileRef = BA6726281A671ECE00379DA3 /* LRPeopledirectoryService_v62.m */; };
+		BA6975021A6860CF00E3CB41 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6975011A6860CE00E3CB41 /* ForgotPasswordViewController.swift */; };
+		BA6975061A69599D00E3CB41 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6975051A69599D00E3CB41 /* AlertHelper.swift */; };
+		BA6975081A69708800E3CB41 /* AppHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6975071A69708800E3CB41 /* AppHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -378,6 +381,9 @@
 		7D43E8E39248C7CF591616D3 /* libPods-MobilePeopleDirectory.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MobilePeopleDirectory.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA6726271A671ECE00379DA3 /* LRPeopledirectoryService_v62.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRPeopledirectoryService_v62.h; sourceTree = "<group>"; };
 		BA6726281A671ECE00379DA3 /* LRPeopledirectoryService_v62.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRPeopledirectoryService_v62.m; sourceTree = "<group>"; };
+		BA6975011A6860CE00E3CB41 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		BA6975051A69599D00E3CB41 /* AlertHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
+		BA6975071A69708800E3CB41 /* AppHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -402,9 +408,9 @@
 		0F82FC1D1A5C5048008EE20B = {
 			isa = PBXGroup;
 			children = (
+				0F82FC281A5C5048008EE20B /* MobilePeopleDirectory */,
 				BA6726261A671ECE00379DA3 /* PeopleDirectorySDK */,
 				0F82FC511A5C569D008EE20B /* Liferay-Screens */,
-				0F82FC281A5C5048008EE20B /* MobilePeopleDirectory */,
 				0F82FC431A5C5048008EE20B /* MobilePeopleDirectoryTests */,
 				0F82FC271A5C5048008EE20B /* Products */,
 				F8FFA0D2E54B2A1587E20979 /* Pods */,
@@ -424,6 +430,7 @@
 		0F82FC281A5C5048008EE20B /* MobilePeopleDirectory */ = {
 			isa = PBXGroup;
 			children = (
+				BA6975041A69595B00E3CB41 /* Helpers */,
 				0F82FC2B1A5C5048008EE20B /* AppDelegate.swift */,
 				0F82FC301A5C5048008EE20B /* MasterViewController.swift */,
 				0F82FC321A5C5048008EE20B /* DetailViewController.swift */,
@@ -435,6 +442,7 @@
 				0F2823D81A62CC1E000E0617 /* Storyboards.swift */,
 				0F2823DA1A62CD51000E0617 /* Login.storyboard */,
 				0F2823DC1A62D00C000E0617 /* LoginViewController.swift */,
+				BA6975011A6860CE00E3CB41 /* ForgotPasswordViewController.swift */,
 			);
 			path = MobilePeopleDirectory;
 			sourceTree = "<group>";
@@ -999,6 +1007,15 @@
 			path = PeopleDirectorySDK;
 			sourceTree = "<group>";
 		};
+		BA6975041A69595B00E3CB41 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				BA6975051A69599D00E3CB41 /* AlertHelper.swift */,
+				BA6975071A69708800E3CB41 /* AppHelper.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		F8FFA0D2E54B2A1587E20979 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1240,11 +1257,13 @@
 				0F82FD6C1A5C569D008EE20B /* DDLFieldUntyped.swift in Sources */,
 				0F82FD661A5C569D008EE20B /* DDLFieldBoolean.swift in Sources */,
 				0F82FD561A5C569D008EE20B /* DDLFormData.swift in Sources */,
+				BA6975081A69708800E3CB41 /* AppHelper.swift in Sources */,
 				0F82FD321A5C569D008EE20B /* AssetListTableView.swift in Sources */,
 				0F82FC2C1A5C5048008EE20B /* AppDelegate.swift in Sources */,
 				0F82FD3A1A5C569D008EE20B /* LiferayForgotPasswordUserIdOperation.swift in Sources */,
 				0F82FD831A5C569D008EE20B /* DDLBaseFieldTextFieldTableCell_default.swift in Sources */,
 				0F82FD921A5C569D008EE20B /* DDLFieldTextareaTableCell_default.swift in Sources */,
+				BA6975021A6860CF00E3CB41 /* ForgotPasswordViewController.swift in Sources */,
 				0F82FD331A5C569D008EE20B /* AuthBased.swift in Sources */,
 				0F82FD751A5C569D008EE20B /* LRMobilewidgetsddlrecordService_v62.m in Sources */,
 				0F82FD381A5C569D008EE20B /* LiferayForgotPasswordEmailOperation.swift in Sources */,
@@ -1277,6 +1296,7 @@
 				0F82FD3C1A5C569D008EE20B /* LoginData.swift in Sources */,
 				0F82FD541A5C569D008EE20B /* DDLValuesParser.swift in Sources */,
 				0F82FD301A5C569D008EE20B /* AssetListScreenlet.swift in Sources */,
+				BA6975061A69599D00E3CB41 /* AlertHelper.swift in Sources */,
 				0F82FD7D1A5C569D008EE20B /* ForgotPasswordView_default.swift in Sources */,
 				0F82FDC31A5C569D008EE20B /* Flat7ThemeConstants.swift in Sources */,
 				0F82FD8A1A5C569D008EE20B /* DDLFieldDocumentlibraryTableCell_default.swift in Sources */,

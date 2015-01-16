@@ -12,6 +12,8 @@ class LoginViewController: UIViewController, LoginScreenletDelegate {
 
     @IBOutlet weak var loginScreenlet: LoginScreenlet!
     
+    var appHelper = AppHelper()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loginScreenlet!.delegate = self
@@ -28,8 +30,7 @@ class LoginViewController: UIViewController, LoginScreenletDelegate {
     
     func onLoginResponse(attributes: [String : AnyObject]) {
         println("onLoginResponse attributes:", attributes)
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-        appDelegate.startup()
+        appHelper.getAppDelegate().startup()
         
     }
     
@@ -46,6 +47,9 @@ class LoginViewController: UIViewController, LoginScreenletDelegate {
         print("Saved credentials for server " + session.server)
     }
     
+    @IBAction func forgotPasswordPressed(sender: AnyObject) {
+        appHelper.getAppDelegate().forgotPassword()
+    }
 
     /*
     // MARK: - Navigation
