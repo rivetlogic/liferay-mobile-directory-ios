@@ -29,7 +29,8 @@ class ForgotPasswordViewController: UIViewController, ForgotPasswordScreenletDel
     }
     
     func gotoLogin() {
-        appHelper.getAppDelegate().login()
+        let logindVC = Storyboards.Login.Storyboard().instantiateViewControllerWithIdentifier("Login") as? LoginViewController
+        presentViewController(logindVC!, animated: true, completion: nil)
     }
     
     func onForgotPasswordResponse(newPasswordSent:Bool) {

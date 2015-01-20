@@ -48,7 +48,8 @@ class LoginViewController: UIViewController, LoginScreenletDelegate {
     }
     
     @IBAction func forgotPasswordPressed(sender: AnyObject) {
-        appHelper.getAppDelegate().forgotPassword()
+        let forgotPasswordVC = Storyboards.Login.Storyboard().instantiateViewControllerWithIdentifier("forgotPasswordView") as? ForgotPasswordViewController
+        presentViewController(forgotPasswordVC!, animated: true, completion: nil)
     }
 
     /*
