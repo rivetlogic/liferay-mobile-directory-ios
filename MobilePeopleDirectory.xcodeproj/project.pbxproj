@@ -174,7 +174,12 @@
 		0F82FDC91A5C569D008EE20B /* flat7-gradient-form.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F82FD2E1A5C569D008EE20B /* flat7-gradient-form.png */; };
 		0F82FDCA1A5C569D008EE20B /* flat7-gradient-form@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F82FD2F1A5C569D008EE20B /* flat7-gradient-form@2x.png */; };
 		9444FCA35B99DC549877D20D /* libPods-MobilePeopleDirectory.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D43E8E39248C7CF591616D3 /* libPods-MobilePeopleDirectory.a */; };
+		BA1483E01A6C9ADE00778808 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1483DF1A6C9ADE00778808 /* Person.swift */; };
+		BA1483E41A6CBAC200778808 /* PeopleDirectoryHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1483E31A6CBAC200778808 /* PeopleDirectoryHelper.swift */; };
 		BA6726291A671ECE00379DA3 /* LRPeopledirectoryService_v62.m in Sources */ = {isa = PBXBuildFile; fileRef = BA6726281A671ECE00379DA3 /* LRPeopledirectoryService_v62.m */; };
+		BA6975021A6860CF00E3CB41 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6975011A6860CE00E3CB41 /* ForgotPasswordViewController.swift */; };
+		BA6975061A69599D00E3CB41 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6975051A69599D00E3CB41 /* AlertHelper.swift */; };
+		BA6975081A69708800E3CB41 /* AppHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6975071A69708800E3CB41 /* AppHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -376,8 +381,13 @@
 		37E714DFC70E485E5F6AAF1D /* Pods-MobilePeopleDirectory.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobilePeopleDirectory.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MobilePeopleDirectory/Pods-MobilePeopleDirectory.debug.xcconfig"; sourceTree = "<group>"; };
 		700E0C06DDBC38A8CF934A3B /* Pods-MobilePeopleDirectory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobilePeopleDirectory.release.xcconfig"; path = "Pods/Target Support Files/Pods-MobilePeopleDirectory/Pods-MobilePeopleDirectory.release.xcconfig"; sourceTree = "<group>"; };
 		7D43E8E39248C7CF591616D3 /* libPods-MobilePeopleDirectory.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MobilePeopleDirectory.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA1483DF1A6C9ADE00778808 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		BA1483E31A6CBAC200778808 /* PeopleDirectoryHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleDirectoryHelper.swift; sourceTree = "<group>"; };
 		BA6726271A671ECE00379DA3 /* LRPeopledirectoryService_v62.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRPeopledirectoryService_v62.h; sourceTree = "<group>"; };
 		BA6726281A671ECE00379DA3 /* LRPeopledirectoryService_v62.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRPeopledirectoryService_v62.m; sourceTree = "<group>"; };
+		BA6975011A6860CE00E3CB41 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		BA6975051A69599D00E3CB41 /* AlertHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
+		BA6975071A69708800E3CB41 /* AppHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -402,9 +412,9 @@
 		0F82FC1D1A5C5048008EE20B = {
 			isa = PBXGroup;
 			children = (
+				0F82FC281A5C5048008EE20B /* MobilePeopleDirectory */,
 				BA6726261A671ECE00379DA3 /* PeopleDirectorySDK */,
 				0F82FC511A5C569D008EE20B /* Liferay-Screens */,
-				0F82FC281A5C5048008EE20B /* MobilePeopleDirectory */,
 				0F82FC431A5C5048008EE20B /* MobilePeopleDirectoryTests */,
 				0F82FC271A5C5048008EE20B /* Products */,
 				F8FFA0D2E54B2A1587E20979 /* Pods */,
@@ -424,17 +434,16 @@
 		0F82FC281A5C5048008EE20B /* MobilePeopleDirectory */ = {
 			isa = PBXGroup;
 			children = (
+				BA1483E21A6C9E5800778808 /* Controllers */,
+				BA1483E11A6C9CEB00778808 /* Models */,
+				BA6975041A69595B00E3CB41 /* Helpers */,
 				0F82FC2B1A5C5048008EE20B /* AppDelegate.swift */,
-				0F82FC301A5C5048008EE20B /* MasterViewController.swift */,
-				0F82FC321A5C5048008EE20B /* DetailViewController.swift */,
 				0F82FC341A5C5048008EE20B /* Main.storyboard */,
 				0F82FC371A5C5048008EE20B /* Images.xcassets */,
 				0F82FC391A5C5048008EE20B /* LaunchScreen.xib */,
 				0F82FC2D1A5C5048008EE20B /* MobilePeopleDirectory.xcdatamodeld */,
 				0F82FC291A5C5048008EE20B /* Supporting Files */,
-				0F2823D81A62CC1E000E0617 /* Storyboards.swift */,
 				0F2823DA1A62CD51000E0617 /* Login.storyboard */,
-				0F2823DC1A62D00C000E0617 /* LoginViewController.swift */,
 			);
 			path = MobilePeopleDirectory;
 			sourceTree = "<group>";
@@ -990,6 +999,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BA1483E11A6C9CEB00778808 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BA1483DF1A6C9ADE00778808 /* Person.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		BA1483E21A6C9E5800778808 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BA6975011A6860CE00E3CB41 /* ForgotPasswordViewController.swift */,
+				0F2823DC1A62D00C000E0617 /* LoginViewController.swift */,
+				0F82FC321A5C5048008EE20B /* DetailViewController.swift */,
+				0F82FC301A5C5048008EE20B /* MasterViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		BA6726261A671ECE00379DA3 /* PeopleDirectorySDK */ = {
 			isa = PBXGroup;
 			children = (
@@ -997,6 +1025,17 @@
 				BA6726281A671ECE00379DA3 /* LRPeopledirectoryService_v62.m */,
 			);
 			path = PeopleDirectorySDK;
+			sourceTree = "<group>";
+		};
+		BA6975041A69595B00E3CB41 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0F2823D81A62CC1E000E0617 /* Storyboards.swift */,
+				BA6975051A69599D00E3CB41 /* AlertHelper.swift */,
+				BA6975071A69708800E3CB41 /* AppHelper.swift */,
+				BA1483E31A6CBAC200778808 /* PeopleDirectoryHelper.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		F8FFA0D2E54B2A1587E20979 /* Pods */ = {
@@ -1229,6 +1268,7 @@
 				0F82FD881A5C569D008EE20B /* DDLFieldDocumentlibraryPresenterViewController_default.swift in Sources */,
 				0F82FC2F1A5C5048008EE20B /* MobilePeopleDirectory.xcdatamodeld in Sources */,
 				0F82FD501A5C569D008EE20B /* LiferayServerContext.swift in Sources */,
+				BA1483E01A6C9ADE00778808 /* Person.swift in Sources */,
 				0F82FD7B1A5C569D008EE20B /* AssetListView_default.swift in Sources */,
 				BA6726291A671ECE00379DA3 /* LRPeopledirectoryService_v62.m in Sources */,
 				0F82FD691A5C569D008EE20B /* DDLFieldNumber.swift in Sources */,
@@ -1240,11 +1280,14 @@
 				0F82FD6C1A5C569D008EE20B /* DDLFieldUntyped.swift in Sources */,
 				0F82FD661A5C569D008EE20B /* DDLFieldBoolean.swift in Sources */,
 				0F82FD561A5C569D008EE20B /* DDLFormData.swift in Sources */,
+				BA1483E41A6CBAC200778808 /* PeopleDirectoryHelper.swift in Sources */,
+				BA6975081A69708800E3CB41 /* AppHelper.swift in Sources */,
 				0F82FD321A5C569D008EE20B /* AssetListTableView.swift in Sources */,
 				0F82FC2C1A5C5048008EE20B /* AppDelegate.swift in Sources */,
 				0F82FD3A1A5C569D008EE20B /* LiferayForgotPasswordUserIdOperation.swift in Sources */,
 				0F82FD831A5C569D008EE20B /* DDLBaseFieldTextFieldTableCell_default.swift in Sources */,
 				0F82FD921A5C569D008EE20B /* DDLFieldTextareaTableCell_default.swift in Sources */,
+				BA6975021A6860CF00E3CB41 /* ForgotPasswordViewController.swift in Sources */,
 				0F82FD331A5C569D008EE20B /* AuthBased.swift in Sources */,
 				0F82FD751A5C569D008EE20B /* LRMobilewidgetsddlrecordService_v62.m in Sources */,
 				0F82FD381A5C569D008EE20B /* LiferayForgotPasswordEmailOperation.swift in Sources */,
@@ -1277,6 +1320,7 @@
 				0F82FD3C1A5C569D008EE20B /* LoginData.swift in Sources */,
 				0F82FD541A5C569D008EE20B /* DDLValuesParser.swift in Sources */,
 				0F82FD301A5C569D008EE20B /* AssetListScreenlet.swift in Sources */,
+				BA6975061A69599D00E3CB41 /* AlertHelper.swift in Sources */,
 				0F82FD7D1A5C569D008EE20B /* ForgotPasswordView_default.swift in Sources */,
 				0F82FDC31A5C569D008EE20B /* Flat7ThemeConstants.swift in Sources */,
 				0F82FD8A1A5C569D008EE20B /* DDLFieldDocumentlibraryTableCell_default.swift in Sources */,

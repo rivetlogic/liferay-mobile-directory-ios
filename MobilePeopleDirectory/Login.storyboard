@@ -18,6 +18,17 @@
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U2Z-5b-ysb" customClass="LoginScreenlet" customModule="MobilePeopleDirectory" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lqV-B9-BMm">
+                                        <rect key="frame" x="48" y="428" width="126" height="30"/>
+                                        <state key="normal" title="Forgot Password?">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="forgotPasswordPressed:" destination="zQO-4j-8gj" eventType="touchUpInside" id="8w3-X9-6mD"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -29,7 +40,53 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rmk-nm-Bch" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="448" y="255"/>
+            <point key="canvasLocation" x="380" y="234"/>
+        </scene>
+        <!--Forgot Password View Controller-->
+        <scene sceneID="Vph-tm-tio">
+            <objects>
+                <viewController storyboardIdentifier="forgotPasswordView" id="KEA-fJ-u8J" customClass="ForgotPasswordViewController" customModule="MobilePeopleDirectory" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GQB-Qi-NBX"/>
+                        <viewControllerLayoutGuide type="bottom" id="J99-ov-XVl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jtS-Ys-afG">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dgb-A1-gi6" customClass="ForgotPasswordScreenlet" customModule="MobilePeopleDirectory" customModuleProvider="target">
+                                <rect key="frame" x="16" y="0.0" width="304" height="600"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dUP-nP-dtF">
+                                        <rect key="frame" x="39" y="383" width="48" height="30"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="backPressed:" destination="KEA-fJ-u8J" eventType="touchUpInside" id="BoY-Yt-r4t"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="anonymousApiUserName" value="apphelper1@rivetlogic.com"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="anonymousApiPassword" value="test"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="authMethod" value="email"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="companyId">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="forgotPasswordScreenlet" destination="Dgb-A1-gi6" id="dDV-4n-Arf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SP5-WA-d3S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1136" y="260"/>
         </scene>
     </scenes>
 </document>
