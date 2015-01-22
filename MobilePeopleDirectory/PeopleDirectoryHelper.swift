@@ -33,9 +33,26 @@ class PeopleDirectoryHelper {
         
         for user in usersList {
             let entityDescripition = NSEntityDescription.entityForName("Person", inManagedObjectContext: managedObjectContext)
-            let person = Person(entity: entityDescripition!, insertIntoManagedObjectContext: managedObjectContext)
-            person.fullName = user["fullName"] as NSString
+            var person = Person(entity: entityDescripition!, insertIntoManagedObjectContext: managedObjectContext)
+            person = self.fillUser(user as NSDictionary, person: person)
             managedObjectContext.save(nil)
         }
+    }
+    
+    func fillUser(userData: NSDictionary, person: Person) -> Person {
+        person.fullName = userData["fullName"] as NSString
+        person.birthDate = userData["birthDate"] as NSInteger
+        person.city = userData["city"] as NSString
+        person.wasDeleted = userData["deleted"] as Bool
+        person.emailAddress = userData["emailAddress"] as NSString
+        person.jobTitle = userData["jobTitle"] as NSString
+        person.male = userData["male"] as Bool
+        person.modifiedDate = userData["modifiedDate"] as NSInteger
+        person.portraitUrl = userData["portraitUrl"] as NSString
+        person.screenName = userData["screenName"] as NSString
+        person.skypeName = userData["skypeName"] as NSString
+        person.userId = userData["userId"] as NSInteger
+        person.userPhone = userData["userPhone"] as NSString
+        return person;
     }
 }
