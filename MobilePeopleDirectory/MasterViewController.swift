@@ -13,7 +13,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
     var detailViewController: DetailViewController? = nil
     var managedObjectContext: NSManagedObjectContext? = nil
-    var peopleDirectoryHelper:PeopleDirectoryHelper = PeopleDirectoryHelper()
+    var peopleDao:PeopleDao = PeopleDao()
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,7 +25,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        peopleDirectoryHelper.fetchFromServer(managedObjectContext!)
+        peopleDao.fetchFromServer(managedObjectContext!)
         
         // Do any additional setup after loading the view, typically from a nib.
         self.navigationItem.leftBarButtonItem = self.editButtonItem()

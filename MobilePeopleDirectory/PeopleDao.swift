@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class PeopleDirectoryHelper {
+class PeopleDao {
 
     func removeAllData(managedObjectContext: NSManagedObjectContext) {
         let request = NSFetchRequest(entityName: "Person")
@@ -32,8 +32,7 @@ class PeopleDirectoryHelper {
         var usersList = users["users"] as NSArray
         
         for user in usersList {
-            let entityDescripition = NSEntityDescription.entityForName("Person", inManagedObjectContext: managedObjectContext)
-            var person = Person(entity: entityDescripition!, insertIntoManagedObjectContext: managedObjectContext)
+            var person = Person(insertIntoManagedObjectContext: managedObjectContext)
             person = self.fillUser(user as NSDictionary, person: person)
             managedObjectContext.save(nil)
         }
@@ -41,13 +40,13 @@ class PeopleDirectoryHelper {
     
     func fillUser(userData: NSDictionary, person: Person) -> Person {
         person.fullName = userData["fullName"] as NSString
-        person.birthDate = userData["birthDate"] as NSInteger
+        person.birthDate = userData["birthDate"] as Double
         person.city = userData["city"] as NSString
         person.wasDeleted = userData["deleted"] as Bool
         person.emailAddress = userData["emailAddress"] as NSString
         person.jobTitle = userData["jobTitle"] as NSString
         person.male = userData["male"] as Bool
-        person.modifiedDate = userData["modifiedDate"] as NSInteger
+        person.modifiedDate = userData["modifiedDate"] as Double
         person.portraitUrl = userData["portraitUrl"] as NSString
         person.screenName = userData["screenName"] as NSString
         person.skypeName = userData["skypeName"] as NSString
