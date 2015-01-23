@@ -22,12 +22,12 @@ public class Person: NSManagedObject {
     
     @NSManaged var fullName: String
     @NSManaged var jobTitle: String
-    @NSManaged private var birthDate_: NSDate?
+    @NSManaged var birthDateEpoch: Double
     @NSManaged var city: String
     @NSManaged var wasDeleted: Bool
     @NSManaged var emailAddress: String
     @NSManaged var male: Bool
-    @NSManaged private var modifiedDate_: NSDate?
+    @NSManaged var modifiedDateEpoch: Double
     @NSManaged var portraitUrl: String
     @NSManaged var screenName: String
     @NSManaged var skypeName: String
@@ -35,27 +35,22 @@ public class Person: NSManagedObject {
     @NSManaged var userPhone: String
     
     
-    var birthDate: Double {
+    var birthDate: NSDate {
         get{
-            if let val = self.birthDate_ {
-                return val.timeIntervalSince1970
-            }
-            return 0
+            return NSDate(timeIntervalSince1970: birthDateEpoch / 1000)
         }
         set {
-            self.birthDate_ = NSDate(timeIntervalSince1970: newValue / 1000)
+            self.birthDateEpoch = newValue.timeIntervalSince1970
         }
     }
     
-    var modifiedDate: Double {
+    
+   var modifiedDate: NSDate {
         get{
-            if let val = self.modifiedDate_ {
-                return val.timeIntervalSince1970
-            }
-            return 0
+            return NSDate(timeIntervalSince1970: modifiedDateEpoch / 1000)
         }
         set {
-            self.modifiedDate_ = NSDate(timeIntervalSince1970: newValue / 1000)
+            self.modifiedDateEpoch = newValue.timeIntervalSince1970
         }
     }
     

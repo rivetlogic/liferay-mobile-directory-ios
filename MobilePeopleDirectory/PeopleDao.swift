@@ -40,13 +40,13 @@ class PeopleDao {
     
     func fillUser(userData: NSDictionary, person: Person) -> Person {
         person.fullName = userData["fullName"] as NSString
-        person.birthDate = userData["birthDate"] as Double
+        person.birthDateEpoch = userData["birthDate"] as Double
         person.city = userData["city"] as NSString
         person.wasDeleted = userData["deleted"] as Bool
         person.emailAddress = userData["emailAddress"] as NSString
         person.jobTitle = userData["jobTitle"] as NSString
         person.male = userData["male"] as Bool
-        person.modifiedDate = userData["modifiedDate"] as Double
+        person.modifiedDateEpoch = userData["modifiedDate"] as Double
         person.portraitUrl = userData["portraitUrl"] as NSString
         person.screenName = userData["screenName"] as NSString
         person.skypeName = userData["skypeName"] as NSString
