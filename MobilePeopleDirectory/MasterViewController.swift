@@ -14,6 +14,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     var detailViewController: DetailViewController? = nil
     var managedObjectContext: NSManagedObjectContext? = nil
     var peopleDao:PeopleDao = PeopleDao()
+    var imageHelper:ImageHelper = ImageHelper()
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -88,7 +89,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("PersonCell", forIndexPath: indexPath) as UITableViewCell
         self.configureCell(cell, atIndexPath: indexPath)
         return cell
     }
@@ -114,8 +115,13 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }
 
     func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
-        let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as NSManagedObject
-        cell.textLabel!.text = object.valueForKey("fullName")!.description
+    
+        let person = self.fetchedResultsController.objectAtIndexPath(indexPath) as Person
+        let url = NSURL(string: LiferayServerContext.server + person.portraitUrl)
+        imageHelper.addThumbnailStyles(cell.imageView)
+        imageHelper.addImageToView(cell.imageView, imageUrl: url)
+        cell.textLabel!.text = person.fullName
+    
     }
 
     // MARK: - Fetched results controller
