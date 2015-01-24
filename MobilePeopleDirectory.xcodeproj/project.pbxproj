@@ -176,6 +176,7 @@
 		9444FCA35B99DC549877D20D /* libPods-MobilePeopleDirectory.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D43E8E39248C7CF591616D3 /* libPods-MobilePeopleDirectory.a */; };
 		BA1483E01A6C9ADE00778808 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1483DF1A6C9ADE00778808 /* Person.swift */; };
 		BA1483E41A6CBAC200778808 /* PeopleDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1483E31A6CBAC200778808 /* PeopleDao.swift */; };
+		BA2669241A7410A20046FE7A /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2669231A7410A20046FE7A /* ImageHelper.swift */; };
 		BA6726291A671ECE00379DA3 /* LRPeopledirectoryService_v62.m in Sources */ = {isa = PBXBuildFile; fileRef = BA6726281A671ECE00379DA3 /* LRPeopledirectoryService_v62.m */; };
 		BA6975021A6860CF00E3CB41 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6975011A6860CE00E3CB41 /* ForgotPasswordViewController.swift */; };
 		BA6975061A69599D00E3CB41 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6975051A69599D00E3CB41 /* AlertHelper.swift */; };
@@ -383,6 +384,7 @@
 		7D43E8E39248C7CF591616D3 /* libPods-MobilePeopleDirectory.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MobilePeopleDirectory.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA1483DF1A6C9ADE00778808 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		BA1483E31A6CBAC200778808 /* PeopleDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleDao.swift; sourceTree = "<group>"; };
+		BA2669231A7410A20046FE7A /* ImageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 		BA6726271A671ECE00379DA3 /* LRPeopledirectoryService_v62.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRPeopledirectoryService_v62.h; sourceTree = "<group>"; };
 		BA6726281A671ECE00379DA3 /* LRPeopledirectoryService_v62.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRPeopledirectoryService_v62.m; sourceTree = "<group>"; };
 		BA6975011A6860CE00E3CB41 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
@@ -1034,6 +1036,7 @@
 				0F2823D81A62CC1E000E0617 /* Storyboards.swift */,
 				BA6975051A69599D00E3CB41 /* AlertHelper.swift */,
 				BA6975071A69708800E3CB41 /* AppHelper.swift */,
+				BA2669231A7410A20046FE7A /* ImageHelper.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -1289,6 +1292,7 @@
 				0F82FD921A5C569D008EE20B /* DDLFieldTextareaTableCell_default.swift in Sources */,
 				BA6975021A6860CF00E3CB41 /* ForgotPasswordViewController.swift in Sources */,
 				0F82FD331A5C569D008EE20B /* AuthBased.swift in Sources */,
+				BA2669241A7410A20046FE7A /* ImageHelper.swift in Sources */,
 				0F82FD751A5C569D008EE20B /* LRMobilewidgetsddlrecordService_v62.m in Sources */,
 				0F82FD381A5C569D008EE20B /* LiferayForgotPasswordEmailOperation.swift in Sources */,
 				0F82FD611A5C569D008EE20B /* DDLListScreenlet.swift in Sources */,
