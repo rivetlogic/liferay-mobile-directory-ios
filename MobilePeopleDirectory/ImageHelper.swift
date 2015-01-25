@@ -26,8 +26,8 @@ class ImageHelper: NSObject {
     // Adds image to view and verifies if same image was processed to use a "cached" image instead
     func addImageToView(imageView: UIImageView!, imageUrl: NSURL!) {
         
-        if let storedImage = processedImages.indexForKey(imageUrl!.description) {
-            imageView?.image = self.processedImages[imageUrl!.description]
+        if let storedImage = _processedImages.indexForKey(imageUrl!.description) {
+            imageView?.image = self._processedImages[imageUrl!.description]
             return
         }
         
