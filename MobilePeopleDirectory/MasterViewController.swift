@@ -30,7 +30,6 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         
         // Do any additional setup after loading the view, typically from a nib.
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
-
         let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
         self.navigationItem.rightBarButtonItem = addButton
         if let split = self.splitViewController {
@@ -89,7 +88,8 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("PersonCell", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("PersonCell", forIndexPath: indexPath) as PersonViewCell
+        //let cell = PersonViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "PersonCell")
         self.configureCell(cell, atIndexPath: indexPath)
         return cell
     }
@@ -114,14 +114,17 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         }
     }
 
-    func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
+    func configureCell(cell: PersonViewCell, atIndexPath indexPath: NSIndexPath) {
     
         let person = self.fetchedResultsController.objectAtIndexPath(indexPath) as Person
         let url = NSURL(string: LiferayServerContext.server + person.portraitUrl)
-        imageHelper.addThumbnailStyles(cell.imageView)
-        imageHelper.addImageToView(cell.imageView, imageUrl: url)
-        cell.textLabel!.text = person.fullName
-    
+        imageHelper.addThumbnailStyles(cell.thumbnailImage)
+        imageHelper.addImageToView(cell.thumbnailImage, imageUrl: url)
+        cell.emailAddress!.text = person.emailAddress
+        // person.skypeName
+        // person.userPhone
+        cell.fullName!.text = person.fullName
+        cell.jobTitle!.text = person.jobTitle
     }
 
     // MARK: - Fetched results controller
@@ -186,7 +189,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             case .Delete:
                 tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
             case .Update:
-                self.configureCell(tableView.cellForRowAtIndexPath(indexPath!)!, atIndexPath: indexPath!)
+                self.configureCell(tableView.cellForRowAtIndexPath(indexPath!)! as PersonViewCell, atIndexPath: indexPath!)
             case .Move:
                 tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
                 tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
