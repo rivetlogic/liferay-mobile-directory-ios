@@ -16,7 +16,7 @@ class ImageHelper: NSObject {
     // Adds styles to list thubmnails
     func addThumbnailStyles(imageView: UIImageView!) {
     
-        imageView?.layer.cornerRadius = 25.0
+        imageView?.layer.cornerRadius = 30.0
         imageView?.layer.masksToBounds = true
         imageView?.layer.borderColor = UIColor.lightGrayColor().CGColor
         imageView?.layer.borderWidth = 1.0
@@ -26,8 +26,8 @@ class ImageHelper: NSObject {
     // Adds image to view and verifies if same image was processed to use a "cached" image instead
     func addImageToView(imageView: UIImageView!, imageUrl: NSURL!) {
         
-        if let storedImage = processedImages.indexForKey(imageUrl!.description) {
-            imageView?.image = self.processedImages[imageUrl!.description]
+        if let storedImage = self._processedImages.indexForKey(imageUrl!.description) {
+            imageView?.image = self._processedImages[imageUrl!.description]
             return
         }
         

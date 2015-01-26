@@ -177,6 +177,7 @@
 		BA1483E01A6C9ADE00778808 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1483DF1A6C9ADE00778808 /* Person.swift */; };
 		BA1483E41A6CBAC200778808 /* PeopleDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1483E31A6CBAC200778808 /* PeopleDao.swift */; };
 		BA2669241A7410A20046FE7A /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2669231A7410A20046FE7A /* ImageHelper.swift */; };
+		BA2669281A742A3C0046FE7A /* PersonViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2669261A742A3C0046FE7A /* PersonViewCell.swift */; };
 		BA6726291A671ECE00379DA3 /* LRPeopledirectoryService_v62.m in Sources */ = {isa = PBXBuildFile; fileRef = BA6726281A671ECE00379DA3 /* LRPeopledirectoryService_v62.m */; };
 		BA6975021A6860CF00E3CB41 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6975011A6860CE00E3CB41 /* ForgotPasswordViewController.swift */; };
 		BA6975061A69599D00E3CB41 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6975051A69599D00E3CB41 /* AlertHelper.swift */; };
@@ -385,6 +386,7 @@
 		BA1483DF1A6C9ADE00778808 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		BA1483E31A6CBAC200778808 /* PeopleDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleDao.swift; sourceTree = "<group>"; };
 		BA2669231A7410A20046FE7A /* ImageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
+		BA2669261A742A3C0046FE7A /* PersonViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonViewCell.swift; sourceTree = "<group>"; };
 		BA6726271A671ECE00379DA3 /* LRPeopledirectoryService_v62.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRPeopledirectoryService_v62.h; sourceTree = "<group>"; };
 		BA6726281A671ECE00379DA3 /* LRPeopledirectoryService_v62.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRPeopledirectoryService_v62.m; sourceTree = "<group>"; };
 		BA6975011A6860CE00E3CB41 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
@@ -436,6 +438,7 @@
 		0F82FC281A5C5048008EE20B /* MobilePeopleDirectory */ = {
 			isa = PBXGroup;
 			children = (
+				BA2669251A742A0E0046FE7A /* UIComponents */,
 				BA1483E21A6C9E5800778808 /* Controllers */,
 				BA1483E11A6C9CEB00778808 /* Model */,
 				BA6975041A69595B00E3CB41 /* Helpers */,
@@ -1021,6 +1024,14 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		BA2669251A742A0E0046FE7A /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				BA2669261A742A3C0046FE7A /* PersonViewCell.swift */,
+			);
+			name = UIComponents;
+			sourceTree = "<group>";
+		};
 		BA6726261A671ECE00379DA3 /* PeopleDirectorySDK */ = {
 			isa = PBXGroup;
 			children = (
@@ -1350,6 +1361,7 @@
 				0F82FDBB1A5C569D008EE20B /* WebContentDisplayView_default.swift in Sources */,
 				0F82FD9B1A5C569D008EE20B /* DDLListView_default.swift in Sources */,
 				0F82FD581A5C569D008EE20B /* DDLFormView.swift in Sources */,
+				BA2669281A742A3C0046FE7A /* PersonViewCell.swift in Sources */,
 				0F82FDBD1A5C569D008EE20B /* ForgotPasswordView_flat7.swift in Sources */,
 				0F82FD5D1A5C569D008EE20B /* LiferayDDLFormUploadOperation.swift in Sources */,
 				0F82FD451A5C569D008EE20B /* SignUpData.swift in Sources */,
