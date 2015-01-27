@@ -11,11 +11,18 @@ import UIKit
 class PersonViewCell: UITableViewCell {
     @IBOutlet weak var fullName: UILabel!
     
+    @IBOutlet weak var username: UILabel!
+    
     @IBOutlet weak var thumbnailImage: UIImageView!
     
-    @IBOutlet weak var jobTitle: UILabel!
     
-    @IBOutlet weak var emailAddress: UILabel!
+    @IBOutlet weak var emailIcon: UIImageView!
+    
+    
+    @IBOutlet weak var phoneIcon: UIImageView!
+    
+    
+    @IBOutlet weak var skypeIcon: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

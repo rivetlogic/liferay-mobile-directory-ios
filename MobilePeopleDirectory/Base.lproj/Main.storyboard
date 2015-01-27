@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="H1p-Uh-vWS">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Master-->
@@ -78,6 +79,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PersonCell" rowHeight="72" id="lt7-U3-o1y" customClass="PersonViewCell" customModule="MobilePeopleDirectory" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -85,34 +87,59 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lt7-U3-o1y" id="XPz-av-zhE">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LtD-CY-Bi5">
+                                            <rect key="frame" x="8" y="5" width="60" height="60"/>
+                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Full Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fmy-ZK-khP">
-                                            <rect key="frame" x="83" y="4" width="198" height="21"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <rect key="frame" x="87" y="14" width="198" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Job Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jkr-wZ-3wY">
-                                            <rect key="frame" x="83" y="24" width="198" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jkr-wZ-3wY">
+                                            <rect key="frame" x="87" y="34" width="198" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <color key="textColor" red="0.58134557845744683" green="0.58134557845744683" blue="0.58134557845744683" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="email address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hM0-yd-IE2">
-                                            <rect key="frame" x="83" y="46" width="198" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                            <color key="textColor" red="0.14019628102029025" green="0.58257389284794525" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LtD-CY-Bi5">
-                                            <rect key="frame" x="8" y="5" width="60" height="60"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EmailIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Ade-bh-OT9">
+                                            <rect key="frame" x="515" y="50" width="16" height="12"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="16" id="ed0-ab-eVT"/>
+                                            </constraints>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PhoneIcon" translatesAutoresizingMaskIntoConstraints="NO" id="ymK-hJ-wBa">
+                                            <rect key="frame" x="539" y="48" width="16" height="16"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="16" id="jwQ-l4-OlV"/>
+                                            </constraints>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SkypeIcon" translatesAutoresizingMaskIntoConstraints="NO" id="0K3-Va-eqX">
+                                            <rect key="frame" x="563" y="48" width="16" height="16"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="16" id="zI6-V0-hWi"/>
+                                            </constraints>
                                         </imageView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="0K3-Va-eqX" firstAttribute="top" secondItem="ymK-hJ-wBa" secondAttribute="top" id="SMz-hq-a0f"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="0K3-Va-eqX" secondAttribute="trailing" constant="13" id="aCk-Ok-x2N"/>
+                                        <constraint firstItem="ymK-hJ-wBa" firstAttribute="leading" secondItem="Ade-bh-OT9" secondAttribute="trailing" constant="8" symbolic="YES" id="cXP-kJ-eJq"/>
+                                        <constraint firstItem="Ade-bh-OT9" firstAttribute="top" secondItem="XPz-av-zhE" secondAttribute="topMargin" constant="42" id="caK-5h-p94"/>
+                                        <constraint firstItem="Ade-bh-OT9" firstAttribute="centerY" secondItem="ymK-hJ-wBa" secondAttribute="centerY" id="ieu-0n-HQg"/>
+                                        <constraint firstItem="ymK-hJ-wBa" firstAttribute="top" secondItem="XPz-av-zhE" secondAttribute="topMargin" constant="40" id="ifg-m1-c9R"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Ade-bh-OT9" secondAttribute="bottom" constant="1.5" id="ohR-Pw-uwd"/>
+                                        <constraint firstItem="0K3-Va-eqX" firstAttribute="bottom" secondItem="ymK-hJ-wBa" secondAttribute="bottom" id="sAO-tm-t3V"/>
+                                        <constraint firstItem="0K3-Va-eqX" firstAttribute="leading" secondItem="ymK-hJ-wBa" secondAttribute="trailing" constant="8" symbolic="YES" id="whX-yW-xhq"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="emailAddress" destination="hM0-yd-IE2" id="xL0-oV-wZo"/>
+                                    <outlet property="emailIcon" destination="Ade-bh-OT9" id="Lp2-9U-7i2"/>
                                     <outlet property="fullName" destination="Fmy-ZK-khP" id="S3s-gs-dyE"/>
-                                    <outlet property="jobTitle" destination="jkr-wZ-3wY" id="wju-Qi-ycG"/>
+                                    <outlet property="phoneIcon" destination="ymK-hJ-wBa" id="naT-DK-nnC"/>
+                                    <outlet property="skypeIcon" destination="0K3-Va-eqX" id="Ctm-kE-cLx"/>
                                     <outlet property="thumbnailImage" destination="LtD-CY-Bi5" id="Hvp-G6-Cts"/>
+                                    <outlet property="username" destination="jkr-wZ-3wY" id="GwH-cm-Y9w"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -144,4 +171,9 @@
             <point key="canvasLocation" x="-45" y="129"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="EmailIcon" width="504" height="351"/>
+        <image name="PhoneIcon" width="578" height="578"/>
+        <image name="SkypeIcon" width="512" height="505"/>
+    </resources>
 </document>
