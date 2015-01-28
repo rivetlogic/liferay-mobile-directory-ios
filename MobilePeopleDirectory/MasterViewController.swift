@@ -120,11 +120,11 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         let url = NSURL(string: LiferayServerContext.server + person.portraitUrl)
         imageHelper.addThumbnailStyles(cell.thumbnailImage)
         imageHelper.addImageToView(cell.thumbnailImage, imageUrl: url)
-        cell.emailAddress!.text = person.emailAddress
-        // person.skypeName
-        // person.userPhone
+        cell.username!.text = person.screenName
+        cell.skypeIcon.hidden = (person.skypeName == "")
+        cell.emailIcon.hidden = (person.emailAddress == "")
+        cell.phoneIcon.hidden = (person.userPhone == "")
         cell.fullName!.text = person.fullName
-        cell.jobTitle!.text = person.jobTitle
     }
 
     // MARK: - Fetched results controller

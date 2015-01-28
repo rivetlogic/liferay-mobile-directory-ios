@@ -32,7 +32,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="JwE-OZ-DAq" userLabel="jobTitleLabel">
+                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" text="" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="JwE-OZ-DAq" userLabel="jobTitleLabel">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="NcP-WT-S2G"/>
@@ -41,7 +41,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="5RU-go-IL5" userLabel="screenNameLabel">
+                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" text="" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="5RU-go-IL5" userLabel="screenNameLabel">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="YPU-nL-ueO"/>
@@ -50,7 +50,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="jLy-5q-E6J" userLabel="cityLabel">
+                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" text="" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="jLy-5q-E6J" userLabel="cityLabel">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="HnA-CZ-YE5"/>
@@ -59,7 +59,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="NcP-Mg-L8R" userLabel="phoneLabel">
+                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" text="" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="NcP-Mg-L8R" userLabel="phoneLabel">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="y2k-PO-x3L"/>
@@ -68,7 +68,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="PIo-do-aYT" userLabel="skypeLabel">
+                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" text="" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="PIo-do-aYT" userLabel="skypeLabel">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="ffZ-uh-1iB"/>
@@ -205,6 +205,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PersonCell" rowHeight="72" id="lt7-U3-o1y" customClass="PersonViewCell" customModule="MobilePeopleDirectory" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -212,34 +213,47 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lt7-U3-o1y" id="XPz-av-zhE">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LtD-CY-Bi5">
+                                            <rect key="frame" x="8" y="5" width="60" height="60"/>
+                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Full Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fmy-ZK-khP">
-                                            <rect key="frame" x="83" y="4" width="198" height="21"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <rect key="frame" x="87" y="14" width="198" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Job Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jkr-wZ-3wY">
-                                            <rect key="frame" x="83" y="24" width="198" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jkr-wZ-3wY">
+                                            <rect key="frame" x="87" y="34" width="198" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <color key="textColor" red="0.58134557845744683" green="0.58134557845744683" blue="0.58134557845744683" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="email address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hM0-yd-IE2">
-                                            <rect key="frame" x="83" y="46" width="198" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                            <color key="textColor" red="0.14019628102029025" green="0.58257389284794525" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LtD-CY-Bi5">
-                                            <rect key="frame" x="8" y="5" width="60" height="60"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EmailIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Ade-bh-OT9">
+                                            <rect key="frame" x="515" y="50" width="16" height="12"/>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PhoneIcon" translatesAutoresizingMaskIntoConstraints="NO" id="ymK-hJ-wBa">
+                                            <rect key="frame" x="539" y="48" width="16" height="16"/>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SkypeIcon" translatesAutoresizingMaskIntoConstraints="NO" id="0K3-Va-eqX">
+                                            <rect key="frame" x="563" y="48" width="16" height="16"/>
                                         </imageView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="ymK-hJ-wBa" firstAttribute="top" secondItem="XPz-av-zhE" secondAttribute="topMargin" constant="40" id="0yL-ac-BE2"/>
+                                        <constraint firstItem="ymK-hJ-wBa" firstAttribute="leading" secondItem="Ade-bh-OT9" secondAttribute="trailing" constant="8" symbolic="YES" id="9Re-a5-NHX"/>
+                                        <constraint firstItem="ymK-hJ-wBa" firstAttribute="centerY" secondItem="Ade-bh-OT9" secondAttribute="centerY" id="LDZ-0E-vfo"/>
+                                        <constraint firstItem="0K3-Va-eqX" firstAttribute="leading" secondItem="ymK-hJ-wBa" secondAttribute="trailing" constant="8" symbolic="YES" id="U36-bh-HfA"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="0K3-Va-eqX" secondAttribute="trailing" constant="13" id="mTu-Ao-tsg"/>
+                                        <constraint firstItem="ymK-hJ-wBa" firstAttribute="top" secondItem="0K3-Va-eqX" secondAttribute="top" id="z4r-Pa-gbn"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="emailAddress" destination="hM0-yd-IE2" id="xL0-oV-wZo"/>
+                                    <outlet property="emailIcon" destination="Ade-bh-OT9" id="Lp2-9U-7i2"/>
                                     <outlet property="fullName" destination="Fmy-ZK-khP" id="S3s-gs-dyE"/>
-                                    <outlet property="jobTitle" destination="jkr-wZ-3wY" id="wju-Qi-ycG"/>
+                                    <outlet property="phoneIcon" destination="ymK-hJ-wBa" id="naT-DK-nnC"/>
+                                    <outlet property="skypeIcon" destination="0K3-Va-eqX" id="Ctm-kE-cLx"/>
                                     <outlet property="thumbnailImage" destination="LtD-CY-Bi5" id="Hvp-G6-Cts"/>
+                                    <outlet property="username" destination="jkr-wZ-3wY" id="GwH-cm-Y9w"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -271,4 +285,9 @@
             <point key="canvasLocation" x="-45" y="129"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="EmailIcon" width="16" height="12"/>
+        <image name="PhoneIcon" width="16" height="16"/>
+        <image name="SkypeIcon" width="16" height="16"/>
+    </resources>
 </document>
