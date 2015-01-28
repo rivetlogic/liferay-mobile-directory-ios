@@ -32,7 +32,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="JwE-OZ-DAq" userLabel="jobTitleLabel">
+                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" text="" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="JwE-OZ-DAq" userLabel="jobTitleLabel">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="NcP-WT-S2G"/>
@@ -41,7 +41,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="5RU-go-IL5" userLabel="screenNameLabel">
+                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" text="" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="5RU-go-IL5" userLabel="screenNameLabel">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="YPU-nL-ueO"/>
@@ -50,7 +50,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="jLy-5q-E6J" userLabel="cityLabel">
+                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" text="" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="jLy-5q-E6J" userLabel="cityLabel">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="HnA-CZ-YE5"/>
@@ -59,7 +59,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="NcP-Mg-L8R" userLabel="phoneLabel">
+                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" text="" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="NcP-Mg-L8R" userLabel="phoneLabel">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="y2k-PO-x3L"/>
@@ -68,7 +68,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="PIo-do-aYT" userLabel="skypeLabel">
+                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" text="" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="PIo-do-aYT" userLabel="skypeLabel">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="ffZ-uh-1iB"/>
@@ -230,33 +230,21 @@
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EmailIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Ade-bh-OT9">
                                             <rect key="frame" x="515" y="50" width="16" height="12"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="16" id="ed0-ab-eVT"/>
-                                            </constraints>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PhoneIcon" translatesAutoresizingMaskIntoConstraints="NO" id="ymK-hJ-wBa">
                                             <rect key="frame" x="539" y="48" width="16" height="16"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="16" id="jwQ-l4-OlV"/>
-                                            </constraints>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SkypeIcon" translatesAutoresizingMaskIntoConstraints="NO" id="0K3-Va-eqX">
                                             <rect key="frame" x="563" y="48" width="16" height="16"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="16" id="zI6-V0-hWi"/>
-                                            </constraints>
                                         </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="0K3-Va-eqX" firstAttribute="top" secondItem="ymK-hJ-wBa" secondAttribute="top" id="SMz-hq-a0f"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="0K3-Va-eqX" secondAttribute="trailing" constant="13" id="aCk-Ok-x2N"/>
-                                        <constraint firstItem="ymK-hJ-wBa" firstAttribute="leading" secondItem="Ade-bh-OT9" secondAttribute="trailing" constant="8" symbolic="YES" id="cXP-kJ-eJq"/>
-                                        <constraint firstItem="Ade-bh-OT9" firstAttribute="top" secondItem="XPz-av-zhE" secondAttribute="topMargin" constant="42" id="caK-5h-p94"/>
-                                        <constraint firstItem="Ade-bh-OT9" firstAttribute="centerY" secondItem="ymK-hJ-wBa" secondAttribute="centerY" id="ieu-0n-HQg"/>
-                                        <constraint firstItem="ymK-hJ-wBa" firstAttribute="top" secondItem="XPz-av-zhE" secondAttribute="topMargin" constant="40" id="ifg-m1-c9R"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="Ade-bh-OT9" secondAttribute="bottom" constant="1.5" id="ohR-Pw-uwd"/>
-                                        <constraint firstItem="0K3-Va-eqX" firstAttribute="bottom" secondItem="ymK-hJ-wBa" secondAttribute="bottom" id="sAO-tm-t3V"/>
-                                        <constraint firstItem="0K3-Va-eqX" firstAttribute="leading" secondItem="ymK-hJ-wBa" secondAttribute="trailing" constant="8" symbolic="YES" id="whX-yW-xhq"/>
+                                        <constraint firstItem="ymK-hJ-wBa" firstAttribute="top" secondItem="XPz-av-zhE" secondAttribute="topMargin" constant="40" id="0yL-ac-BE2"/>
+                                        <constraint firstItem="ymK-hJ-wBa" firstAttribute="leading" secondItem="Ade-bh-OT9" secondAttribute="trailing" constant="8" symbolic="YES" id="9Re-a5-NHX"/>
+                                        <constraint firstItem="ymK-hJ-wBa" firstAttribute="centerY" secondItem="Ade-bh-OT9" secondAttribute="centerY" id="LDZ-0E-vfo"/>
+                                        <constraint firstItem="0K3-Va-eqX" firstAttribute="leading" secondItem="ymK-hJ-wBa" secondAttribute="trailing" constant="8" symbolic="YES" id="U36-bh-HfA"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="0K3-Va-eqX" secondAttribute="trailing" constant="13" id="mTu-Ao-tsg"/>
+                                        <constraint firstItem="ymK-hJ-wBa" firstAttribute="top" secondItem="0K3-Va-eqX" secondAttribute="top" id="z4r-Pa-gbn"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -298,8 +286,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="EmailIcon" width="504" height="351"/>
-        <image name="PhoneIcon" width="578" height="578"/>
-        <image name="SkypeIcon" width="512" height="505"/>
+        <image name="EmailIcon" width="16" height="12"/>
+        <image name="PhoneIcon" width="16" height="16"/>
+        <image name="SkypeIcon" width="16" height="16"/>
     </resources>
 </document>

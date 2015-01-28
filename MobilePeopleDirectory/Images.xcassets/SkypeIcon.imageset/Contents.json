@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "skype8.png"
+      "filename" : "skype.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "skype8-1.png"
+      "filename" : "skype@2x.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "skype8-2.png"
+      "filename" : "skype@3x.png"
     }
   ],
   "info" : {
