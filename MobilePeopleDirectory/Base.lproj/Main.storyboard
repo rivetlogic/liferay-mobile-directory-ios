@@ -254,6 +254,7 @@
                                     <outlet property="skypeIcon" destination="0K3-Va-eqX" id="Ctm-kE-cLx"/>
                                     <outlet property="thumbnailImage" destination="LtD-CY-Bi5" id="Hvp-G6-Cts"/>
                                     <outlet property="username" destination="jkr-wZ-3wY" id="GwH-cm-Y9w"/>
+                                    <segue destination="vC3-pB-5Vb" kind="showDetail" identifier="showDetail" id="Jf6-5q-OrA"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -290,4 +291,7 @@
         <image name="PhoneIcon" width="16" height="16"/>
         <image name="SkypeIcon" width="16" height="16"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Jf6-5q-OrA"/>
+    </inferredMetricsTieBreakers>
 </document>
