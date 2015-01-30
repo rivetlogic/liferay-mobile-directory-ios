@@ -45,7 +45,7 @@ class PeopleDao {
         var error: NSError?
         var users = peopleDirectoryService.fetchAll(&error)
         if error != nil {return ServerFetchResult.ConnectivityIssue}
-        //TODO:  Might want to expand possible ServerFetchResult error types and return something more specific
+//TODO:  Need to determine if the error is due to credential failure (return .CredIssue) or a network failure.  In the case of the network failure, might want to expand possible ServerFetchResult error types and return something more specific
         var usersList = users["users"] as NSArray
         
         for user in usersList {
