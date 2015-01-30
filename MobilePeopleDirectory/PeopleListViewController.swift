@@ -67,7 +67,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow() {
-            let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as NSManagedObject
+            let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as Person
                 let controller = (segue.destinationViewController as UINavigationController).topViewController as DetailViewController
                 controller.detailItem = object
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
@@ -117,9 +117,9 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     func configureCell(cell: PersonViewCell, atIndexPath indexPath: NSIndexPath) {
     
         let person = self.fetchedResultsController.objectAtIndexPath(indexPath) as Person
-        let url = NSURL(string: LiferayServerContext.server + person.portraitUrl)
+        //let url = NSURL(string: LiferayServerContext.server + person.portraitUrl)
         imageHelper.addThumbnailStyles(cell.thumbnailImage)
-        imageHelper.addImageToView(cell.thumbnailImage, imageUrl: url)
+        imageHelper.addImageFromData(cell.thumbnailImage, image: person.portraitImage)
         cell.username!.text = person.screenName
         cell.skypeIcon.hidden = (person.skypeName == "")
         cell.emailIcon.hidden = (person.emailAddress == "")

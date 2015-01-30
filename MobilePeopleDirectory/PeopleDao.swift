@@ -10,7 +10,9 @@ import UIKit
 import CoreData
 
 class PeopleDao {
-
+    
+    var imageHelper = ImageHelper()
+    
     func removeAllData(managedObjectContext: NSManagedObjectContext) {
         let request = NSFetchRequest(entityName: "Person")
         var usersData = managedObjectContext.executeFetchRequest(request, error: nil) as [NSManagedObject]
@@ -52,6 +54,7 @@ class PeopleDao {
         person.skypeName = userData["skypeName"] as NSString
         person.userId = userData["userId"] as NSInteger
         person.userPhone = userData["userPhone"] as NSString
+        person.portraitImage = imageHelper.getImageData(LiferayServerContext.server + person.portraitUrl)
         return person;
     }
 }

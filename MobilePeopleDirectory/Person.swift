@@ -33,7 +33,7 @@ public class Person: NSManagedObject {
     @NSManaged var skypeName: String
     @NSManaged var userId: NSNumber
     @NSManaged var userPhone: String
-    
+    @NSManaged var portraitImage: NSData
     
     var birthDate: NSDate {
         get{
