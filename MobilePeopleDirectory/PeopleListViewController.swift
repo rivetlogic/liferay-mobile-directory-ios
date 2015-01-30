@@ -1,5 +1,5 @@
 //
-//  MasterViewController.swift
+//  PeopleListViewController.swift
 //  MobilePeopleDirectory
 //
 //  Created by Martin Zary on 1/6/15.
@@ -9,9 +9,9 @@
 import UIKit
 import CoreData
 
-class MasterViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class PeopleListViewController: UITableViewController, NSFetchedResultsControllerDelegate {
 
-    var detailViewController: DetailViewController? = nil
+    var personViewController: PersonViewController? = nil
     var managedObjectContext: NSManagedObjectContext? = nil
     var peopleDao:PeopleDao = PeopleDao()
     var imageHelper:ImageHelper = ImageHelper()
@@ -34,7 +34,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         self.navigationItem.rightBarButtonItem = addButton
         if let split = self.splitViewController {
             let controllers = split.viewControllers
-            self.detailViewController = controllers[controllers.count-1].topViewController as? DetailViewController
+            self.personViewController = controllers[controllers.count-1].topViewController as? PersonViewController
         }
     }
     
@@ -82,7 +82,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow() {
             let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as Person
-                let controller = (segue.destinationViewController as UINavigationController).topViewController as DetailViewController
+                let controller = (segue.destinationViewController as UINavigationController).topViewController as PersonViewController
                 controller.detailItem = object
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
                 controller.navigationItem.leftItemsSupplementBackButton = true

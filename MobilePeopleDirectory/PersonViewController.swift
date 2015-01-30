@@ -1,5 +1,5 @@
 //
-//  DetailViewController.swift
+//  PersonViewController.swift
 //  MobilePeopleDirectory
 //
 //  Created by Martin Zary on 1/6/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class PersonViewController: UIViewController {
 
     @IBOutlet weak var Name: UILabel!
     @IBOutlet weak var email: UILabel!

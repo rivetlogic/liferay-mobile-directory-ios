@@ -13,7 +13,7 @@
 		0F82FC2C1A5C5048008EE20B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F82FC2B1A5C5048008EE20B /* AppDelegate.swift */; };
 		0F82FC2F1A5C5048008EE20B /* MobilePeopleDirectory.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0F82FC2D1A5C5048008EE20B /* MobilePeopleDirectory.xcdatamodeld */; };
 		0F82FC311A5C5048008EE20B /* PeopleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F82FC301A5C5048008EE20B /* PeopleListViewController.swift */; };
-		0F82FC331A5C5048008EE20B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F82FC321A5C5048008EE20B /* DetailViewController.swift */; };
+		0F82FC331A5C5048008EE20B /* PersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F82FC321A5C5048008EE20B /* PersonViewController.swift */; };
 		0F82FC361A5C5048008EE20B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F82FC341A5C5048008EE20B /* Main.storyboard */; };
 		0F82FC381A5C5048008EE20B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F82FC371A5C5048008EE20B /* Images.xcassets */; };
 		0F82FC3B1A5C5048008EE20B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F82FC391A5C5048008EE20B /* LaunchScreen.xib */; };
@@ -203,7 +203,7 @@
 		0F82FC2B1A5C5048008EE20B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0F82FC2E1A5C5048008EE20B /* MobilePeopleDirectory.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MobilePeopleDirectory.xcdatamodel; sourceTree = "<group>"; };
 		0F82FC301A5C5048008EE20B /* PeopleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleListViewController.swift; sourceTree = "<group>"; };
-		0F82FC321A5C5048008EE20B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		0F82FC321A5C5048008EE20B /* PersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewController.swift; sourceTree = "<group>"; };
 		0F82FC351A5C5048008EE20B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0F82FC371A5C5048008EE20B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0F82FC3A1A5C5048008EE20B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -1018,7 +1018,7 @@
 			children = (
 				BA6975011A6860CE00E3CB41 /* ForgotPasswordViewController.swift */,
 				0F2823DC1A62D00C000E0617 /* LoginViewController.swift */,
-				0F82FC321A5C5048008EE20B /* DetailViewController.swift */,
+				0F82FC321A5C5048008EE20B /* PersonViewController.swift */,
 				0F82FC301A5C5048008EE20B /* PeopleListViewController.swift */,
 			);
 			name = Controllers;
@@ -1349,7 +1349,7 @@
 				0F82FD461A5C569D008EE20B /* SignUpScreenlet.swift in Sources */,
 				0F82FD3D1A5C569D008EE20B /* LoginScreenlet.swift in Sources */,
 				0F82FD841A5C569D008EE20B /* DDLFieldCheckboxTableCell_default.swift in Sources */,
-				0F82FC331A5C5048008EE20B /* DetailViewController.swift in Sources */,
+				0F82FC331A5C5048008EE20B /* PersonViewController.swift in Sources */,
 				0F82FD971A5C569D008EE20B /* DDLFormView_default.swift in Sources */,
 				0F82FDC11A5C569D008EE20B /* SignUpView_flat7.swift in Sources */,
 				0F82FD4F1A5C569D008EE20B /* KeyboardManager.swift in Sources */,
