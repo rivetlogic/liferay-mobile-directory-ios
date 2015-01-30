@@ -36,6 +36,7 @@ class LoginViewController: UIViewController, LoginScreenletDelegate {
     
     func onLoginError(error: NSError) {
         println(error)
+                appHelper.getAppDelegate().startup()
         // handled failed login using passed error
     }
     
