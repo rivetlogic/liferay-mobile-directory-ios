@@ -30,13 +30,11 @@ class LoginViewController: UIViewController, LoginScreenletDelegate {
     
     func onLoginResponse(attributes: [String : AnyObject]) {
         println("onLoginResponse attributes:", attributes)
-        appHelper.getAppDelegate().startup()
-        
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     func onLoginError(error: NSError) {
         println(error)
-                appHelper.getAppDelegate().startup()
         // handled failed login using passed error
     }
     

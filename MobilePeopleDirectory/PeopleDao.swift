@@ -9,6 +9,14 @@
 import UIKit
 import CoreData
 
+enum ServerFetchResult {
+    case Success
+    case CredIssue
+    case ConnectivityIssue
+    case PermanentFailure
+}
+
+
 class PeopleDao {
     
     var imageHelper = ImageHelper()
@@ -22,15 +30,22 @@ class PeopleDao {
         }
     }
     
-    func fetchFromServer(managedObjectContext: NSManagedObjectContext) {
+    func fetchFromServer(managedObjectContext: NSManagedObjectContext) -> ServerFetchResult {
         // TODO: remove this, right now is resetting the table data
         self.removeAllData(managedObjectContext)
         
         // request data from server and stores it
         // TODO: refactor the following lines to cache server data properly
+        if !SessionContext.hasSession {
+            if !SessionContext.loadSessionFromStore() {  // creates a new session using creds from keychain.  Returns false if no creds in keychain.
+            return ServerFetchResult.CredIssue
+            }
+        }
         let peopleDirectoryService = LRPeopledirectoryService_v62(session: SessionContext.createSessionFromCurrentSession())
         var error: NSError?
         var users = peopleDirectoryService.fetchAll(&error)
+        if error != nil {return ServerFetchResult.ConnectivityIssue}
+        //TODO:  Might want to expand possible ServerFetchResult error types and return something more specific
         var usersList = users["users"] as NSArray
         
         for user in usersList {
@@ -38,6 +53,7 @@ class PeopleDao {
             person = self.fillUser(user as NSDictionary, person: person)
             managedObjectContext.save(nil)
         }
+        return ServerFetchResult.Success
     }
     
     func fillUser(userData: NSDictionary, person: Person) -> Person {

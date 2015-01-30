@@ -15,6 +15,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     var managedObjectContext: NSManagedObjectContext? = nil
     var peopleDao:PeopleDao = PeopleDao()
     var imageHelper:ImageHelper = ImageHelper()
+    var serverFetchResult : ServerFetchResult = ServerFetchResult.Success
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,7 +27,6 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        peopleDao.fetchFromServer(managedObjectContext!)
         
         // Do any additional setup after loading the view, typically from a nib.
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
@@ -35,6 +35,20 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         if let split = self.splitViewController {
             let controllers = split.viewControllers
             self.detailViewController = controllers[controllers.count-1].topViewController as? DetailViewController
+        }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        serverFetchResult = peopleDao.fetchFromServer(managedObjectContext!)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        if serverFetchResult == .CredIssue {
+            let loginViewController = Storyboards.Login.Storyboard().instantiateInitialViewController() as? LoginViewController
+            self.parentViewController?.presentViewController(loginViewController!, animated: true, completion: nil)
+        }
+        if serverFetchResult == .ConnectivityIssue {
+            //TODO:  Alert view informing the user of a network error and pointing the to the refresh button to try again
         }
     }
     

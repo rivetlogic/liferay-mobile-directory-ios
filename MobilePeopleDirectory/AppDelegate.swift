@@ -13,26 +13,10 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
 
     var window: UIWindow?
-    
-    var loginViewController: LoginViewController?
     var masterViewController: MasterViewController?
-
-    var userIsAuthenticated : Bool = false
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-//TODO:  We should be checking for stored credentials and authenticating them in the background and if pass, move to app startup.  If not, present the log in controller.
-        loginViewController = Storyboards.Login.Storyboard().instantiateInitialViewController() as? LoginViewController
-        window!.rootViewController = loginViewController
-        window!.makeKeyAndVisible()
-//        startup()
-        return true
-    }
-
-    func startup() {
-
-//TODO:  I couldn't get the out-of-the-box split view controller code to load up at this point.  So I just bypassed it and loaded the MasterViewController (see below).  Need to fix this so it works on iPad.
-        /* 
         let splitViewController = self.window!.rootViewController as UISplitViewController
         let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as UINavigationController
         navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
@@ -41,14 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         let masterNavigationController = splitViewController.viewControllers[0] as UINavigationController
         let controller = masterNavigationController.topViewController as MasterViewController
         controller.managedObjectContext = self.managedObjectContext
-        */
-        
-        let controller = Storyboards.Main.Storyboard().instantiateViewControllerWithIdentifier("masterView") as? MasterViewController
-        controller!.managedObjectContext = self.managedObjectContext
-        if let window = self.window {
-            window.rootViewController = controller
-            window.makeKeyAndVisible()
-        }
+
+        return true
     }
 	
     func applicationWillResignActive(application: UIApplication) {
