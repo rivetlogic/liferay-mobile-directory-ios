@@ -21,7 +21,7 @@ class DetailViewController: UIViewController {
     
     var imageHelper:ImageHelper = ImageHelper()
     
-    var detailItem: AnyObject? {
+    var detailItem: Person? {
         didSet {
             // Update the view.
             self.configureView()
@@ -30,7 +30,7 @@ class DetailViewController: UIViewController {
 
     func configureView() {
         // Update the user interface for the detail item.
-        if let detail: AnyObject = self.detailItem {
+        if let detail = self.detailItem {
             if let nameLabel = self.Name {
                 nameLabel.text = detail.valueForKey("fullName")!.description
             }
@@ -54,7 +54,7 @@ class DetailViewController: UIViewController {
             }
             
             let url = NSURL(string: LiferayServerContext.server + detail.valueForKey("portraitUrl")!.description)
-            imageHelper.addImageToView(portrait, imageUrl: url)
+            imageHelper.addImageFromData(portrait, image: detail.portraitImage)
         }
     }
 

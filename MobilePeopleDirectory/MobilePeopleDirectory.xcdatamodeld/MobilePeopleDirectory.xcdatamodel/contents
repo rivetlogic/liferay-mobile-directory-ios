@@ -14,6 +14,7 @@
         <attribute name="jobTitle" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="male" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="modifiedDateEpoch" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="portraitImage" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <attribute name="portraitUrl" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="screenName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="skypeName" optional="YES" attributeType="String" syncable="YES"/>
@@ -23,6 +24,6 @@
     </entity>
     <elements>
         <element name="Event" positionX="261" positionY="189" width="128" height="58"/>
-        <element name="Person" positionX="261" positionY="198" width="128" height="240"/>
+        <element name="Person" positionX="261" positionY="198" width="128" height="255"/>
     </elements>
 </model>
