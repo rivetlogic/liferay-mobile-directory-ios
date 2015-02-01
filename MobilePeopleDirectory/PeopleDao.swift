@@ -20,25 +20,18 @@ enum ServerFetchResult {
 class PeopleDao {
     
     var imageHelper = ImageHelper()
-    
-    func removeAllData(managedObjectContext: NSManagedObjectContext) {
-        let request = NSFetchRequest(entityName: "Person")
-        var usersData = managedObjectContext.executeFetchRequest(request, error: nil) as [NSManagedObject]
-        for user in usersData {
-            managedObjectContext.deleteObject(user)
-            managedObjectContext.save(nil)
-        }
-    }
+    var appHelper = AppHelper()
     
     // gets the last person modified
-    func getLastPersonModified(managedObjectContext: NSManagedObjectContext) -> NSDate {
+    func getLastPersonModified() -> NSDate {
+        var managedObjectContext = appHelper.getManagedContext()
         let fetchRequest = NSFetchRequest()
-        fetchRequest.entity = Person.EntityDescription(inManagedObjectContext: managedObjectContext)
+        fetchRequest.entity = Person.EntityDescription(inManagedObjectContext: managedObjectContext!)
         fetchRequest.sortDescriptors = [ NSSortDescriptor(key: "modifiedDateEpoch", ascending: false) ]
         fetchRequest.resultType = NSFetchRequestResultType.ManagedObjectResultType
  
         var error : NSError?
-        if let result = managedObjectContext.executeFetchRequest(fetchRequest, error: &error) {
+        if let result = managedObjectContext!.executeFetchRequest(fetchRequest, error: &error) {
             if result.count > 0 {
                 var lastModifiedPerson = result[0] as Person
                 return lastModifiedPerson.modifiedDate
@@ -47,8 +40,9 @@ class PeopleDao {
         return NSDate(timeIntervalSince1970: 0.0)
     }
     
-    func fetchFromServer(managedObjectContext: NSManagedObjectContext) -> ServerFetchResult {
-        let lastModifiedDate = self.getLastPersonModified(managedObjectContext)
+    func fetchFromServer() -> ServerFetchResult {
+        var managedObjectContext = appHelper.getManagedContext()
+        let lastModifiedDate = self.getLastPersonModified()
        
         // request data from server and stores it
         if !SessionContext.hasSession {
@@ -68,34 +62,35 @@ class PeopleDao {
         print("User entries retrieved from server: \(usersList.count)")
         for user in usersList {
             // checks if user exists
-            if self.userExists(user["userId"] as NSInteger, managedObjectContext: managedObjectContext) {
-                var existentUser = self.getUserById(user["userId"] as NSInteger, managedObjectContext: managedObjectContext) as Person
+            if self.userExists(user["userId"] as NSInteger) {
+                var existentUser = self.getUserById(user["userId"] as NSInteger) as Person
                 // user has deleted flag set in true user will be removed, else just update current user
                 if (user["deleted"] as Bool) {
-                    managedObjectContext.deleteObject(existentUser)
-                    managedObjectContext.save(nil)
+                    managedObjectContext!.deleteObject(existentUser)
+                    managedObjectContext!.save(nil)
                 } else {
                     // update user with latest data
                     existentUser = self.fillUser(user as NSDictionary, person: existentUser)
-                    managedObjectContext.save(nil)
+                    managedObjectContext!.save(nil)
                 }
             } else {
-                var person = Person(insertIntoManagedObjectContext: managedObjectContext)
+                var person = Person(insertIntoManagedObjectContext: managedObjectContext!)
                 person = self.fillUser(user as NSDictionary, person: person)
-                managedObjectContext.save(nil)
+                managedObjectContext!.save(nil)
             }
         }
         return ServerFetchResult.Success
     }
     
     // check if user exist
-    func userExists(userId:NSInteger, managedObjectContext: NSManagedObjectContext) -> Bool {
+    func userExists(userId:NSInteger) -> Bool {
+        var managedObjectContext = appHelper.getManagedContext()
         var fetchRequest = NSFetchRequest()
-        fetchRequest.entity = Person.EntityDescription(inManagedObjectContext: managedObjectContext)
+        fetchRequest.entity = Person.EntityDescription(inManagedObjectContext: managedObjectContext!)
         fetchRequest.resultType = NSFetchRequestResultType.ManagedObjectResultType
         fetchRequest.predicate = NSPredicate(format: "userId = %i", userId)
         
-        if let result = managedObjectContext.executeFetchRequest(fetchRequest, error: nil) {
+        if let result = managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) {
             if result.count > 0 {
                 return true
             }
@@ -105,13 +100,14 @@ class PeopleDao {
     }
     
     // find user by id
-    func getUserById(userId:NSInteger, managedObjectContext: NSManagedObjectContext) -> NSManagedObject {
+    func getUserById(userId:NSInteger) -> NSManagedObject {
+        var managedObjectContext = appHelper.getManagedContext()
         var fetchRequest = NSFetchRequest()
-        fetchRequest.entity = Person.EntityDescription(inManagedObjectContext: managedObjectContext)
+        fetchRequest.entity = Person.EntityDescription(inManagedObjectContext: managedObjectContext!)
         fetchRequest.resultType = NSFetchRequestResultType.ManagedObjectResultType
         fetchRequest.predicate = NSPredicate(format: "userId = %i", userId)
         
-        if let result = managedObjectContext.executeFetchRequest(fetchRequest, error: nil) {
+        if let result = managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) {
             if result.count > 0 {
                 return result[0] as NSManagedObject
             }

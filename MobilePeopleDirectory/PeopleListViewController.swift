@@ -39,7 +39,7 @@ class PeopleListViewController: UITableViewController, NSFetchedResultsControlle
     }
     
     override func viewWillAppear(animated: Bool) {
-        serverFetchResult = peopleDao.fetchFromServer(managedObjectContext!)
+        serverFetchResult = peopleDao.fetchFromServer()
     }
     
     override func viewDidAppear(animated: Bool) {
