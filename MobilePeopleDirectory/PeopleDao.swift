@@ -30,6 +30,7 @@ class PeopleDao {
         }
     }
     
+    // gets the last person modified
     func getLastPersonModified(managedObjectContext: NSManagedObjectContext) -> NSDate {
         let fetchRequest = NSFetchRequest()
         fetchRequest.entity = Person.EntityDescription(inManagedObjectContext: managedObjectContext)
@@ -39,7 +40,6 @@ class PeopleDao {
         var error : NSError?
         if let result = managedObjectContext.executeFetchRequest(fetchRequest, error: &error) {
             if result.count > 0 {
-                let timezone = NSTimeZone(name: "UTC")
                 var lastModifiedPerson = result[0] as Person
                 return lastModifiedPerson.modifiedDate
             }
