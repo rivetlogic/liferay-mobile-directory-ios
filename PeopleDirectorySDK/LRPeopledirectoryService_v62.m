@@ -20,24 +20,48 @@
 @implementation LRPeopledirectoryService_v62
 
 - (NSDictionary *)fetchAll:(NSError **)error {
-	NSMutableDictionary *_params = [NSMutableDictionary dictionaryWithDictionary:@{
-	}];
-
-	NSDictionary *_command = @{@"/people-directory-services-portlet/peopledirectory/fetch-all": _params};
-
-	return (NSDictionary *)[self.session invoke:_command error:error];
+    NSMutableDictionary *_params = [NSMutableDictionary dictionaryWithDictionary:@{
+                                                                                   }];
+    
+    NSDictionary *_command = @{@"/people-directory-services-portlet/peopledirectory/fetch-all": _params};
+    
+    return (NSDictionary *)[self.session invoke:_command error:error];
 }
 
 - (NSDictionary *)searchWithKeywords:(NSString *)keywords start:(int)start end:(int)end error:(NSError **)error {
-	NSMutableDictionary *_params = [NSMutableDictionary dictionaryWithDictionary:@{
-		@"keywords": keywords,
-		@"start": @(start),
-		@"end": @(end)
-	}];
-
-	NSDictionary *_command = @{@"/people-directory-services-portlet/peopledirectory/search": _params};
-
-	return (NSDictionary *)[self.session invoke:_command error:error];
+    NSMutableDictionary *_params = [NSMutableDictionary dictionaryWithDictionary:@{
+                                                                                   @"keywords": keywords,
+                                                                                   @"start": @(start),
+                                                                                   @"end": @(end)
+                                                                                   }];
+    
+    NSDictionary *_command = @{@"/people-directory-services-portlet/peopledirectory/search": _params};
+    
+    return (NSDictionary *)[self.session invoke:_command error:error];
 }
+
+- (NSDictionary *)usersFetchByDateWithModifiedDate:(LRJSONObjectWrapper *)modifiedDate error:(NSError **)error {
+    NSMutableDictionary *_params = [NSMutableDictionary dictionaryWithDictionary:@{
+                                                                                   }];
+    
+    [self mangleWrapperWithParams:_params name:@"modifiedDate" className:@"java.sql.Timestamp" wrapper:modifiedDate];
+    
+    NSDictionary *_command = @{@"/people-directory-services-portlet/peopledirectory/users-fetch-by-date": _params};
+    
+    return (NSDictionary *)[self.session invoke:_command error:error];
+}
+
+- (NSDictionary *)usersFetchByDateWithModifiedEpochDate:(NSNumber *)modifiedEpochDate error:(NSError **)error {
+    NSMutableDictionary *_params = [NSMutableDictionary dictionaryWithDictionary:@{
+                                                                                   @"modifiedDate": modifiedEpochDate
+                                                                                   }];
+    
+    //    [self mangleWrapperWithParams:_params name:@"modifiedDate" className:@"java.sql.Timestamp" wrapper:modifiedDate];
+    
+    NSDictionary *_command = @{@"/people-directory-services-portlet/peopledirectory/users-fetch-by-date": _params};
+    
+    return (NSDictionary *)[self.session invoke:_command error:error];
+}
+
 
 @end

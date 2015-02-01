@@ -21,5 +21,6 @@
 
 - (NSDictionary *)fetchAll:(NSError **)error;
 - (NSDictionary *)searchWithKeywords:(NSString *)keywords start:(int)start end:(int)end error:(NSError **)error;
-
+- (NSDictionary *)usersFetchByDateWithModifiedDate:(LRJSONObjectWrapper *)modifiedDate error:(NSError **)error;
+- (NSDictionary *)usersFetchByDateWithModifiedEpochDate:(NSNumber *)modifiedEpochDate error:(NSError **)error;
 @end
