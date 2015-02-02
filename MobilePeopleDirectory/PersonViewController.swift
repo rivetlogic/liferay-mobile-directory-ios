@@ -12,11 +12,10 @@ class PersonViewController: UIViewController {
 
     @IBOutlet weak var Name: UILabel!
     @IBOutlet weak var email: UILabel!
-    @IBOutlet weak var jobTitle: UILabel!
     @IBOutlet weak var screenName: UILabel!
-    @IBOutlet weak var city: UILabel!
     @IBOutlet weak var phone: UILabel!
     @IBOutlet weak var skype: UILabel!
+    @IBOutlet weak var bgImage: UIImageView!
     @IBOutlet weak var portrait: UIImageView!
     
     var imageHelper:ImageHelper = ImageHelper()
@@ -37,15 +36,11 @@ class PersonViewController: UIViewController {
             if let emailLabel = self.email {
                 emailLabel.text = detail.valueForKey("emailAddress")!.description
             }
-            if let jobTitleLabel = self.jobTitle {
-                jobTitleLabel.text = detail.valueForKey("jobTitle")!.description
-            }
+            
             if let screenNameLabel = self.screenName {
                 screenNameLabel.text = detail.valueForKey("screenName")!.description
             }
-            if let cityLabel = self.city {
-                cityLabel.text = detail.valueForKey("city")!.description
-            }
+            
             if let phoneLabel = self.phone {
                 phoneLabel.text = detail.valueForKey("userPhone")!.description
             }
@@ -54,7 +49,14 @@ class PersonViewController: UIViewController {
             }
             
             let url = NSURL(string: LiferayServerContext.server + detail.valueForKey("portraitUrl")!.description)
+            imageHelper.addImageFromData(bgImage, image: detail.portraitImage)
+            
+            // uncomment next line to run blur styles
+            //imageHelper.addBlurStyles(bgImage)
+            
             imageHelper.addImageFromData(portrait, image: detail.portraitImage)
+            imageHelper.addThumbnailStyles(portrait)
+            
         }
     }
 

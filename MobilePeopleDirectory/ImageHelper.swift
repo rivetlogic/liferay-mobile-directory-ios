@@ -23,6 +23,21 @@ class ImageHelper: NSObject {
         
     }
     
+    // Adds blur style to bg portrait image
+    func addBlurStyles(imageView: UIImageView!) {
+        var ciContext = CIContext(options: nil)
+        var image = CIImage(image: imageView?.image)
+        var ciFilter = CIFilter(name: "CIGaussianBlur")
+        ciFilter.setValue(image, forKey: kCIInputImageKey)
+        
+        ciFilter.setValue(8, forKey: "inputRadius")
+        var cgImage = ciContext.createCGImage(ciFilter.outputImage, fromRect: image.extent())?
+        var blurredImage = UIImage(CGImage: cgImage)!
+        
+        imageView?.image = blurredImage
+        
+    }
+    
     // Adds image to view and verifies if same image was processed to use a "cached" image instead
 //    func addImageToView(imageView: UIImageView!, imageUrl: NSURL!) {
 //        print(imageUrl!.description)
