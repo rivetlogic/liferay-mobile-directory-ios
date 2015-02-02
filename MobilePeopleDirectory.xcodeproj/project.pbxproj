@@ -182,7 +182,8 @@
 		BA6975021A6860CF00E3CB41 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6975011A6860CE00E3CB41 /* ForgotPasswordViewController.swift */; };
 		BA6975061A69599D00E3CB41 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6975051A69599D00E3CB41 /* AlertHelper.swift */; };
 		BA6975081A69708800E3CB41 /* AppHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6975071A69708800E3CB41 /* AppHelper.swift */; };
-		BAD25DF11A7EE507009E99D5 /* ServerSyncable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD25DF01A7EE507009E99D5 /* ServerSyncable.swift */; };
+		BAD25DF11A7EE507009E99D5 /* ServerSyncableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD25DF01A7EE507009E99D5 /* ServerSyncableProtocol.swift */; };
+		BAD25DF31A7EEC61009E99D5 /* ServerSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD25DF21A7EEC61009E99D5 /* ServerSync.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -393,7 +394,8 @@
 		BA6975011A6860CE00E3CB41 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		BA6975051A69599D00E3CB41 /* AlertHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		BA6975071A69708800E3CB41 /* AppHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppHelper.swift; sourceTree = "<group>"; };
-		BAD25DF01A7EE507009E99D5 /* ServerSyncable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerSyncable.swift; sourceTree = "<group>"; };
+		BAD25DF01A7EE507009E99D5 /* ServerSyncableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerSyncableProtocol.swift; sourceTree = "<group>"; };
+		BAD25DF21A7EEC61009E99D5 /* ServerSync.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerSync.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1050,7 +1052,8 @@
 				BA6975051A69599D00E3CB41 /* AlertHelper.swift */,
 				BA6975071A69708800E3CB41 /* AppHelper.swift */,
 				BA2669231A7410A20046FE7A /* ImageHelper.swift */,
-				BAD25DF01A7EE507009E99D5 /* ServerSyncable.swift */,
+				BAD25DF01A7EE507009E99D5 /* ServerSyncableProtocol.swift */,
+				BAD25DF21A7EEC61009E99D5 /* ServerSync.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -1328,6 +1331,7 @@
 				0F82FD901A5C569D008EE20B /* DDLFieldSelectTableCell_default.swift in Sources */,
 				0F82FD311A5C569D008EE20B /* LiferayAssetListPageOperation.swift in Sources */,
 				0F82FD401A5C569D008EE20B /* LiferayLoginScreenNameOperation.swift in Sources */,
+				BAD25DF31A7EEC61009E99D5 /* ServerSync.swift in Sources */,
 				0F82FD531A5C569D008EE20B /* ThemeManager.swift in Sources */,
 				0F82FC311A5C5048008EE20B /* PeopleListViewController.swift in Sources */,
 				0F82FD811A5C569D008EE20B /* SignUpView_default.swift in Sources */,
@@ -1342,7 +1346,7 @@
 				0F82FD7D1A5C569D008EE20B /* ForgotPasswordView_default.swift in Sources */,
 				0F82FDC31A5C569D008EE20B /* Flat7ThemeConstants.swift in Sources */,
 				0F82FD8A1A5C569D008EE20B /* DDLFieldDocumentlibraryTableCell_default.swift in Sources */,
-				BAD25DF11A7EE507009E99D5 /* ServerSyncable.swift in Sources */,
+				BAD25DF11A7EE507009E99D5 /* ServerSyncableProtocol.swift in Sources */,
 				0F82FDBF1A5C569D008EE20B /* LoginView_flat7.swift in Sources */,
 				0F82FD5F1A5C569D008EE20B /* DDLFormTableView.swift in Sources */,
 				0F82FD7A1A5C569D008EE20B /* WebContentDisplayScreenlet.swift in Sources */,

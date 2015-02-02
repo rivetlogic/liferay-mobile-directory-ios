@@ -39,7 +39,8 @@ class PeopleListViewController: UITableViewController, NSFetchedResultsControlle
     }
     
     override func viewWillAppear(animated: Bool) {
-        serverFetchResult = peopleDao.fetchFromServer()
+        var peopleSync = ServerSync(syncable: peopleDao, key: "userId", localEntity: "Person")
+        serverFetchResult = peopleSync.syncData()
     }
     
     override func viewDidAppear(animated: Bool) {

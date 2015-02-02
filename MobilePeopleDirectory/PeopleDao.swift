@@ -9,27 +9,46 @@
 import UIKit
 import CoreData
 
-enum ServerFetchResult {
-    case Success
-    case CredIssue
-    case ConnectivityIssue
-    case PermanentFailure
-}
+//enum ServerFetchResult {
+//    case Success
+//    case CredIssue
+//    case ConnectivityIssue
+//    case PermanentFailure
+//}
 
 
-class PeopleDao {
+class PeopleDao:ServerSyncableProtocol {
     
     var imageHelper = ImageHelper()
     var appHelper = AppHelper()
     
+    // request data to liferay server
+    func getServerData(timestamp: Double) -> NSArray {
+
+        let peopleDirectoryService = LRPeopledirectoryService_v62(session: SessionContext.createSessionFromCurrentSession())
+        var error: NSError?
+        
+        // request data based on last local storage user modified unix timestamp
+        var users = peopleDirectoryService.usersFetchByDateWithModifiedEpochDate(timestamp, error: &error)
+       //  TODO if error != nil {return ServerFetchResult.ConnectivityIssue}
+        
+        //TODO:  Need to determine if the error is due to credential failure (return .CredIssue) or a network failure.  In the case of the network failure, might want to expand possible ServerFetchResult error types and return something more specific
+        if nil == users {
+            return []
+        }
+        var usersList = users["users"] as NSArray
+        return usersList
+    }
+    
+    
     // gets the last person modified
-    func getLastPersonModified() -> NSDate {
+    func getLastModifiedDate() -> NSDate {
         var managedObjectContext = appHelper.getManagedContext()
         let fetchRequest = NSFetchRequest()
         fetchRequest.entity = Person.EntityDescription(inManagedObjectContext: managedObjectContext!)
         fetchRequest.sortDescriptors = [ NSSortDescriptor(key: "modifiedDateEpoch", ascending: false) ]
         fetchRequest.resultType = NSFetchRequestResultType.ManagedObjectResultType
- 
+        
         var error : NSError?
         if let result = managedObjectContext!.executeFetchRequest(fetchRequest, error: &error) {
             if result.count > 0 {
@@ -39,56 +58,15 @@ class PeopleDao {
         }
         return NSDate(timeIntervalSince1970: 0.0)
     }
-    
-    func fetchFromServer() -> ServerFetchResult {
-        var managedObjectContext = appHelper.getManagedContext()
-        let lastModifiedDate = self.getLastPersonModified()
-       
-        // request data from server and stores it
-        if !SessionContext.hasSession {
-            if !SessionContext.loadSessionFromStore() {  // creates a new session using creds from keychain.  Returns false if no creds in keychain.
-            return ServerFetchResult.CredIssue
-            }
-        }
-        let peopleDirectoryService = LRPeopledirectoryService_v62(session: SessionContext.createSessionFromCurrentSession())
-        var error: NSError?
-        
-        // request data based on last local storage user modified unix timestamp
-        var users = peopleDirectoryService.usersFetchByDateWithModifiedEpochDate(lastModifiedDate.timeIntervalSince1970 * 1000, error: &error)
-        if error != nil {return ServerFetchResult.ConnectivityIssue}
 
-        //TODO:  Need to determine if the error is due to credential failure (return .CredIssue) or a network failure.  In the case of the network failure, might want to expand possible ServerFetchResult error types and return something more specific
-        var usersList = users["users"] as NSArray
-        print("User entries retrieved from server: \(usersList.count)")
-        for user in usersList {
-            // checks if user exists
-            if self.userExists(user["userId"] as NSInteger) {
-                var existentUser = self.getUserById(user["userId"] as NSInteger) as Person
-                // user has deleted flag set in true user will be removed, else just update current user
-                if (user["deleted"] as Bool) {
-                    managedObjectContext!.deleteObject(existentUser)
-                    managedObjectContext!.save(nil)
-                } else {
-                    // update user with latest data
-                    existentUser = self.fillUser(user as NSDictionary, person: existentUser)
-                    managedObjectContext!.save(nil)
-                }
-            } else {
-                var person = Person(insertIntoManagedObjectContext: managedObjectContext!)
-                person = self.fillUser(user as NSDictionary, person: person)
-                managedObjectContext!.save(nil)
-            }
-        }
-        return ServerFetchResult.Success
-    }
     
     // check if user exist
-    func userExists(userId:NSInteger) -> Bool {
+    func itemExists(id:NSInteger) -> Bool {
         var managedObjectContext = appHelper.getManagedContext()
         var fetchRequest = NSFetchRequest()
         fetchRequest.entity = Person.EntityDescription(inManagedObjectContext: managedObjectContext!)
         fetchRequest.resultType = NSFetchRequestResultType.ManagedObjectResultType
-        fetchRequest.predicate = NSPredicate(format: "userId = %i", userId)
+        fetchRequest.predicate = NSPredicate(format: "userId = %i", id)
         
         if let result = managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) {
             if result.count > 0 {
@@ -100,7 +78,7 @@ class PeopleDao {
     }
     
     // find user by id
-    func getUserById(userId:NSInteger) -> NSManagedObject {
+    func getItemById(userId:NSInteger) -> NSManagedObject {
         var managedObjectContext = appHelper.getManagedContext()
         var fetchRequest = NSFetchRequest()
         fetchRequest.entity = Person.EntityDescription(inManagedObjectContext: managedObjectContext!)
@@ -116,20 +94,22 @@ class PeopleDao {
         return NSManagedObject() // TODO: fix, if this happens app will fail
     }
     
-    func fillUser(userData: NSDictionary, person: Person) -> Person {
-        person.fullName = userData["fullName"] as NSString
-        person.birthDateEpoch = userData["birthDate"] as Double
-        person.city = userData["city"] as NSString
-        person.wasDeleted = userData["deleted"] as Bool
-        person.emailAddress = userData["emailAddress"] as NSString
-        person.jobTitle = userData["jobTitle"] as NSString
-        person.male = userData["male"] as Bool
-        person.modifiedDateEpoch = userData["modifiedDate"] as Double
-        person.portraitUrl = userData["portraitUrl"] as NSString
-        person.screenName = userData["screenName"] as NSString
-        person.skypeName = userData["skypeName"] as NSString
-        person.userId = userData["userId"] as NSInteger
-        person.userPhone = userData["userPhone"] as NSString
+    // fill new or update existing managed class object/person
+    func fillItem(itemData: NSDictionary, managedObject: NSManagedObject) -> NSManagedObject {
+        var person = managedObject as Person
+        person.fullName = itemData["fullName"] as NSString
+        person.birthDateEpoch = itemData["birthDate"] as Double
+        person.city = itemData["city"] as NSString
+        person.wasDeleted = itemData["deleted"] as Bool
+        person.emailAddress = itemData["emailAddress"] as NSString
+        person.jobTitle = itemData["jobTitle"] as NSString
+        person.male = itemData["male"] as Bool
+        person.modifiedDateEpoch = itemData["modifiedDate"] as Double
+        person.portraitUrl = itemData["portraitUrl"] as NSString
+        person.screenName = itemData["screenName"] as NSString
+        person.skypeName = itemData["skypeName"] as NSString
+        person.userId = itemData["userId"] as NSInteger
+        person.userPhone = itemData["userPhone"] as NSString
         person.portraitImage = imageHelper.getImageData(LiferayServerContext.server + person.portraitUrl)
         return person;
     }
