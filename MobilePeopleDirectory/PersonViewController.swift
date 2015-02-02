@@ -50,6 +50,8 @@ class PersonViewController: UIViewController {
             
             let url = NSURL(string: LiferayServerContext.server + detail.valueForKey("portraitUrl")!.description)
             imageHelper.addImageFromData(bgImage, image: detail.portraitImage)
+            
+            // uncomment next line to run blur styles
             //imageHelper.addBlurStyles(bgImage)
             
             imageHelper.addImageFromData(portrait, image: detail.portraitImage)
