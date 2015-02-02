@@ -19,10 +19,13 @@ enum ServerFetchResult {
 
 protocol ServerSyncableProtocol {
 
+    func fillItem(itemData: NSDictionary, managedObject: NSManagedObject) -> NSManagedObject // fill/update the managed object
     func getLastModifiedDate() -> NSDate // returns last item modified date
     func getServerData(timestamp:Double) -> NSArray // returns data from server using the last item modified timestamp
-    func itemExists(id:NSInteger) -> Bool // verifies if item exists locally
+    func getItemsCount() -> NSNumber // gets the local stored items count
+    func getServerActiveItemsCount() -> NSNumber // gets the server  items count
     func getItemById(userId:NSInteger) -> NSManagedObject   // retrieves existent item from local db
-    func fillItem(itemData: NSDictionary, managedObject: NSManagedObject) -> NSManagedObject // fill/update the managed object
-
+    func itemExists(id:NSInteger) -> Bool // verifies if item exists locally
+    func removeAllItems() // remove all from local storage
+    
 }

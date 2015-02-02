@@ -113,4 +113,35 @@ class PeopleDao:ServerSyncableProtocol {
         person.portraitImage = imageHelper.getImageData(LiferayServerContext.server + person.portraitUrl)
         return person;
     }
+    
+    // removes everything from persons local storage
+    func removeAllItems() {
+        var managedObjectContext = appHelper.getManagedContext()
+        var usersData = self.getAllUsers()
+        for user in usersData {
+            managedObjectContext?.deleteObject(user)
+            managedObjectContext?.save(nil)
+        }
+    }
+    
+    func getServerActiveItemsCount() -> NSNumber {
+        let peopleDirectoryService = LRPeopledirectoryService_v62(session: SessionContext.createSessionFromCurrentSession())
+        var error: NSError?
+
+        var count = peopleDirectoryService.getActiveUsersCount(&error)
+        return count
+    }
+    
+    func getItemsCount() -> NSNumber {
+        var managedObjectContext = appHelper.getManagedContext()
+        var usersData = self.getAllUsers()
+        return usersData.count
+    }
+    
+    func getAllUsers() -> [NSManagedObject] {
+        var managedObjectContext = appHelper.getManagedContext()
+        let request = NSFetchRequest(entityName: "Person")
+        var usersData = managedObjectContext?.executeFetchRequest(request, error: nil) as [NSManagedObject]
+        return usersData
+    }
 }
