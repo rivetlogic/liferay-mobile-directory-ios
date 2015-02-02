@@ -7,10 +7,15 @@
 //
 
 import UIKit
+import CoreData
 
 class AppHelper {
     
     func getAppDelegate() -> AppDelegate {
     	return UIApplication.sharedApplication().delegate as AppDelegate
+    }
+    
+    func getManagedContext() -> NSManagedObjectContext? {
+        return (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
     }
 }
