@@ -63,5 +63,15 @@
     return (NSDictionary *)[self.session invoke:_command error:error];
 }
 
+- (NSNumber *)getActiveUsersCount:(NSError **)error {
+    NSMutableDictionary *_params = [NSMutableDictionary dictionaryWithDictionary:@{
+                                                                                   }];
+    
+    NSDictionary *_command = @{@"/people-directory-services-portlet/peopledirectory/get-active-users-count": _params};
+    
+    return (NSNumber *)[self.session invoke:_command error:error];
+}
+
+
 
 @end

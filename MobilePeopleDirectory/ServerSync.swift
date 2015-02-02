@@ -23,6 +23,12 @@ class ServerSync {
         self._localEntity = localEntity
     }
     
+    private func _areItemsUnsynced() -> Bool {
+        let storedItemsCount = self._syncable.getItemsCount()
+        let serverActiveItemsCount = self._syncable.getServerActiveItemsCount()
+        return (storedItemsCount != serverActiveItemsCount)
+    }
+    
     // starts the local storage sync against liferay server
     func syncData() -> ServerFetchResult {
         if !SessionContext.hasSession {
@@ -30,10 +36,20 @@ class ServerSync {
                 return ServerFetchResult.CredIssue
             }
         }
-    
+
         var lastModifiedDate = self._syncable.getLastModifiedDate() // returns the last item modified date
-        var t = lastModifiedDate.timeIntervalSince1970 * 1000
-        var items = self._syncable.getServerData(lastModifiedDate.timeIntervalSince1970 * 1000)
+        var timestamp = lastModifiedDate.timeIntervalSince1970 * 1000
+        
+        var items = NSArray()
+        
+        // if items unsynced retrieve entire data from server
+        if (self._areItemsUnsynced()) {
+            self._syncable.removeAllItems()
+            items = self._syncable.getServerData(0)
+        } else {
+            items = self._syncable.getServerData(timestamp)
+        }
+
         print("Items retrieved from server : \(items.count)")
         var managedObjectContext = appHelper.getManagedContext()
         for item in items {
