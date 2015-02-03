@@ -56,7 +56,7 @@ class PersonViewController: UIViewController {
             
             imageHelper.addBlurStyles(bgImage)
             
-            imageHelper.addThumbnailStyles(portrait)
+            imageHelper.addThumbnailStyles(portrait, radius: 60.0)
         }
     }
 

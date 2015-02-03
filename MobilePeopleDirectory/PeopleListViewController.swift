@@ -133,7 +133,7 @@ class PeopleListViewController: UITableViewController, NSFetchedResultsControlle
     
         let person = self.fetchedResultsController.objectAtIndexPath(indexPath) as Person
 
-        imageHelper.addThumbnailStyles(cell.thumbnailImage)
+        imageHelper.addThumbnailStyles(cell.thumbnailImage, radius: 30.0)
 
         if imageHelper.hasUserImage(person.portraitUrl) {
             imageHelper.addImageFromData(cell.thumbnailImage, image: person.portraitImage)
