@@ -105,12 +105,20 @@ class PeopleDao:ServerSyncableProtocol {
         person.jobTitle = itemData["jobTitle"] as NSString
         person.male = itemData["male"] as Bool
         person.modifiedDateEpoch = itemData["modifiedDate"] as Double
-        person.portraitUrl = itemData["portraitUrl"] as NSString
         person.screenName = itemData["screenName"] as NSString
         person.skypeName = itemData["skypeName"] as NSString
         person.userId = itemData["userId"] as NSInteger
         person.userPhone = itemData["userPhone"] as NSString
-        person.portraitImage = imageHelper.getImageData(LiferayServerContext.server + person.portraitUrl)
+        
+        if let portraitUrl = itemData["portraitUrl"] as? NSString {
+            if imageHelper.hasUserImage(portraitUrl) {
+                person.portraitUrl = itemData["portraitUrl"] as NSString
+                person.portraitImage = imageHelper.getImageData(LiferayServerContext.server + person.portraitUrl)
+            } else {
+                person.portraitUrl = ""
+            }
+        }
+        
         return person;
     }
     
