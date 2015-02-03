@@ -23,7 +23,7 @@ class PeopleDao:ServerSyncableProtocol {
     var appHelper = AppHelper()
     
     // request data to liferay server
-    func getServerData(timestamp: Double) -> NSArray {
+    func getServerData(timestamp: Double, inout activeItemsCount:NSInteger) -> NSArray {
 
         let peopleDirectoryService = LRPeopledirectoryService_v62(session: SessionContext.createSessionFromCurrentSession())
         var error: NSError?
@@ -36,6 +36,8 @@ class PeopleDao:ServerSyncableProtocol {
         if nil == users {
             return []
         }
+        
+        activeItemsCount = users["activeUsersCount"] as NSInteger
         var usersList = users["users"] as NSArray
         return usersList
     }
@@ -130,14 +132,6 @@ class PeopleDao:ServerSyncableProtocol {
             managedObjectContext?.deleteObject(user)
             managedObjectContext?.save(nil)
         }
-    }
-    
-    func getServerActiveItemsCount() -> NSNumber {
-        let peopleDirectoryService = LRPeopledirectoryService_v62(session: SessionContext.createSessionFromCurrentSession())
-        var error: NSError?
-
-        var count = peopleDirectoryService.getActiveUsersCount(&error)
-        return count
     }
     
     func getItemsCount() -> NSNumber {

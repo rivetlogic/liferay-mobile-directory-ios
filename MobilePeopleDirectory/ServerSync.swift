@@ -23,9 +23,8 @@ class ServerSync {
         self._localEntity = localEntity
     }
     
-    private func _areItemsUnsynced() -> Bool {
+    private func _areItemsUnsynced(serverActiveItemsCount:NSInteger) -> Bool {
         let storedItemsCount = self._syncable.getItemsCount()
-        let serverActiveItemsCount = self._syncable.getServerActiveItemsCount()
         return (storedItemsCount != serverActiveItemsCount)
     }
     
@@ -40,17 +39,17 @@ class ServerSync {
         var lastModifiedDate = self._syncable.getLastModifiedDate() // returns the last item modified date
         var timestamp = lastModifiedDate.timeIntervalSince1970 * 1000
         
-        var items = NSArray()
-        
-        // if items unsynced retrieve entire data from server
-        if (self._areItemsUnsynced()) {
-            self._syncable.removeAllItems()
-            items = self._syncable.getServerData(0)
-        } else {
-            items = self._syncable.getServerData(timestamp)
-        }
+        self._requestServerData(timestamp)
 
+        return ServerFetchResult.Success
+    }
+    
+    // requests server data and process it
+    private func _requestServerData(timestamp:Double) {
+        var activeItemsCount = 0;
+        var items = self._syncable.getServerData(timestamp, activeItemsCount: &activeItemsCount)
         print("Items retrieved from server : \(items.count)")
+        
         var managedObjectContext = appHelper.getManagedContext()
         for item in items {
             // checks if item exists
@@ -71,10 +70,14 @@ class ServerSync {
                 itemManaged = self._syncable.fillItem(item as NSDictionary, managedObject: itemManaged)
                 managedObjectContext!.save(nil)
             }
-            
-            
         }
-        return ServerFetchResult.Success
+        
+        // if items unsynced retrieve entire data from server
+        if (self._areItemsUnsynced(activeItemsCount)) {
+            self._syncable.removeAllItems()
+            self._requestServerData(0)
+        }
+        
     }
     
 }
