@@ -107,7 +107,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Uoo-Gi-gHQ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UserDefaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="Uoo-Gi-gHQ">
                                 <rect key="frame" x="16" y="72" width="180" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="AfS-M1-31g"/>
@@ -213,7 +213,7 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lt7-U3-o1y" id="XPz-av-zhE">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LtD-CY-Bi5">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="UserDefaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="LtD-CY-Bi5">
                                             <rect key="frame" x="8" y="5" width="60" height="60"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Full Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fmy-ZK-khP">
@@ -290,6 +290,7 @@
         <image name="EmailIcon" width="16" height="12"/>
         <image name="PhoneIcon" width="16" height="16"/>
         <image name="SkypeIcon" width="16" height="16"/>
+        <image name="UserDefaultImage" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Jf6-5q-OrA"/>

@@ -23,21 +23,6 @@ class ImageHelper: NSObject {
         
     }
     
-    // Adds image to view and verifies if same image was processed to use a "cached" image instead
-//    func addImageToView(imageView: UIImageView!, imageUrl: NSURL!) {
-//        print(imageUrl!.description)
-//        if let storedImage = self._processedImages.indexForKey(imageUrl!.description) {
-//            imageView?.image = self._processedImages[imageUrl!.description]
-//            return
-//        }
-//        
-//        let data = NSData(contentsOfURL: imageUrl!)
-//        var image = UIImage(data: data!)
-//        imageView?.image = image
-//        self._processedImages[imageUrl!.description] = image
-//
-//    }
-    
     // add image to view from NSData
     func addImageFromData(imageView: UIImageView!, image: NSData!) {
         var image = UIImage(data: image!)
@@ -49,6 +34,12 @@ class ImageHelper: NSObject {
     func getImageData(imageUrl: String) -> NSData {
         let url = NSURL(string: imageUrl)
         return NSData(contentsOfURL: url!)!
+    }
+    
+    // verifies if image is default liferay image or custom portrait image, basically to avoid storing
+    // default images on local storage
+    func hasUserImage(userImage: NSString) -> Bool {
+        return !userImage.containsString("img_id=0") && userImage.length > 0
     }
     
 }
