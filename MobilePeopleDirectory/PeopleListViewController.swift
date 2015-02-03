@@ -132,9 +132,14 @@ class PeopleListViewController: UITableViewController, NSFetchedResultsControlle
     func configureCell(cell: PersonViewCell, atIndexPath indexPath: NSIndexPath) {
     
         let person = self.fetchedResultsController.objectAtIndexPath(indexPath) as Person
-        //let url = NSURL(string: LiferayServerContext.server + person.portraitUrl)
+
         imageHelper.addThumbnailStyles(cell.thumbnailImage)
-        imageHelper.addImageFromData(cell.thumbnailImage, image: person.portraitImage)
+
+        if imageHelper.hasUserImage(person.portraitUrl) {
+            imageHelper.addImageFromData(cell.thumbnailImage, image: person.portraitImage)
+        } else {
+            cell.thumbnailImage.image = UIImage(named: "UserDefaultImage")
+        }
         cell.username!.text = person.screenName
         cell.skypeIcon.hidden = (person.skypeName == "")
         cell.emailIcon.hidden = (person.emailAddress == "")

@@ -20,12 +20,7 @@ class PersonViewController: UIViewController {
     
     var imageHelper:ImageHelper = ImageHelper()
     
-    var detailItem: Person? {
-        didSet {
-            // Update the view.
-            self.configureView()
-        }
-    }
+    var detailItem: Person?
 
     func configureView() {
         // Update the user interface for the detail item.
@@ -49,14 +44,20 @@ class PersonViewController: UIViewController {
             }
             
             let url = NSURL(string: LiferayServerContext.server + detail.valueForKey("portraitUrl")!.description)
-            imageHelper.addImageFromData(bgImage, image: detail.portraitImage)
+
+            
+            if imageHelper.hasUserImage(detail.valueForKey("portraitUrl")!.description) {
+                imageHelper.addImageFromData(portrait, image: detail.portraitImage)
+                imageHelper.addImageFromData(bgImage, image: detail.portraitImage)
+            } else {
+                portrait.image = UIImage(named: "UserDefaultImage")
+                bgImage.image = UIImage(named: "UserDefaultImage")
+            }
             
             // uncomment next line to run blur styles
-            //imageHelper.addBlurStyles(bgImage)
+            imageHelper.addBlurStyles(bgImage)
             
-            imageHelper.addImageFromData(portrait, image: detail.portraitImage)
             imageHelper.addThumbnailStyles(portrait)
-            
         }
     }
 
