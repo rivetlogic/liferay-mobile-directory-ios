@@ -15,15 +15,13 @@ class ServerSync {
     private var _primaryKey:String
     private var _itemsCountKey:String
     private var _listKey:String
-    private var _localEntity:String
     private var _errorHandler:((ServerFetchResult!) -> Void)
     
     var appHelper = AppHelper()
     
-    init(syncable:ServerSyncableProtocol, primaryKey:String, itemsCountKey:String, listKey:String, localEntity:String, errorHandler: ((ServerFetchResult!) -> Void)!) {
+    init(syncable:ServerSyncableProtocol, primaryKey:String, itemsCountKey:String, listKey:String, errorHandler: ((ServerFetchResult!) -> Void)!) {
         self._syncable = syncable
         self._primaryKey = primaryKey
-        self._localEntity = localEntity
         self._itemsCountKey = itemsCountKey
         self._listKey = listKey
         self._errorHandler = errorHandler
@@ -51,7 +49,6 @@ class ServerSync {
             primaryKey: self._primaryKey,
             itemsCountKey: self._itemsCountKey,
             listKey: self._listKey,
-            localEntity: self._localEntity,
             errorHandler: self._errorHandler)
         
         var session = SessionContext.createSessionFromCurrentSession()

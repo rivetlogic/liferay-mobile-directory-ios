@@ -53,7 +53,6 @@ class PeopleListViewController: UITableViewController, NSFetchedResultsControlle
             primaryKey: "userId",
             itemsCountKey: "activeUsersCount",
             listKey: "users",
-            localEntity: "Person",
             errorHandler: { error in
                 if error == ServerFetchResult.ConnectivityIssue {
                     println("Connectivity issues")

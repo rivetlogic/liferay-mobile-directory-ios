@@ -14,15 +14,13 @@ class ServerAsyncCallback:NSObject, LRCallback {
     private var _primaryKey:String
     private var _itemsCountKey:String
     private var _listKey:String
-    private var _localEntity:String
     private var _errorHandler: ((ServerFetchResult!) -> Void)!
     var appHelper = AppHelper()
     
-    init(syncable:ServerSyncableProtocol, primaryKey:String, itemsCountKey:String, listKey:String, localEntity:String, errorHandler: ((ServerFetchResult!) -> Void)!) {
+    init(syncable:ServerSyncableProtocol, primaryKey:String, itemsCountKey:String, listKey:String, errorHandler: ((ServerFetchResult!) -> Void)!) {
         self._syncable = syncable
         self._primaryKey = primaryKey
         self._itemsCountKey = itemsCountKey
-        self._localEntity = localEntity
         self._listKey = listKey
         self._errorHandler = errorHandler
     }
@@ -50,10 +48,7 @@ class ServerAsyncCallback:NSObject, LRCallback {
                 existentItem = self._syncable.fillItem(item as NSDictionary, managedObject: existentItem)
                 managedObjectContext!.save(nil)
             } else {
-                let entity =  NSEntityDescription.entityForName(self._localEntity, inManagedObjectContext: managedObjectContext!)
-                var itemManaged = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedObjectContext!)
-                itemManaged = self._syncable.fillItem(item as NSDictionary, managedObject: itemManaged)
-                managedObjectContext!.save(nil)
+                self._syncable.addItem(item as NSDictionary)
             }
         }
         
@@ -66,7 +61,6 @@ class ServerAsyncCallback:NSObject, LRCallback {
                 primaryKey: self._primaryKey,
                 itemsCountKey: self._itemsCountKey,
                 listKey: self._listKey,
-                localEntity: self._localEntity,
                 errorHandler: self._errorHandler)
             
             session?.callback = asyncCallback

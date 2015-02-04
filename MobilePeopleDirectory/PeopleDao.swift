@@ -79,6 +79,15 @@ class PeopleDao:ServerSyncableProtocol {
         return NSManagedObject() // TODO: fix, if this happens app will fail
     }
     
+    // adds person to local storage
+    func addItem(itemData:NSDictionary) {
+        var managedObjectContext = appHelper.getManagedContext()
+        let entity =  NSEntityDescription.entityForName("Person", inManagedObjectContext: managedObjectContext!)
+        var itemManaged = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedObjectContext!)
+        itemManaged = self.fillItem(itemData, managedObject: itemManaged)
+        managedObjectContext!.save(nil)
+    }
+    
     // fill new or update existing managed class object/person
     func fillItem(itemData: NSDictionary, managedObject: NSManagedObject) -> NSManagedObject {
         var person = managedObject as Person
