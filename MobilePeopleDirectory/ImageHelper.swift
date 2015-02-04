@@ -14,9 +14,9 @@ class ImageHelper: NSObject {
     private var _processedImages = [String: UIImage]()
     
     // Adds styles to list thubmnails
-    func addThumbnailStyles(imageView: UIImageView!) {
+    func addThumbnailStyles(imageView: UIImageView!, radius: CGFloat!) {
     
-        imageView?.layer.cornerRadius = 30.0
+        imageView?.layer.cornerRadius = radius
         imageView?.layer.masksToBounds = true
         imageView?.layer.borderColor = UIColor.lightGrayColor().CGColor
         imageView?.layer.borderWidth = 1.0
