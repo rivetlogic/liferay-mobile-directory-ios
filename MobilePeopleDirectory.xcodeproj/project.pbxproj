@@ -182,6 +182,7 @@
 		BA6975021A6860CF00E3CB41 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6975011A6860CE00E3CB41 /* ForgotPasswordViewController.swift */; };
 		BA6975061A69599D00E3CB41 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6975051A69599D00E3CB41 /* AlertHelper.swift */; };
 		BA6975081A69708800E3CB41 /* AppHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6975071A69708800E3CB41 /* AppHelper.swift */; };
+		BA6D574A1A8176970046FC11 /* ServerAsyncCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6D57491A8176970046FC11 /* ServerAsyncCallback.swift */; };
 		BAD25DF11A7EE507009E99D5 /* ServerSyncableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD25DF01A7EE507009E99D5 /* ServerSyncableProtocol.swift */; };
 		BAD25DF31A7EEC61009E99D5 /* ServerSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD25DF21A7EEC61009E99D5 /* ServerSync.swift */; };
 /* End PBXBuildFile section */
@@ -394,6 +395,7 @@
 		BA6975011A6860CE00E3CB41 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		BA6975051A69599D00E3CB41 /* AlertHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		BA6975071A69708800E3CB41 /* AppHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppHelper.swift; sourceTree = "<group>"; };
+		BA6D57491A8176970046FC11 /* ServerAsyncCallback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerAsyncCallback.swift; sourceTree = "<group>"; };
 		BAD25DF01A7EE507009E99D5 /* ServerSyncableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerSyncableProtocol.swift; sourceTree = "<group>"; };
 		BAD25DF21A7EEC61009E99D5 /* ServerSync.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerSync.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1054,6 +1056,7 @@
 				BA2669231A7410A20046FE7A /* ImageHelper.swift */,
 				BAD25DF01A7EE507009E99D5 /* ServerSyncableProtocol.swift */,
 				BAD25DF21A7EEC61009E99D5 /* ServerSync.swift */,
+				BA6D57491A8176970046FC11 /* ServerAsyncCallback.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -1272,6 +1275,7 @@
 				0F82FD471A5C569D008EE20B /* BaseListScreenlet.swift in Sources */,
 				0F82FD3E1A5C569D008EE20B /* LiferayLoginBaseOperation.swift in Sources */,
 				0F82FD791A5C569D008EE20B /* WebContentDisplayData.swift in Sources */,
+				BA6D574A1A8176970046FC11 /* ServerAsyncCallback.swift in Sources */,
 				0F82FD4C1A5C569D008EE20B /* BaseScreenlet.swift in Sources */,
 				0F82FD351A5C569D008EE20B /* ForgotPasswordData.swift in Sources */,
 				0F82FD421A5C569D008EE20B /* LRSession+CredentialStore.swift in Sources */,
