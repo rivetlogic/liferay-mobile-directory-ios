@@ -75,5 +75,16 @@ class PersonViewController: UIViewController {
         
     }
 
+    @IBAction func skypeAction(sender: AnyObject) {
+        println("skype action")
+    }
+    
+    @IBAction func phoneAction(sender: AnyObject) {
+        println("phone action")
+    }
+    
+    @IBAction func emailAction(sender: AnyObject) {
+        println("email action")
+    }
 }
 
