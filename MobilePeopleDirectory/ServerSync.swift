@@ -12,20 +12,21 @@ import CoreData
 class ServerSync {
     
     private var _syncable:ServerSyncableProtocol
-    private var _key:String
+    private var _primaryKey:String
+    private var _itemsCountKey:String
+    private var _listKey:String
     private var _localEntity:String
+    private var _errorHandler:((ServerFetchResult!) -> Void)
     
     var appHelper = AppHelper()
     
-    init(syncable:ServerSyncableProtocol, key:String, localEntity:String) {
+    init(syncable:ServerSyncableProtocol, primaryKey:String, itemsCountKey:String, listKey:String, localEntity:String, errorHandler: ((ServerFetchResult!) -> Void)!) {
         self._syncable = syncable
-        self._key = key
+        self._primaryKey = primaryKey
         self._localEntity = localEntity
-    }
-    
-    private func _areItemsUnsynced(serverActiveItemsCount:NSInteger) -> Bool {
-        let storedItemsCount = self._syncable.getItemsCount()
-        return (storedItemsCount != serverActiveItemsCount)
+        self._itemsCountKey = itemsCountKey
+        self._listKey = listKey
+        self._errorHandler = errorHandler
     }
     
     // starts the local storage sync against liferay server
@@ -46,38 +47,17 @@ class ServerSync {
     
     // requests server data and process it
     private func _requestServerData(timestamp:Double) {
-        var activeItemsCount = 0;
-        var items = self._syncable.getServerData(timestamp, activeItemsCount: &activeItemsCount)
-        print("Items retrieved from server : \(items.count)")
+        var asyncCallback = ServerAsyncCallback(syncable: self._syncable,
+            primaryKey: self._primaryKey,
+            itemsCountKey: self._itemsCountKey,
+            listKey: self._listKey,
+            localEntity: self._localEntity,
+            errorHandler: self._errorHandler)
         
-        var managedObjectContext = appHelper.getManagedContext()
-        for item in items {
-            // checks if item exists
-            if self._syncable.itemExists(item[self._key] as NSInteger) {
-                var existentItem = self._syncable.getItemById(item[self._key] as NSInteger) as NSManagedObject
-                // item has deleted flag set in true, item will be removed, else just update current item
-                if (item["deleted"] as Bool) {
-                    managedObjectContext!.deleteObject(existentItem)
-                    managedObjectContext!.save(nil)
-                } else {
-                    // update item with latest data
-                    existentItem = self._syncable.fillItem(item as NSDictionary, managedObject: existentItem)
-                    managedObjectContext!.save(nil)
-                }
-            } else {
-                let entity =  NSEntityDescription.entityForName(self._localEntity, inManagedObjectContext: managedObjectContext!)
-                var itemManaged = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedObjectContext!)
-                itemManaged = self._syncable.fillItem(item as NSDictionary, managedObject: itemManaged)
-                managedObjectContext!.save(nil)
-            }
-        }
-        
-        // if items unsynced retrieve entire data from server
-        if (self._areItemsUnsynced(activeItemsCount)) {
-            self._syncable.removeAllItems()
-            self._requestServerData(0)
-        }
-        
+        var session = SessionContext.createSessionFromCurrentSession()
+        session?.callback = asyncCallback
+
+        self._syncable.getServerData(timestamp, session: &session!)
     }
     
 }

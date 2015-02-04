@@ -21,7 +21,7 @@ protocol ServerSyncableProtocol {
 
     func fillItem(itemData: NSDictionary, managedObject: NSManagedObject) -> NSManagedObject // fill/update the managed object
     func getLastModifiedDate() -> NSDate // returns last item modified date
-    func getServerData(timestamp:Double, inout activeItemsCount:NSInteger) -> NSArray // returns data from server using the last item modified timestamp
+    func getServerData(timestamp:Double, inout session:LRSession) // returns data from server using the last item modified timestamp
     func getItemsCount() -> NSNumber // gets the local stored items count
     func getItemById(userId:NSInteger) -> NSManagedObject   // retrieves existent item from local db
     func itemExists(id:NSInteger) -> Bool // verifies if item exists locally

@@ -9,13 +9,6 @@
 import UIKit
 import CoreData
 
-//enum ServerFetchResult {
-//    case Success
-//    case CredIssue
-//    case ConnectivityIssue
-//    case PermanentFailure
-//}
-
 
 class PeopleDao:ServerSyncableProtocol {
     
@@ -23,23 +16,13 @@ class PeopleDao:ServerSyncableProtocol {
     var appHelper = AppHelper()
     
     // request data to liferay server
-    func getServerData(timestamp: Double, inout activeItemsCount:NSInteger) -> NSArray {
+    func getServerData(timestamp: Double, inout session:LRSession) {
 
-        let peopleDirectoryService = LRPeopledirectoryService_v62(session: SessionContext.createSessionFromCurrentSession())
+        let peopleDirectoryService = LRPeopledirectoryService_v62(session: session)
         var error: NSError?
         
         // request data based on last local storage user modified unix timestamp
         var users = peopleDirectoryService.usersFetchByDateWithModifiedEpochDate(timestamp, error: &error)
-       //  TODO if error != nil {return ServerFetchResult.ConnectivityIssue}
-        
-        //TODO:  Need to determine if the error is due to credential failure (return .CredIssue) or a network failure.  In the case of the network failure, might want to expand possible ServerFetchResult error types and return something more specific
-        if nil == users {
-            return []
-        }
-        
-        activeItemsCount = users["activeUsersCount"] as NSInteger
-        var usersList = users["users"] as NSArray
-        return usersList
     }
     
     

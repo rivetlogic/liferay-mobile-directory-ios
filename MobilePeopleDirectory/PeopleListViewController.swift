@@ -16,7 +16,8 @@ class PeopleListViewController: UITableViewController, NSFetchedResultsControlle
     var peopleDao:PeopleDao = PeopleDao()
     var imageHelper:ImageHelper = ImageHelper()
     var serverFetchResult : ServerFetchResult = ServerFetchResult.Success
-
+    var alertHelper:AlertHelper = AlertHelper()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
@@ -38,8 +39,27 @@ class PeopleListViewController: UITableViewController, NSFetchedResultsControlle
         }
     }
     
+    private func _showConnectionErrorMessage() {
+        alertHelper.message(self,
+            title: "Network",
+            message: "There are connectivity issues please try again",
+            buttonText: "OK",
+            callback: {})
+    }
+    
     override func viewWillAppear(animated: Bool) {
-        var peopleSync = ServerSync(syncable: peopleDao, key: "userId", localEntity: "Person")
+        var this = self
+        var peopleSync = ServerSync(syncable: peopleDao,
+            primaryKey: "userId",
+            itemsCountKey: "activeUsersCount",
+            listKey: "users",
+            localEntity: "Person",
+            errorHandler: { error in
+                if error == ServerFetchResult.ConnectivityIssue {
+                    println("Connectivity issues")
+                    self._showConnectionErrorMessage()
+                }
+            })
         serverFetchResult = peopleSync.syncData()
     }
     
