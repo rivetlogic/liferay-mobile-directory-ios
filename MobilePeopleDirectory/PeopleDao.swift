@@ -9,13 +9,6 @@
 import UIKit
 import CoreData
 
-//enum ServerFetchResult {
-//    case Success
-//    case CredIssue
-//    case ConnectivityIssue
-//    case PermanentFailure
-//}
-
 
 class PeopleDao:ServerSyncableProtocol {
     
@@ -23,21 +16,13 @@ class PeopleDao:ServerSyncableProtocol {
     var appHelper = AppHelper()
     
     // request data to liferay server
-    func getServerData(timestamp: Double) -> NSArray {
+    func getServerData(timestamp: Double, inout session:LRSession) {
 
-        let peopleDirectoryService = LRPeopledirectoryService_v62(session: SessionContext.createSessionFromCurrentSession())
+        let peopleDirectoryService = LRPeopledirectoryService_v62(session: session)
         var error: NSError?
         
         // request data based on last local storage user modified unix timestamp
         var users = peopleDirectoryService.usersFetchByDateWithModifiedEpochDate(timestamp, error: &error)
-       //  TODO if error != nil {return ServerFetchResult.ConnectivityIssue}
-        
-        //TODO:  Need to determine if the error is due to credential failure (return .CredIssue) or a network failure.  In the case of the network failure, might want to expand possible ServerFetchResult error types and return something more specific
-        if nil == users {
-            return []
-        }
-        var usersList = users["users"] as NSArray
-        return usersList
     }
     
     
@@ -94,6 +79,15 @@ class PeopleDao:ServerSyncableProtocol {
         return NSManagedObject() // TODO: fix, if this happens app will fail
     }
     
+    // adds person to local storage
+    func addItem(itemData:NSDictionary) {
+        var managedObjectContext = appHelper.getManagedContext()
+        let entity =  NSEntityDescription.entityForName("Person", inManagedObjectContext: managedObjectContext!)
+        var itemManaged = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedObjectContext!)
+        itemManaged = self.fillItem(itemData, managedObject: itemManaged)
+        managedObjectContext!.save(nil)
+    }
+    
     // fill new or update existing managed class object/person
     func fillItem(itemData: NSDictionary, managedObject: NSManagedObject) -> NSManagedObject {
         var person = managedObject as Person
@@ -130,14 +124,6 @@ class PeopleDao:ServerSyncableProtocol {
             managedObjectContext?.deleteObject(user)
             managedObjectContext?.save(nil)
         }
-    }
-    
-    func getServerActiveItemsCount() -> NSNumber {
-        let peopleDirectoryService = LRPeopledirectoryService_v62(session: SessionContext.createSessionFromCurrentSession())
-        var error: NSError?
-
-        var count = peopleDirectoryService.getActiveUsersCount(&error)
-        return count
     }
     
     func getItemsCount() -> NSNumber {
