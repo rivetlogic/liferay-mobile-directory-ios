@@ -10,7 +10,7 @@ import UIKit
 
 class PersonViewController: UIViewController {
 
-    @IBOutlet weak var Name: UILabel!
+    @IBOutlet weak var name: UILabel!
     @IBOutlet weak var email: UILabel!
     @IBOutlet weak var screenName: UILabel!
     @IBOutlet weak var phone: UILabel!
@@ -25,7 +25,7 @@ class PersonViewController: UIViewController {
     func configureView() {
         // Update the user interface for the detail item.
         if let detail = self.detailItem {
-            if let nameLabel = self.Name {
+            if let nameLabel = self.name {
                 nameLabel.text = detail.valueForKey("fullName")!.description
             }
             if let emailLabel = self.email {
@@ -75,5 +75,35 @@ class PersonViewController: UIViewController {
         
     }
 
+    @IBAction func skypeAction(sender: AnyObject) {
+        if let person = self.detailItem {
+            let whitespaceSet = NSCharacterSet.whitespaceCharacterSet()
+            if person.skypeName.stringByTrimmingCharactersInSet(whitespaceSet) != "" {
+                UIApplication.sharedApplication().openURL(NSURL(string: "skype://" + person.skypeName + "?call")!)
+            }
+        }
+        println("skype action")
+    }
+    
+    @IBAction func phoneAction(sender: AnyObject) {
+        if let person = self.detailItem {
+            let whitespaceSet = NSCharacterSet.whitespaceCharacterSet()
+            if phone.text?.stringByTrimmingCharactersInSet(whitespaceSet) != "" {
+                UIApplication.sharedApplication().openURL(NSURL(string: "tel://" + person.userPhone)!)
+            }
+        }
+        println("phone action")
+    }
+    
+    @IBAction func emailAction(sender: AnyObject) {
+        
+        if let person = self.detailItem {
+            let whitespaceSet = NSCharacterSet.whitespaceCharacterSet()
+            if email.text?.stringByTrimmingCharactersInSet(whitespaceSet) != "" {
+                UIApplication.sharedApplication().openURL(NSURL(string: "mailto:" + person.emailAddress)!)
+            }
+        }
+        println("email action")
+    }
 }
 
