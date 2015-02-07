@@ -58,8 +58,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dgb-A1-gi6" customClass="ForgotPasswordScreenlet" customModule="MobilePeopleDirectory" customModuleProvider="target">
-                                <rect key="frame" x="16" y="0.0" width="304" height="600"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dgb-A1-gi6" customClass="ForgotPasswordScreenlet" customModule="MobilePeopleDirectory" customModuleProvider="target">
+                                <rect key="frame" x="148" y="37" width="304" height="525"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dUP-nP-dtF">
                                         <rect key="frame" x="39" y="383" width="48" height="30"/>
@@ -83,6 +83,10 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="Dgb-A1-gi6" secondAttribute="centerX" id="1on-bL-CRk"/>
+                            <constraint firstAttribute="centerY" secondItem="Dgb-A1-gi6" secondAttribute="centerY" id="I2E-nm-7VI"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="forgotPasswordScreenlet" destination="Dgb-A1-gi6" id="dDV-4n-Arf"/>

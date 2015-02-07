@@ -25,17 +25,12 @@ class ForgotPasswordViewController: UIViewController, ForgotPasswordScreenletDel
     }
     
     @IBAction func backPressed(sender: AnyObject) {
-        self.gotoLogin()
-    }
-    
-    func gotoLogin() {
-        let logindVC = Storyboards.Login.Storyboard().instantiateViewControllerWithIdentifier("Login") as? LoginViewController
-        presentViewController(logindVC!, animated: true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     func onForgotPasswordResponse(newPasswordSent:Bool) {
         print(newPasswordSent)
-        gotoLogin()
+        dismissViewControllerAnimated(true, completion: nil)
     }
     func onForgotPasswordError(error: NSError) {
         print(error)
