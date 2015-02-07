@@ -20,7 +20,7 @@ public class LiferayForgotPasswordBaseOperation: ServerOperation {
 
 	internal override var hudLoadingMessage: HUDMessage? {
 		return (LocalizedString("forgotpassword-screenlet", "loading-message", self),
-		details: LocalizedString("forgotpassword-screenlet", "loaded-details", self))
+		details: LocalizedString("forgotpassword-screenlet", "loading-details", self))
 	}
 	internal override var hudFailureMessage: HUDMessage? {
 		return (LocalizedString("forgotpassword-screenlet", "loading-error", self), details: nil)
@@ -34,7 +34,7 @@ public class LiferayForgotPasswordBaseOperation: ServerOperation {
 		return screenlet.screenletView as ForgotPasswordData
 	}
 
-	private var successMessageKey = "reset-sent"
+	private var successMessageKey = ""
 
 
 	//MARK ServerOperation
@@ -50,7 +50,7 @@ public class LiferayForgotPasswordBaseOperation: ServerOperation {
 	}
 
 	override func postRun() {
-		if lastError != nil && resultPasswordSent != nil {
+		if lastError != nil {
 			successMessageKey = resultPasswordSent! ? "password-sent" : "reset-sent"
 		}
 	}

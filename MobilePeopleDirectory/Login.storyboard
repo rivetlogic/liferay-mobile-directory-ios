@@ -16,8 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U2Z-5b-ysb" customClass="LoginScreenlet" customModule="MobilePeopleDirectory" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U2Z-5b-ysb" customClass="LoginScreenlet" customModule="MobilePeopleDirectory" customModuleProvider="target">
+                                <rect key="frame" x="140" y="0.0" width="320" height="600"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lqV-B9-BMm">
                                         <rect key="frame" x="48" y="428" width="126" height="30"/>
@@ -33,6 +33,10 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="U2Z-5b-ysb" secondAttribute="centerY" id="E8g-HI-38P"/>
+                            <constraint firstAttribute="centerX" secondItem="U2Z-5b-ysb" secondAttribute="centerX" id="ZLO-u4-ytX"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="loginScreenlet" destination="U2Z-5b-ysb" id="xC9-Ys-3rd"/>
