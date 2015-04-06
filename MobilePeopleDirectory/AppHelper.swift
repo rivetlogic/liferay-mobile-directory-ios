@@ -18,4 +18,11 @@ class AppHelper {
     func getManagedContext() -> NSManagedObjectContext? {
         return (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
     }
+    
+    func logout(controller:UIViewController) {
+        SessionContext.clearSession()
+        SessionContext.removeStoredSession()
+        let loginViewController = Storyboards.Login.Storyboard().instantiateInitialViewController() as? LoginViewController
+        controller.parentViewController?.presentViewController(loginViewController!, animated: true, completion: nil)
+    }
 }

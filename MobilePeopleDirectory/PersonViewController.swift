@@ -19,7 +19,7 @@ class PersonViewController: UIViewController {
     @IBOutlet weak var portrait: UIImageView!
     
     var imageHelper:ImageHelper = ImageHelper()
-    
+    var appHelper = AppHelper()
     var detailItem: Person?
 
     func configureView() {
@@ -64,8 +64,18 @@ class PersonViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.configureView()
-    }
+        if UIDevice.currentDevice().userInterfaceIdiom != .Pad {
+            self.navigationItem.rightBarButtonItem = nil
+            let logoutButton = UIBarButtonItem(image: UIImage(named: "logout_icon.png"), style: UIBarButtonItemStyle.Plain, target: self, action: "logout:")
+            self.navigationItem.rightBarButtonItem = logoutButton
+        }
 
+    }
+    
+    func logout(sender:UIBarButtonItem) {
+        self.appHelper.logout(self)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

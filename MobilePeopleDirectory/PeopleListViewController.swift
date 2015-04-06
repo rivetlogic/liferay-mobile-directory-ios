@@ -17,6 +17,7 @@ class PeopleListViewController: UITableViewController, NSFetchedResultsControlle
     var imageHelper:ImageHelper = ImageHelper()
     var serverFetchResult : ServerFetchResult = ServerFetchResult.Success
     var alertHelper:AlertHelper = AlertHelper()
+    var appHelper = AppHelper()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -37,6 +38,15 @@ class PeopleListViewController: UITableViewController, NSFetchedResultsControlle
             let controllers = split.viewControllers
             self.personViewController = controllers[controllers.count-1].topViewController as? PersonViewController
         }
+        
+        self.navigationItem.leftBarButtonItem = nil
+        self.navigationItem.rightBarButtonItem = nil
+        let logoutButton = UIBarButtonItem(image: UIImage(named: "logout_icon.png"), style: UIBarButtonItemStyle.Plain, target: self, action: "logout:")
+        self.navigationItem.rightBarButtonItem = logoutButton
+    }
+    
+    func logout(sender:UIBarButtonItem) {
+        self.appHelper.logout(self)
     }
     
     private func _showConnectionErrorMessage() {
@@ -45,6 +55,14 @@ class PeopleListViewController: UITableViewController, NSFetchedResultsControlle
             message: "There are connectivity issues please try again",
             buttonText: "OK",
             callback: {})
+    }
+    
+    override func loadView() {
+        if !SessionContext.loadSessionFromStore() {
+            self.appHelper.logout(self)
+        } else {
+            super.loadView()
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
