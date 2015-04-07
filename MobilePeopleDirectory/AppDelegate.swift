@@ -14,11 +14,11 @@ import Crashlytics
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
 
     var window: UIWindow?
-
+    var alertHelper = AlertHelper()
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         Crashlytics.startWithAPIKey("24f0ce5ced2c925aeeef7d5dcbc6f5e75cfbd9aa")
-        
+        self.setLiferayInfoFromSettings()
         let splitViewController = self.window!.rootViewController as UISplitViewController
         let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as UINavigationController
         navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
@@ -43,6 +43,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
     func applicationWillEnterForeground(application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.synchronize()
+        self.setLiferayInfoFromSettings()
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
@@ -128,6 +131,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
                 NSLog("Unresolved error \(error), \(error!.userInfo)")
                 abort()
             }
+        }
+    }
+    
+    // MARK: - Settings
+    func setLiferayInfoFromSettings() {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let loadProps = LiferayServerContext.server
+        if let server = defaults.stringForKey("server") {
+            LiferayServerContext.server = server
+        }
+        
+        let groupId = defaults.integerForKey("groupid") as NSNumber
+        LiferayServerContext.groupId = groupId.longLongValue
+        
+        let companyId = defaults.integerForKey("companyid") as NSNumber
+        LiferayServerContext.companyId = companyId.longLongValue
+        
+        println("* Liferay Information")
+        println("Server: " + LiferayServerContext.server)
+        println("Company Id: \(LiferayServerContext.companyId)")
+        println("Group Id: \(LiferayServerContext.groupId)")
+        
+        if groupId == 0 && companyId == 0 {
+            self.alertHelper.confirmationMessage("Settings", message: "Please check application settings, it looks not properly set", buttonText: "Ok")
         }
     }
 

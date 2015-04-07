@@ -7,6 +7,6 @@
 	<key>companyId</key>
 	<real>10154</real>
 	<key>server</key>
-	<string>http://mobilepeoplefinder.vm2.rivetlogic.com:80</string>
+	<string>http://domain.com:80/</string>
 </dict>
 </plist>

@@ -9,14 +9,19 @@
 import UIKit
 import CoreData
 
-class PeopleListViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class PeopleListViewController: UITableViewController, NSFetchedResultsControllerDelegate, UISearchBarDelegate {
 
+    @IBOutlet weak var searchBar: UISearchBar!
+    var searchActive:Bool = false
+    var searchResultsList: [Person] = []
+    
     var personViewController: PersonViewController? = nil
     var managedObjectContext: NSManagedObjectContext? = nil
     var peopleDao:PeopleDao = PeopleDao()
     var imageHelper:ImageHelper = ImageHelper()
     var serverFetchResult : ServerFetchResult = ServerFetchResult.Success
     var alertHelper:AlertHelper = AlertHelper()
+    var appHelper = AppHelper()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -37,6 +42,20 @@ class PeopleListViewController: UITableViewController, NSFetchedResultsControlle
             let controllers = split.viewControllers
             self.personViewController = controllers[controllers.count-1].topViewController as? PersonViewController
         }
+        
+        self.navigationItem.leftBarButtonItem = nil
+        self.navigationItem.rightBarButtonItem = nil
+        let logoutButton = UIBarButtonItem(image: UIImage(named: "logout_icon.png"), style: UIBarButtonItemStyle.Plain, target: self, action: "logout:")
+        self.navigationItem.rightBarButtonItem = logoutButton
+        
+        //search bar
+        if let search = self.searchBar {
+            self.searchBar.delegate = self
+        }
+    }
+    
+    func logout(sender:UIBarButtonItem) {
+        self.appHelper.logout(self)
     }
     
     private func _showConnectionErrorMessage() {
@@ -45,6 +64,14 @@ class PeopleListViewController: UITableViewController, NSFetchedResultsControlle
             message: "There are connectivity issues please try again",
             buttonText: "OK",
             callback: {})
+    }
+    
+    override func loadView() {
+        if !SessionContext.loadSessionFromStore() {
+            self.appHelper.logout(self)
+        } else {
+            super.loadView()
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -60,6 +87,14 @@ class PeopleListViewController: UITableViewController, NSFetchedResultsControlle
                 }
             })
         serverFetchResult = peopleSync.syncData()
+        self.searchActive = false
+        self.searchResultsList = []
+        if let table = self.tableView {
+            self.tableView.reloadData()
+        }
+        if let search = self.searchBar {
+            self.searchBar.text = ""
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -101,9 +136,16 @@ class PeopleListViewController: UITableViewController, NSFetchedResultsControlle
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow() {
-            let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as Person
+                var person:Person
+                
+                if searchActive && self.searchResultsList.count > 0 {
+                    person = searchResultsList[indexPath.row]
+                } else {
+                    person = self.fetchedResultsController.objectAtIndexPath(indexPath) as Person
+                }
+                
                 let controller = (segue.destinationViewController as UINavigationController).topViewController as PersonViewController
-                controller.detailItem = object
+                controller.detailItem = person
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }
@@ -117,6 +159,9 @@ class PeopleListViewController: UITableViewController, NSFetchedResultsControlle
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if self.searchActive {
+            return self.searchResultsList.count
+        }
         let sectionInfo = self.fetchedResultsController.sections![section] as NSFetchedResultsSectionInfo
         return sectionInfo.numberOfObjects
     }
@@ -149,8 +194,13 @@ class PeopleListViewController: UITableViewController, NSFetchedResultsControlle
     }
 
     func configureCell(cell: PersonViewCell, atIndexPath indexPath: NSIndexPath) {
-    
-        let person = self.fetchedResultsController.objectAtIndexPath(indexPath) as Person
+        var person:Person
+        
+        if searchActive && self.searchResultsList.count > 0 {
+            person = searchResultsList[indexPath.row]
+        } else {
+            person = self.fetchedResultsController.objectAtIndexPath(indexPath) as Person
+        }
 
         imageHelper.addThumbnailStyles(cell.thumbnailImage, radius: 30.0)
 
@@ -249,6 +299,52 @@ class PeopleListViewController: UITableViewController, NSFetchedResultsControlle
          self.tableView.reloadData()
      }
      */
+    
+    // MARK: - Search
+    
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        searchActive = true;
+    }
+    
+    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchActive = false;
+        tableView.reloadData()
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        let searchString = searchText
+        searchResultsList.removeAll(keepCapacity: true)
+        
+        if !searchString.isEmpty {
+            let filter:Person -> Bool = { person in
+                let nameLength = countElements(person.fullName)
+                let fullNameRange = person.fullName.rangeOfString(searchString, options: NSStringCompareOptions.CaseInsensitiveSearch)
+                let screenNameRange = person.screenName.rangeOfString(searchString, options: NSStringCompareOptions.CaseInsensitiveSearch)
+                return fullNameRange != nil || screenNameRange != nil
+            }
+            
+            let sectionInfo = self.fetchedResultsController.sections![0] as NSFetchedResultsSectionInfo
+            let persons = sectionInfo.objects as [Person]
+            searchResultsList = persons.filter(filter)
+        }
+        
+        if(searchResultsList.count == 0){
+            searchActive = false;
+        } else {
+            searchActive = true;
+        }
+        
+        self.tableView.reloadData()
+    }
 
 }
 
