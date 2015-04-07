@@ -18,4 +18,15 @@ class AlertHelper {
         alert.addAction(buttonAction)
         controller.presentViewController(alert, animated: true, completion: nil)
     }
+    
+    func confirmationMessage(title: String, message: String, buttonText: String) -> UIAlertView {
+        var alertView = UIAlertView(
+            title: title,
+            message: message,
+            delegate: nil,
+            cancelButtonTitle: nil,
+            otherButtonTitles: buttonText)
+        alertView.show()
+        return alertView
+    }
 }
