@@ -13,6 +13,7 @@ class LoginViewController: UIViewController, LoginScreenletDelegate {
     @IBOutlet weak var loginScreenlet: LoginScreenlet!
     
     var appHelper = AppHelper()
+    var alertHelper = AlertHelper()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +21,14 @@ class LoginViewController: UIViewController, LoginScreenletDelegate {
         loginScreenlet!.authMethod = AuthMethod.Email.rawValue
         loginScreenlet!.saveCredentials = true
     }
-
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        if appHelper.getAppDelegate().settingsNotSet {
+            self.alertHelper.message(self, title: "Settings", message: "Please check application settings, it looks not properly set", buttonText: "Ok", callback: {})
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

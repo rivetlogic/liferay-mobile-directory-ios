@@ -15,6 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
     var window: UIWindow?
     var alertHelper = AlertHelper()
+    var settingsNotSet = false
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         Crashlytics.startWithAPIKey("24f0ce5ced2c925aeeef7d5dcbc6f5e75cfbd9aa")
@@ -154,7 +156,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         println("Group Id: \(LiferayServerContext.groupId)")
         
         if groupId == 0 && companyId == 0 {
-            self.alertHelper.confirmationMessage("Settings", message: "Please check application settings, it looks not properly set", buttonText: "Ok")
+            self.settingsNotSet = true
         }
     }
 
