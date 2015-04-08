@@ -15,6 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
     var window: UIWindow?
     var alertHelper = AlertHelper()
+    var settingsNotSet = false
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         Crashlytics.startWithAPIKey("24f0ce5ced2c925aeeef7d5dcbc6f5e75cfbd9aa")
@@ -138,24 +140,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     func setLiferayInfoFromSettings() {
         let defaults = NSUserDefaults.standardUserDefaults()
         let loadProps = LiferayServerContext.server
+        // server host name and port
         if let server = defaults.stringForKey("server") {
             LiferayServerContext.server = server
         }
-        
+        // group id
         let groupId = defaults.integerForKey("groupid") as NSNumber
-        LiferayServerContext.groupId = groupId.longLongValue
-        
+        if groupId != 0 {
+            LiferayServerContext.groupId = groupId.longLongValue
+        }
+        // company id
         let companyId = defaults.integerForKey("companyid") as NSNumber
-        LiferayServerContext.companyId = companyId.longLongValue
-        
+        if companyId != 0 {
+            LiferayServerContext.companyId = companyId.longLongValue
+        }
+
         println("* Liferay Information")
         println("Server: " + LiferayServerContext.server)
         println("Company Id: \(LiferayServerContext.companyId)")
         println("Group Id: \(LiferayServerContext.groupId)")
-        
-        if groupId == 0 && companyId == 0 {
-            self.alertHelper.confirmationMessage("Settings", message: "Please check application settings, it looks not properly set", buttonText: "Ok")
-        }
+
     }
 
 }

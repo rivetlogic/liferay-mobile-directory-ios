@@ -180,6 +180,11 @@
 		BA2669241A7410A20046FE7A /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2669231A7410A20046FE7A /* ImageHelper.swift */; };
 		BA2669281A742A3C0046FE7A /* PersonViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2669261A742A3C0046FE7A /* PersonViewCell.swift */; };
 		BA422E4A1AD452C8000AFCB0 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BA422E491AD452C8000AFCB0 /* Settings.bundle */; };
+		BA422E4F1AD4D5D4000AFCB0 /* LoginView_mpd.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA422E4D1AD4D5D4000AFCB0 /* LoginView_mpd.swift */; };
+		BA422E501AD4D5D4000AFCB0 /* LoginView_mpd.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA422E4E1AD4D5D4000AFCB0 /* LoginView_mpd.xib */; };
+		BA422E541AD4DA18000AFCB0 /* ForgotPasswordView_mpd.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA422E521AD4DA18000AFCB0 /* ForgotPasswordView_mpd.swift */; };
+		BA422E551AD4DA18000AFCB0 /* ForgotPasswordView_mpd.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA422E531AD4DA18000AFCB0 /* ForgotPasswordView_mpd.xib */; };
+		BA422E571AD4DB85000AFCB0 /* MDPAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA422E561AD4DB85000AFCB0 /* MDPAppearance.swift */; };
 		BA6726291A671ECE00379DA3 /* LRPeopledirectoryService_v62.m in Sources */ = {isa = PBXBuildFile; fileRef = BA6726281A671ECE00379DA3 /* LRPeopledirectoryService_v62.m */; };
 		BA6975021A6860CF00E3CB41 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6975011A6860CE00E3CB41 /* ForgotPasswordViewController.swift */; };
 		BA6975061A69599D00E3CB41 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6975051A69599D00E3CB41 /* AlertHelper.swift */; };
@@ -394,6 +399,11 @@
 		BA2669231A7410A20046FE7A /* ImageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 		BA2669261A742A3C0046FE7A /* PersonViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonViewCell.swift; sourceTree = "<group>"; };
 		BA422E491AD452C8000AFCB0 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		BA422E4D1AD4D5D4000AFCB0 /* LoginView_mpd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView_mpd.swift; sourceTree = "<group>"; };
+		BA422E4E1AD4D5D4000AFCB0 /* LoginView_mpd.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginView_mpd.xib; sourceTree = "<group>"; };
+		BA422E521AD4DA18000AFCB0 /* ForgotPasswordView_mpd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView_mpd.swift; sourceTree = "<group>"; };
+		BA422E531AD4DA18000AFCB0 /* ForgotPasswordView_mpd.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgotPasswordView_mpd.xib; sourceTree = "<group>"; };
+		BA422E561AD4DB85000AFCB0 /* MDPAppearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDPAppearance.swift; sourceTree = "<group>"; };
 		BA6726271A671ECE00379DA3 /* LRPeopledirectoryService_v62.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRPeopledirectoryService_v62.h; sourceTree = "<group>"; };
 		BA6726281A671ECE00379DA3 /* LRPeopledirectoryService_v62.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRPeopledirectoryService_v62.m; sourceTree = "<group>"; };
 		BA6975011A6860CE00E3CB41 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
@@ -449,6 +459,7 @@
 		0F82FC281A5C5048008EE20B /* MobilePeopleDirectory */ = {
 			isa = PBXGroup;
 			children = (
+				BA422E4B1AD4D5B0000AFCB0 /* MPDTheme */,
 				BA2669251A742A0E0046FE7A /* UIComponents */,
 				BA1483E21A6C9E5800778808 /* Controllers */,
 				BA1483E11A6C9CEB00778808 /* Model */,
@@ -1045,6 +1056,34 @@
 			name = UIComponents;
 			sourceTree = "<group>";
 		};
+		BA422E4B1AD4D5B0000AFCB0 /* MPDTheme */ = {
+			isa = PBXGroup;
+			children = (
+				BA422E511AD4DA18000AFCB0 /* ForgotPasswordScreenlet */,
+				BA422E4C1AD4D5D4000AFCB0 /* LoginScreenlet */,
+				BA422E561AD4DB85000AFCB0 /* MDPAppearance.swift */,
+			);
+			path = MPDTheme;
+			sourceTree = "<group>";
+		};
+		BA422E4C1AD4D5D4000AFCB0 /* LoginScreenlet */ = {
+			isa = PBXGroup;
+			children = (
+				BA422E4D1AD4D5D4000AFCB0 /* LoginView_mpd.swift */,
+				BA422E4E1AD4D5D4000AFCB0 /* LoginView_mpd.xib */,
+			);
+			path = LoginScreenlet;
+			sourceTree = "<group>";
+		};
+		BA422E511AD4DA18000AFCB0 /* ForgotPasswordScreenlet */ = {
+			isa = PBXGroup;
+			children = (
+				BA422E521AD4DA18000AFCB0 /* ForgotPasswordView_mpd.swift */,
+				BA422E531AD4DA18000AFCB0 /* ForgotPasswordView_mpd.xib */,
+			);
+			path = ForgotPasswordScreenlet;
+			sourceTree = "<group>";
+		};
 		BA6726261A671ECE00379DA3 /* PeopleDirectorySDK */ = {
 			isa = PBXGroup;
 			children = (
@@ -1178,6 +1217,7 @@
 				0F82FDAC1A5C569D008EE20B /* default-hourglass@2x.png in Resources */,
 				0F82FDAF1A5C569D008EE20B /* default-mail-icon.png in Resources */,
 				0F82FD891A5C569D008EE20B /* DDLFieldDocumentlibraryPresenterViewController_default.xib in Resources */,
+				BA422E551AD4DA18000AFCB0 /* ForgotPasswordView_mpd.xib in Resources */,
 				0F82FDB31A5C569D008EE20B /* default-preview-assetlist.png in Resources */,
 				0F82FDA51A5C569D008EE20B /* default-field.png in Resources */,
 				0F82FDC91A5C569D008EE20B /* flat7-gradient-form.png in Resources */,
@@ -1190,6 +1230,7 @@
 				0F2823DB1A62CD51000E0617 /* Login.storyboard in Resources */,
 				0F82FDC61A5C569D008EE20B /* flat7-button@2x.png in Resources */,
 				0F82FC361A5C5048008EE20B /* Main.storyboard in Resources */,
+				BA422E501AD4D5D4000AFCB0 /* LoginView_mpd.xib in Resources */,
 				0F82FDB01A5C569D008EE20B /* default-mail-icon@2x.png in Resources */,
 				0F82FDCA1A5C569D008EE20B /* flat7-gradient-form@2x.png in Resources */,
 				0F82FD801A5C569D008EE20B /* LoginView_default.xib in Resources */,
@@ -1316,6 +1357,7 @@
 				0F82FD501A5C569D008EE20B /* LiferayServerContext.swift in Sources */,
 				BA1483E01A6C9ADE00778808 /* Person.swift in Sources */,
 				0F82FD7B1A5C569D008EE20B /* AssetListView_default.swift in Sources */,
+				BA422E4F1AD4D5D4000AFCB0 /* LoginView_mpd.swift in Sources */,
 				BA6726291A671ECE00379DA3 /* LRPeopledirectoryService_v62.m in Sources */,
 				0F82FD691A5C569D008EE20B /* DDLFieldNumber.swift in Sources */,
 				0F82FD6A1A5C569D008EE20B /* DDLFieldString.swift in Sources */,
@@ -1371,6 +1413,7 @@
 				BA6975061A69599D00E3CB41 /* AlertHelper.swift in Sources */,
 				0F82FD7D1A5C569D008EE20B /* ForgotPasswordView_default.swift in Sources */,
 				0F82FDC31A5C569D008EE20B /* Flat7ThemeConstants.swift in Sources */,
+				BA422E571AD4DB85000AFCB0 /* MDPAppearance.swift in Sources */,
 				0F82FD8A1A5C569D008EE20B /* DDLFieldDocumentlibraryTableCell_default.swift in Sources */,
 				BAD25DF11A7EE507009E99D5 /* ServerSyncableProtocol.swift in Sources */,
 				0F82FDBF1A5C569D008EE20B /* LoginView_flat7.swift in Sources */,
@@ -1383,6 +1426,7 @@
 				0F82FD461A5C569D008EE20B /* SignUpScreenlet.swift in Sources */,
 				0F82FD3D1A5C569D008EE20B /* LoginScreenlet.swift in Sources */,
 				0F82FD841A5C569D008EE20B /* DDLFieldCheckboxTableCell_default.swift in Sources */,
+				BA422E541AD4DA18000AFCB0 /* ForgotPasswordView_mpd.swift in Sources */,
 				0F82FC331A5C5048008EE20B /* PersonViewController.swift in Sources */,
 				0F82FD971A5C569D008EE20B /* DDLFormView_default.swift in Sources */,
 				0F82FDC11A5C569D008EE20B /* SignUpView_flat7.swift in Sources */,

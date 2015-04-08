@@ -16,26 +16,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U2Z-5b-ysb" customClass="LoginScreenlet" customModule="MobilePeopleDirectory" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U2Z-5b-ysb" customClass="LoginScreenlet" customModule="MobilePeopleDirectory" customModuleProvider="target">
                                 <rect key="frame" x="140" y="0.0" width="320" height="600"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lqV-B9-BMm">
-                                        <rect key="frame" x="48" y="428" width="126" height="30"/>
-                                        <state key="normal" title="Forgot Password?">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="forgotPasswordPressed:" destination="zQO-4j-8gj" eventType="touchUpInside" id="8w3-X9-6mD"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="600" id="Y7K-Rs-wR5"/>
+                                    <constraint firstAttribute="width" constant="320" id="abS-CW-cOH"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="themeName" value="mpd"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lqV-B9-BMm">
+                                <rect key="frame" x="159" y="511" width="282" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="GJd-Mt-BAJ"/>
+                                    <constraint firstAttribute="width" constant="282" id="wev-rc-nC0"/>
+                                </constraints>
+                                <state key="normal" title="Forgot Password?">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="forgotPasswordPressed:" destination="zQO-4j-8gj" eventType="touchUpInside" id="8w3-X9-6mD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerY" secondItem="U2Z-5b-ysb" secondAttribute="centerY" id="E8g-HI-38P"/>
-                            <constraint firstAttribute="centerX" secondItem="U2Z-5b-ysb" secondAttribute="centerX" id="ZLO-u4-ytX"/>
+                            <constraint firstAttribute="centerX" secondItem="U2Z-5b-ysb" secondAttribute="centerX" id="7Ql-9R-djo"/>
+                            <constraint firstItem="2Sq-Uy-SHJ" firstAttribute="top" secondItem="lqV-B9-BMm" secondAttribute="bottom" constant="59" id="Sgw-Lg-2b4"/>
+                            <constraint firstAttribute="centerX" secondItem="lqV-B9-BMm" secondAttribute="centerX" id="b22-SO-BVo"/>
+                            <constraint firstAttribute="centerY" secondItem="U2Z-5b-ysb" secondAttribute="centerY" id="hPP-7V-a6S"/>
                         </constraints>
                     </view>
                     <connections>
@@ -58,20 +70,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dgb-A1-gi6" customClass="ForgotPasswordScreenlet" customModule="MobilePeopleDirectory" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dgb-A1-gi6" customClass="ForgotPasswordScreenlet" customModule="MobilePeopleDirectory" customModuleProvider="target">
                                 <rect key="frame" x="148" y="37" width="304" height="525"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dUP-nP-dtF">
-                                        <rect key="frame" x="39" y="383" width="48" height="30"/>
-                                        <state key="normal" title="Cancel">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="backPressed:" destination="KEA-fJ-u8J" eventType="touchUpInside" id="BoY-Yt-r4t"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="525" id="8xN-xf-3Kt"/>
+                                    <constraint firstAttribute="width" constant="304" id="hzw-oh-58L"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="anonymousApiUserName" value="apphelper1@rivetlogic.com"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="anonymousApiPassword" value="test"/>
@@ -79,13 +84,30 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="companyId">
                                         <integer key="value" value="0"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="themeName" value="mpd"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dUP-nP-dtF">
+                                <rect key="frame" x="241" y="511" width="118" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="118" id="DWJ-0r-6VQ"/>
+                                    <constraint firstAttribute="height" constant="30" id="aYW-gV-bcz"/>
+                                </constraints>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backPressed:" destination="KEA-fJ-u8J" eventType="touchUpInside" id="BoY-Yt-r4t"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="Dgb-A1-gi6" secondAttribute="centerX" id="1on-bL-CRk"/>
-                            <constraint firstAttribute="centerY" secondItem="Dgb-A1-gi6" secondAttribute="centerY" id="I2E-nm-7VI"/>
+                            <constraint firstAttribute="centerY" secondItem="Dgb-A1-gi6" secondAttribute="centerY" id="Brf-vg-NrW"/>
+                            <constraint firstAttribute="centerX" secondItem="dUP-nP-dtF" secondAttribute="centerX" id="bzs-uZ-HXt"/>
+                            <constraint firstItem="J99-ov-XVl" firstAttribute="top" secondItem="dUP-nP-dtF" secondAttribute="bottom" constant="59" id="e4P-iL-DXZ"/>
+                            <constraint firstAttribute="centerX" secondItem="Dgb-A1-gi6" secondAttribute="centerX" id="tm6-Sh-bV9"/>
                         </constraints>
                     </view>
                     <connections>
