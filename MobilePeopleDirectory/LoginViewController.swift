@@ -22,13 +22,6 @@ class LoginViewController: UIViewController, LoginScreenletDelegate {
         loginScreenlet!.saveCredentials = true
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        if appHelper.getAppDelegate().settingsNotSet {
-            self.alertHelper.message(self, title: "Settings", message: "Please check application settings, it looks not properly set", buttonText: "Ok", callback: {})
-        }
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
