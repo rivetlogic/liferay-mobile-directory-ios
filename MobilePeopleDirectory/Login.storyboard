@@ -18,7 +18,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U2Z-5b-ysb" customClass="LoginScreenlet" customModule="MobilePeopleDirectory" customModuleProvider="target">
                                 <rect key="frame" x="140" y="0.0" width="320" height="600"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="600" id="Y7K-Rs-wR5"/>
                                     <constraint firstAttribute="width" constant="320" id="abS-CW-cOH"/>
@@ -41,13 +41,22 @@
                                     <action selector="forgotPasswordPressed:" destination="zQO-4j-8gj" eventType="touchUpInside" id="8w3-X9-6mD"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rivetlogic-logo" translatesAutoresizingMaskIntoConstraints="NO" id="QRs-it-4bA">
+                                <rect key="frame" x="200" y="45" width="200" height="60.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60.5" id="MF0-6c-iBe"/>
+                                    <constraint firstAttribute="width" constant="200" id="nzE-3A-i2S"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="U2Z-5b-ysb" secondAttribute="centerX" id="7Ql-9R-djo"/>
                             <constraint firstItem="2Sq-Uy-SHJ" firstAttribute="top" secondItem="lqV-B9-BMm" secondAttribute="bottom" constant="59" id="Sgw-Lg-2b4"/>
+                            <constraint firstAttribute="centerX" secondItem="QRs-it-4bA" secondAttribute="centerX" id="TLD-kI-8vi"/>
                             <constraint firstAttribute="centerX" secondItem="lqV-B9-BMm" secondAttribute="centerX" id="b22-SO-BVo"/>
                             <constraint firstAttribute="centerY" secondItem="U2Z-5b-ysb" secondAttribute="centerY" id="hPP-7V-a6S"/>
+                            <constraint firstItem="QRs-it-4bA" firstAttribute="top" secondItem="cRs-aH-6j5" secondAttribute="bottom" constant="25" id="iDN-D7-UOu"/>
                         </constraints>
                     </view>
                     <connections>
@@ -72,7 +81,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dgb-A1-gi6" customClass="ForgotPasswordScreenlet" customModule="MobilePeopleDirectory" customModuleProvider="target">
                                 <rect key="frame" x="148" y="37" width="304" height="525"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="525" id="8xN-xf-3Kt"/>
                                     <constraint firstAttribute="width" constant="304" id="hzw-oh-58L"/>
@@ -119,4 +128,7 @@
             <point key="canvasLocation" x="1136" y="260"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="rivetlogic-logo" width="400" height="112"/>
+    </resources>
 </document>

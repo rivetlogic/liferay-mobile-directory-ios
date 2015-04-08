@@ -55,7 +55,9 @@ class PeopleListViewController: UITableViewController, NSFetchedResultsControlle
     }
     
     func logout(sender:UIBarButtonItem) {
-        self.appHelper.logout(self)
+        self.alertHelper.confirmationMessage(self, title: "Please confirm", message: "Are you sure you want to logout?", okButtonText: "Yes", cancelButtonText: "No", confirmed: { _ in
+            self.appHelper.logout(self)
+        })
     }
     
     private func _showConnectionErrorMessage() {

@@ -21,7 +21,8 @@ class PersonViewController: UIViewController {
     var imageHelper:ImageHelper = ImageHelper()
     var appHelper = AppHelper()
     var detailItem: Person?
-
+    var alertHelper = AlertHelper()
+    
     func configureView() {
         // Update the user interface for the detail item.
         if let detail = self.detailItem {
@@ -73,7 +74,9 @@ class PersonViewController: UIViewController {
     }
     
     func logout(sender:UIBarButtonItem) {
-        self.appHelper.logout(self)
+        self.alertHelper.confirmationMessage(self, title: "Please confirm", message: "Are you sure you want to logout?", okButtonText: "Yes", cancelButtonText: "No", confirmed: { _ in
+            self.appHelper.logout(self)
+        })
     }
     
     override func didReceiveMemoryWarning() {
