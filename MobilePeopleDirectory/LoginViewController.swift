@@ -20,6 +20,12 @@ class LoginViewController: UIViewController, LoginScreenletDelegate {
         loginScreenlet!.delegate = self
         loginScreenlet!.authMethod = AuthMethod.Email.rawValue
         loginScreenlet!.saveCredentials = true
+        
+        // bg gradient
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = self.view.frame
+        gradientLayer.colors = [UIColor(red: 234/255.0, green: 233/255.0, blue: 235/255.0, alpha: 1.0).CGColor, UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1.0).CGColor]
+        self.view.layer.insertSublayer(gradientLayer, atIndex: 0)
     }
     
     override func didReceiveMemoryWarning() {

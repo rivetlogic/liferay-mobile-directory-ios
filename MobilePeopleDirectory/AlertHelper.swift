@@ -18,5 +18,16 @@ class AlertHelper {
         alert.addAction(buttonAction)
         controller.presentViewController(alert, animated: true, completion: nil)
     }
+    
+    func confirmationMessage(controller: UIViewController, title: String, message: String, okButtonText: String, cancelButtonText: String, confirmed: ((Void) -> Void)!)  {
+        var alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        let okButtonAction = UIAlertAction(title: okButtonText, style: .Default, handler: { (alert: UIAlertAction!) in
+            confirmed()
+        })
+        let cancelButtonAction = UIAlertAction(title: cancelButtonText, style: .Default, handler: nil)
+        alert.addAction(okButtonAction)
+        alert.addAction(cancelButtonAction)
+        controller.presentViewController(alert, animated: true, completion: nil)
+    }
 
 }
