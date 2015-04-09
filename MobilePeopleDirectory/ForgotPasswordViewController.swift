@@ -21,7 +21,7 @@ class ForgotPasswordViewController: UIViewController, ForgotPasswordScreenletDel
         // bg gradient
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = self.view.frame
-        gradientLayer.colors = [UIColor(red: 234/255.0, green: 233/255.0, blue: 235/255.0, alpha: 1.0).CGColor, UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1.0).CGColor]
+        gradientLayer.colors = [MDPAppearance.sharedInstance.TopGradientColor.CGColor, MDPAppearance.sharedInstance.BottomGradientColor.CGColor]
         self.view.layer.insertSublayer(gradientLayer, atIndex: 0)
     }
 
