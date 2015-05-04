@@ -84,6 +84,7 @@ public class LoginView_mpd: BaseScreenletView, LoginData {
         setButtonDefaultStyle(loginButton)
         
         BaseScreenlet.setHUDCustomColor(MDPAppearance.sharedInstance.PrimaryColorTransparent)
+        loginButton?.backgroundColor = MDPAppearance.sharedInstance.PrimaryColor
     }
     
     override internal func onSetTranslations() {

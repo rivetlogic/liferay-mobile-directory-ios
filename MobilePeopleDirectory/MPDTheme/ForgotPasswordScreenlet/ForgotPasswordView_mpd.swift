@@ -63,13 +63,13 @@ public class ForgotPasswordView_mpd: BaseScreenletView, ForgotPasswordData {
 		setButtonDefaultStyle(requestPasswordButton)
 
 		BaseScreenlet.setHUDCustomColor(MDPAppearance.sharedInstance.PrimaryColorTransparent)
+        requestPasswordButton?.backgroundColor = MDPAppearance.sharedInstance.PrimaryColor
 	}
 
 	override func onSetTranslations() {
 		requestPasswordButton?.replaceAttributedTitle(
 				LocalizedString("default", "forgot-password-button", self),
 				forState: .Normal)
-
 	}
 
 	override internal func onStartOperation() {

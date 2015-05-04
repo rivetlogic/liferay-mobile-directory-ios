@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         let masterNavigationController = splitViewController.viewControllers[0] as UINavigationController
         let controller = masterNavigationController.topViewController as PeopleListViewController
         controller.managedObjectContext = self.managedObjectContext
-
+        MDPAppearance.setUpDefaultUiAppearances()
         return true
     }
 	
