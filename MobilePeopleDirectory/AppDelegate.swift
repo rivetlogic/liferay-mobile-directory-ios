@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     var window: UIWindow?
     var alertHelper = AlertHelper()
     var settingsNotSet = false
+    var statusBar: UIView!
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
@@ -30,6 +31,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         let controller = masterNavigationController.topViewController as PeopleListViewController
         controller.managedObjectContext = self.managedObjectContext
         MDPAppearance.setUpDefaultUiAppearances()
+        
+        statusBar = UIView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, 20))
+        statusBar.backgroundColor = UIColor.clearColor()
+        self.window?.rootViewController?.view.addSubview(statusBar)
+        
         return true
     }
 	

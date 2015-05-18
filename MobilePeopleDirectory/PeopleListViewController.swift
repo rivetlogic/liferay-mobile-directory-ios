@@ -45,8 +45,11 @@ class PeopleListViewController: UITableViewController, NSFetchedResultsControlle
         
         self.navigationItem.leftBarButtonItem = nil
         self.navigationItem.rightBarButtonItem = nil
-        let logoutButton = UIBarButtonItem(image: UIImage(named: "logout_icon.png"), style: UIBarButtonItemStyle.Plain, target: self, action: "logout:")
+        let logoutButton = UIBarButtonItem(image: UIImage(named: "logout"), style: UIBarButtonItemStyle.Plain, target: self, action: "logout:")
         self.navigationItem.rightBarButtonItem = logoutButton
+        
+        navigationController?.hidesBarsOnSwipe = true
+        navigationController?.hidesBarsWhenKeyboardAppears = true
         
         //search bar
         if let search = self.searchBar {
@@ -97,6 +100,11 @@ class PeopleListViewController: UITableViewController, NSFetchedResultsControlle
         if let search = self.searchBar {
             self.searchBar.text = ""
         }
+        
+        let appDelegate: AppDelegate = appHelper.getAppDelegate()
+        appDelegate.statusBar.backgroundColor = navigationController?.navigationBar.backgroundColor
+        
+        self.navigationController?.navigationBarHidden = false
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -168,10 +176,22 @@ class PeopleListViewController: UITableViewController, NSFetchedResultsControlle
         return sectionInfo.numberOfObjects
     }
 
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 85.0
+    }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("PersonCell", forIndexPath: indexPath) as PersonViewCell
-        //let cell = PersonViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "PersonCell")
+        
         self.configureCell(cell, atIndexPath: indexPath)
+        
+        if indexPath.row % 2 == 0 {
+            cell.contentView.backgroundColor = UIColor.whiteColor()
+        }
+        else {
+            cell.contentView.backgroundColor = UIColor(red: 241.0/255.0, green: 241.0/255.0, blue: 241.0/255.0, alpha: 1.0)
+        }
+        
         return cell
     }
 
@@ -306,19 +326,25 @@ class PeopleListViewController: UITableViewController, NSFetchedResultsControlle
     
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
         searchActive = true;
+        searchBar.setShowsCancelButton(true, animated: true)
     }
     
     func searchBarTextDidEndEditing(searchBar: UISearchBar) {
         searchActive = false;
+        searchBar.setShowsCancelButton(false, animated: true)
     }
     
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         searchActive = false;
+        searchBar.resignFirstResponder()
+        searchBar.setShowsCancelButton(false, animated: true)
         tableView.reloadData()
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         searchActive = false;
+        searchBar.resignFirstResponder()
+        searchBar.setShowsCancelButton(false, animated: true)
     }
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
@@ -331,7 +357,8 @@ class PeopleListViewController: UITableViewController, NSFetchedResultsControlle
                 let nameLength = countElements(person.fullName)
                 let fullNameRange = person.fullName.rangeOfString(searchString, options: NSStringCompareOptions.CaseInsensitiveSearch)
                 let screenNameRange = person.screenName.rangeOfString(searchString, options: NSStringCompareOptions.CaseInsensitiveSearch)
-                return fullNameRange != nil || screenNameRange != nil
+                let emailAddress = person.emailAddress.rangeOfString(searchString, options: NSStringCompareOptions.CaseInsensitiveSearch)
+                return fullNameRange != nil || screenNameRange != nil || emailAddress != nil
             }
             
             let sectionInfo = self.fetchedResultsController.sections![0] as NSFetchedResultsSectionInfo
@@ -348,5 +375,12 @@ class PeopleListViewController: UITableViewController, NSFetchedResultsControlle
         self.tableView.reloadData()
     }
 
+    
+    override func viewWillDisappear(animated: Bool) {
+        
+        if searchBar.isFirstResponder() {
+            searchBar.resignFirstResponder()
+        }
+    }
 }
 

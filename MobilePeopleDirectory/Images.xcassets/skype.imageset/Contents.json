@@ -2,18 +2,13 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "mail.png"
-    },
-    {
-      "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "mail@2x.png"
+      "filename" : "skype@2x.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "mail@3x.png"
+      "filename" : "skype@3x.png"
     }
   ],
   "info" : {
