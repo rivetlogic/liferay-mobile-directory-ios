@@ -30,7 +30,7 @@ class ImageHelper: NSObject {
         var ciFilter = CIFilter(name: "CIGaussianBlur")
         ciFilter.setValue(image, forKey: kCIInputImageKey)
         
-        ciFilter.setValue(8, forKey: "inputRadius")
+        ciFilter.setValue(1, forKey: "inputRadius")
         var cgImage = ciContext.createCGImage(ciFilter.outputImage, fromRect: image.extent())?
         var blurredImage = UIImage(CGImage: cgImage)!
         
@@ -38,6 +38,21 @@ class ImageHelper: NSObject {
         
     }
 
+    
+    // Convert to Gray Scale
+    func convertImageToGrayScale(image: UIImage) -> UIImage {
+        
+        let imageRect: CGRect = CGRectMake(0, 0, image.size.width, image.size.height)
+        let colorSpace: CGColorSpaceRef = CGColorSpaceCreateDeviceGray();
+        let context:CGContextRef = CGBitmapContextCreate(nil, UInt(image.size.width), UInt(image.size.height), 8, 0, colorSpace, nil)
+        CGContextDrawImage(context, imageRect, image.CGImage);
+        let imageRef: CGImageRef = CGBitmapContextCreateImage(context);
+        let newImage: UIImage = UIImage(CGImage: imageRef)!
+        
+        return newImage;
+        
+    }
+    
     // add image to view from NSData
     func addImageFromData(imageView: UIImageView!, image: NSData!) {
         var image = UIImage(data: image!)

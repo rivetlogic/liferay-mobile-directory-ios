@@ -53,7 +53,9 @@
 
 - (NSDictionary *)usersFetchByDateWithModifiedEpochDate:(NSNumber *)modifiedEpochDate error:(NSError **)error {
     NSMutableDictionary *_params = [NSMutableDictionary dictionaryWithDictionary:@{
-                                                                                   @"modifiedDate": modifiedEpochDate
+                                                                                   @"modifiedDate": modifiedEpochDate,
+                                                                                   @"start": @(0),
+                                                                                   @"end": @(10)
                                                                                    }];
     
     //    [self mangleWrapperWithParams:_params name:@"modifiedDate" className:@"java.sql.Timestamp" wrapper:modifiedDate];

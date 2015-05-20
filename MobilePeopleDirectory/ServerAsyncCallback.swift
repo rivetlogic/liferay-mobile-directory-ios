@@ -55,7 +55,7 @@ class ServerAsyncCallback:NSObject, LRCallback {
         // if items unsynced retrieve entire data from server
         if (self._areItemsUnsynced(activeItemsCount)) {
         
-            self._syncable.removeAllItems()
+            //self._syncable.removeAllItems()
             var session = SessionContext.createSessionFromCurrentSession()
             var asyncCallback = ServerAsyncCallback(syncable: self._syncable,
                 primaryKey: self._primaryKey,
