@@ -64,7 +64,7 @@ class ServerAsyncCallback:NSObject, LRCallback {
                 errorHandler: self._errorHandler)
             
             session?.callback = asyncCallback
-            self._syncable.getServerData(0.0, session: &session!)
+            //self._syncable.getServerData(0.0, session: &session!)
             
         }
     }

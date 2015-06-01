@@ -299,8 +299,8 @@ class PeopleListViewController: UITableViewController, NSFetchedResultsControlle
                 tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
             case .Delete:
                 tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
-            case .Update:
-                self.configureCell(tableView.cellForRowAtIndexPath(indexPath!)! as PersonViewCell, atIndexPath: indexPath!)
+            //case .Update:
+            //    self.configureCell(tableView.cellForRowAtIndexPath(indexPath!)! as PersonViewCell, atIndexPath: indexPath!)
             case .Move:
                 tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
                 tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
@@ -378,9 +378,9 @@ class PeopleListViewController: UITableViewController, NSFetchedResultsControlle
     
     override func viewWillDisappear(animated: Bool) {
         
-        if searchBar.isFirstResponder() {
-            searchBar.resignFirstResponder()
-        }
+        //if searchBar.isFirstResponder() {
+        //    searchBar.resignFirstResponder()
+        //}
     }
 }
 
