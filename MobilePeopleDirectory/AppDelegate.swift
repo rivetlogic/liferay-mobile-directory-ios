@@ -36,6 +36,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         statusBar.backgroundColor = UIColor.clearColor()
         self.window?.rootViewController?.view.addSubview(statusBar)
         
+        //Splash screen with animation
+        let splashScreen = SplashScreen(nibName: "SplashScreen", bundle: nil)
+        splashScreen.view.frame = UIScreen.mainScreen().bounds
+        self.window?.rootViewController?.view.addSubview(splashScreen.view)
+        
         return true
     }
 	

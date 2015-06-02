@@ -50,3 +50,4 @@ FOUNDATION_EXPORT const unsigned char liferay_screens_VersionString[];
 
 // Rivet Logic Custom Services
 #import "LRPeopledirectoryService_v62.h"
+#import "SpiralView.h"

@@ -2,17 +2,13 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "skype@2x.png"
+      "filename" : "dot_orange@2x.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "skype@3x.png"
+      "filename" : "dot_orange@3x.png"
     }
   ],
   "info" : {
