@@ -20,7 +20,7 @@
 			<key>Type</key>
 			<string>PSTextFieldSpecifier</string>
 			<key>DefaultValue</key>
-			<string>http://domain.com:80/</string>
+			<string>http://mobilepeoplefinder.vm2.rivetlogic.com:80</string>
 		</dict>
 		<dict>
 			<key>Type</key>
@@ -32,7 +32,7 @@
 			<key>AutocorrectionType</key>
 			<string>No</string>
 			<key>DefaultValue</key>
-			<string>0</string>
+			<string>10154</string>
 		</dict>
 		<dict>
 			<key>Type</key>
@@ -44,7 +44,7 @@
 			<key>AutocorrectionType</key>
 			<string>No</string>
 			<key>DefaultValue</key>
-			<string>0</string>
+			<string>10181</string>
 		</dict>
 	</array>
 	<key>StringsTable</key>
