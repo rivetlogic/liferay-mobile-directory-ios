@@ -167,37 +167,67 @@ static NSString *_defaultService;
 
 + (BOOL)setString:(NSString *)value forKey:(NSString *)key
 {
-    return [self setString:value forKey:key service:nil accessGroup:nil error:nil];
+    return [self setString:value forKey:key service:nil accessGroup:nil genericAttribute:nil error:nil];
 }
 
 + (BOOL)setString:(NSString *)value forKey:(NSString *)key error:(NSError *__autoreleasing *)error
 {
-    return [self setString:value forKey:key service:nil accessGroup:nil error:error];
+    return [self setString:value forKey:key service:nil accessGroup:nil genericAttribute:nil error:error];
+}
+
++ (BOOL)setString:(NSString *)value forKey:(NSString *)key genericAttribute:(id)genericAttribute
+{
+    return [self setString:value forKey:key service:nil accessGroup:nil genericAttribute:genericAttribute error:nil];
+}
+
++ (BOOL)setString:(NSString *)value forKey:(NSString *)key genericAttribute:(id)genericAttribute error:(NSError * __autoreleasing *)error
+{
+    return [self setString:value forKey:key service:nil accessGroup:nil genericAttribute:genericAttribute error:error];
 }
 
 + (BOOL)setString:(NSString *)value forKey:(NSString *)key service:(NSString *)service
 {
-    return [self setString:value forKey:key service:service accessGroup:nil error:nil];
+    return [self setString:value forKey:key service:service accessGroup:nil genericAttribute:nil error:nil];
 }
 
 + (BOOL)setString:(NSString *)value forKey:(NSString *)key service:(NSString *)service error:(NSError *__autoreleasing *)error
 {
-    return [self setString:value forKey:key service:service accessGroup:nil error:error];
+    return [self setString:value forKey:key service:service accessGroup:nil genericAttribute:nil error:error];
+}
+
++ (BOOL)setString:(NSString *)value forKey:(NSString *)key service:(NSString *)service genericAttribute:(id)genericAttribute
+{
+    return [self setString:value forKey:key service:service accessGroup:nil genericAttribute:genericAttribute error:nil];
+}
+
++ (BOOL)setString:(NSString *)value forKey:(NSString *)key service:(NSString *)service genericAttribute:(id)genericAttribute error:(NSError * __autoreleasing *)error
+{
+    return [self setString:value forKey:key service:service accessGroup:nil genericAttribute:genericAttribute error:error];
 }
 
 + (BOOL)setString:(NSString *)value forKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup
 {
-    return [self setString:value forKey:key service:service accessGroup:accessGroup error:nil];
+    return [self setString:value forKey:key service:service accessGroup:accessGroup genericAttribute:nil error:nil];
 }
 
 + (BOOL)setString:(NSString *)value forKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup error:(NSError *__autoreleasing *)error
+{
+    return [self setString:value forKey:key service:service accessGroup:accessGroup genericAttribute:nil error:error];
+}
+
++ (BOOL)setString:(NSString *)value forKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup genericAttribute:(id)genericAttribute
+{
+    return [self setString:value forKey:key service:service accessGroup:accessGroup genericAttribute:genericAttribute error:nil];
+}
+
++ (BOOL)setString:(NSString *)value forKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup genericAttribute:(id)genericAttribute error:(NSError * __autoreleasing *)error
 {
     if (!value) {
         return [self removeItemForKey:key service:service accessGroup:accessGroup error:error];
     }
     NSData *data = [value dataUsingEncoding:NSUTF8StringEncoding];
     if (data) {
-        return [self setData:data forKey:key service:service accessGroup:accessGroup error:error];
+        return [self setData:data forKey:key service:service accessGroup:accessGroup genericAttribute:genericAttribute error:error];
     }
     NSError *e = [self conversionError:NSLocalizedString(@"failed to convert string to data", nil)];
     if (error) {
@@ -254,30 +284,60 @@ static NSString *_defaultService;
 
 + (BOOL)setData:(NSData *)data forKey:(NSString *)key
 {
-    return [self setData:data forKey:key service:nil accessGroup:nil error:nil];
+    return [self setData:data forKey:key service:nil accessGroup:nil genericAttribute:nil error:nil];
 }
 
 + (BOOL)setData:(NSData *)data forKey:(NSString *)key error:(NSError *__autoreleasing *)error
 {
-    return [self setData:data forKey:key service:nil accessGroup:nil error:error];
+    return [self setData:data forKey:key service:nil accessGroup:nil genericAttribute:nil error:error];
+}
+
++ (BOOL)setData:(NSData *)data forKey:(NSString *)key genericAttribute:(id)genericAttribute
+{
+    return [self setData:data forKey:key service:nil accessGroup:nil genericAttribute:genericAttribute error:nil];
+}
+
++ (BOOL)setData:(NSData *)data forKey:(NSString *)key genericAttribute:(id)genericAttribute error:(NSError * __autoreleasing *)error
+{
+    return [self setData:data forKey:key service:nil accessGroup:nil genericAttribute:genericAttribute error:error];
 }
 
 + (BOOL)setData:(NSData *)data forKey:(NSString *)key service:(NSString *)service
 {
-    return [self setData:data forKey:key service:service accessGroup:nil error:nil];
+    return [self setData:data forKey:key service:service accessGroup:nil genericAttribute:nil error:nil];
 }
 
 + (BOOL)setData:(NSData *)data forKey:(NSString *)key service:(NSString *)service error:(NSError *__autoreleasing *)error
 {
-    return [self setData:data forKey:key service:service accessGroup:nil error:error];
+    return [self setData:data forKey:key service:service accessGroup:nil genericAttribute:nil error:error];
+}
+
++ (BOOL)setData:(NSData *)data forKey:(NSString *)key service:(NSString *)service genericAttribute:(id)genericAttribute
+{
+    return [self setData:data forKey:key service:service accessGroup:nil genericAttribute:genericAttribute error:nil];
+}
+
++ (BOOL)setData:(NSData *)data forKey:(NSString *)key service:(NSString *)service genericAttribute:(id)genericAttribute error:(NSError * __autoreleasing *)error
+{
+    return [self setData:data forKey:key service:service accessGroup:nil genericAttribute:genericAttribute error:error];
 }
 
 + (BOOL)setData:(NSData *)data forKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup
 {
-    return [self setData:data forKey:key service:service accessGroup:accessGroup error:nil];
+    return [self setData:data forKey:key service:service accessGroup:accessGroup genericAttribute:nil error:nil];
 }
 
 + (BOOL)setData:(NSData *)data forKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup error:(NSError *__autoreleasing *)error
+{
+    return [self setData:data forKey:key service:service accessGroup:accessGroup genericAttribute:nil error:error];
+}
+
++ (BOOL)setData:(NSData *)data forKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup genericAttribute:(id)genericAttribute
+{
+    return [self setData:data forKey:key service:service accessGroup:accessGroup genericAttribute:genericAttribute error:nil];
+}
+
++ (BOOL)setData:(NSData *)data forKey:(NSString *)key service:(NSString *)service accessGroup:(NSString *)accessGroup genericAttribute:(id)genericAttribute error:(NSError * __autoreleasing *)error
 {
     if (!key) {
         NSError *e = [self argumentError:NSLocalizedString(@"the key must not to be nil", nil)];
@@ -291,7 +351,7 @@ static NSString *_defaultService;
     }
     
     UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithService:service accessGroup:accessGroup];
-    return [keychain setData:data forKey:key error:error];
+    return [keychain setData:data forKey:key genericAttribute:genericAttribute];
 }
 
 #pragma mark -
@@ -334,27 +394,42 @@ static NSString *_defaultService;
 
 - (BOOL)setString:(NSString *)string forKey:(NSString *)key
 {
-    return [self setString:string forKey:key label:nil comment:nil error:nil];
+    return [self setString:string forKey:key genericAttribute:nil label:nil comment:nil error:nil];
 }
 
 - (BOOL)setString:(NSString *)string forKey:(NSString *)key error:(NSError *__autoreleasing *)error
 {
-    return [self setString:string forKey:key label:nil comment:nil error:error];
+    return [self setString:string forKey:key genericAttribute:nil label:nil comment:nil error:error];
+}
+
+- (BOOL)setString:(NSString *)string forKey:(NSString *)key genericAttribute:(id)genericAttribute
+{
+    return [self setString:string forKey:key genericAttribute:genericAttribute label:nil comment:nil error:nil];
+}
+
+- (BOOL)setString:(NSString *)string forKey:(NSString *)key genericAttribute:(id)genericAttribute error:(NSError * __autoreleasing *)error
+{
+    return [self setString:string forKey:key genericAttribute:genericAttribute label:nil comment:nil error:error];
 }
 
 - (BOOL)setString:(NSString *)string forKey:(NSString *)key label:(NSString *)label comment:(NSString *)comment
 {
-    return [self setString:string forKey:key label:label comment:comment error:nil];
+    return [self setString:string forKey:key genericAttribute:nil label:label comment:comment error:nil];
 }
 
 - (BOOL)setString:(NSString *)string forKey:(NSString *)key label:(NSString *)label comment:(NSString *)comment error:(NSError *__autoreleasing *)error
+{
+    return [self setString:string forKey:key genericAttribute:nil label:label comment:comment error:error];
+}
+
+- (BOOL)setString:(NSString *)string forKey:(NSString *)key genericAttribute:(id)genericAttribute label:(NSString *)label comment:(NSString *)comment error:(NSError *__autoreleasing *)error
 {
     if (!string) {
         return [self removeItemForKey:key error:error];
     }
     NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding];
     if (data) {
-        return [self setData:data forKey:key label:label comment:comment error:error];
+        return [self setData:data forKey:key genericAttribute:genericAttribute label:label comment:comment error:error];
     }
     NSError *e = [self.class conversionError:NSLocalizedString(@"failed to convert string to data", nil)];
     if (error) {
@@ -408,20 +483,35 @@ static NSString *_defaultService;
 
 - (BOOL)setData:(NSData *)data forKey:(NSString *)key
 {
-    return [self setData:data forKey:key label:nil comment:nil error:nil];
+    return [self setData:data forKey:key genericAttribute:nil label:nil comment:nil error:nil];
 }
 
 - (BOOL)setData:(NSData *)data forKey:(NSString *)key error:(NSError *__autoreleasing *)error
 {
-    return [self setData:data forKey:key label:nil comment:nil error:error];
+    return [self setData:data forKey:key genericAttribute:nil label:nil comment:nil error:error];
+}
+
+- (BOOL)setData:(NSData *)data forKey:(NSString *)key genericAttribute:(id)genericAttribute
+{
+    return [self setData:data forKey:key genericAttribute:genericAttribute label:nil comment:nil error:nil];
+}
+
+- (BOOL)setData:(NSData *)data forKey:(NSString *)key genericAttribute:(id)genericAttribute error:(NSError * __autoreleasing *)error
+{
+    return [self setData:data forKey:key genericAttribute:genericAttribute label:nil comment:nil error:error];
 }
 
 - (BOOL)setData:(NSData *)data forKey:(NSString *)key label:(NSString *)label comment:(NSString *)comment
 {
-    return [self setData:data forKey:key label:label comment:comment error:nil];
+    return [self setData:data forKey:key genericAttribute:nil label:label comment:comment error:nil];
 }
 
 - (BOOL)setData:(NSData *)data forKey:(NSString *)key label:(NSString *)label comment:(NSString *)comment error:(NSError *__autoreleasing *)error
+{
+    return [self setData:data forKey:key genericAttribute:nil label:label comment:comment error:error];
+}
+
+- (BOOL)setData:(NSData *)data forKey:(NSString *)key genericAttribute:(id)genericAttribute label:(NSString *)label comment:(NSString *)comment error:(NSError *__autoreleasing *)error
 {
     if (!key) {
         NSError *e = [self.class argumentError:NSLocalizedString(@"the key must not to be nil", nil)];
@@ -450,6 +540,9 @@ static NSString *_defaultService;
         NSError *unexpectedError = nil;
         NSMutableDictionary *attributes = [self attributesWithKey:nil value:data error:&unexpectedError];
         
+        if (genericAttribute) {
+            attributes[(__bridge __strong id)kSecAttrGeneric] = genericAttribute;
+        }
         if (label) {
             attributes[(__bridge __strong id)kSecAttrLabel] = label;
         }
@@ -484,6 +577,9 @@ static NSString *_defaultService;
         NSError *unexpectedError = nil;
         NSMutableDictionary *attributes = [self attributesWithKey:key value:data error:&unexpectedError];
         
+        if (genericAttribute) {
+            attributes[(__bridge __strong id)kSecAttrGeneric] = genericAttribute;
+        }
         if (label) {
             attributes[(__bridge __strong id)kSecAttrLabel] = label;
         }
@@ -810,9 +906,12 @@ static NSString *_defaultService;
         if (accessible) {
             item[@"accessibility"] = accessible;
         }
-        id synchronizable = attributes[(__bridge id)kSecAttrSynchronizable];
-        if (synchronizable) {
-            item[@"synchronizable"] = synchronizable;
+        
+        if (floor(NSFoundationVersionNumber) > floor(993.00)) { // iOS 7+
+            id synchronizable = attributes[(__bridge id)kSecAttrSynchronizable];
+            if (synchronizable) {
+                item[@"synchronizable"] = synchronizable;
+            }
         }
         
         [prettified addObject:item];
@@ -1004,7 +1103,9 @@ static NSString *_defaultService;
     
     CFTypeRef itemClass = [self itemClassObject];
     query[(__bridge __strong id)kSecClass] =(__bridge id)itemClass;
-    query[(__bridge __strong id)kSecAttrSynchronizable] = (__bridge id)kSecAttrSynchronizableAny;
+    if (floor(NSFoundationVersionNumber) > floor(993.00)) { // iOS 7+ (NSFoundationVersionNumber_iOS_6_1)
+        query[(__bridge __strong id)kSecAttrSynchronizable] = (__bridge id)kSecAttrSynchronizableAny;
+    }
     
     if (itemClass == kSecClassGenericPassword) {
         query[(__bridge __strong id)(kSecAttrService)] = _service;
@@ -1032,7 +1133,7 @@ static NSString *_defaultService;
     
 #if TARGET_OS_IPHONE
     if (_authenticationPrompt) {
-        if (floor(NSFoundationVersionNumber) > floor(1047.25)) { // iOS 8+
+        if (floor(NSFoundationVersionNumber) > floor(1047.25)) { // iOS 8+ (NSFoundationVersionNumber_iOS_7_1)
             query[(__bridge __strong id)kSecUseOperationPrompt] = _authenticationPrompt;
         } else {
             NSLog(@"%@", @"Unavailable 'authenticationPrompt' attribute on iOS versions prior to 8.0.");
@@ -1104,7 +1205,9 @@ static NSString *_defaultService;
         }
     }
     
-    attributes[(__bridge __strong id)kSecAttrSynchronizable] = @(_synchronizable);
+    if (floor(NSFoundationVersionNumber) > floor(993.00)) { // iOS 7+
+        attributes[(__bridge __strong id)kSecAttrSynchronizable] = @(_synchronizable);
+    }
     
     return attributes;
 }
@@ -1251,7 +1354,14 @@ static NSString *_defaultService;
 
 + (NSError *)securityError:(OSStatus)status
 {
-    NSError *error = [NSError errorWithDomain:UICKeyChainStoreErrorDomain code:status userInfo:@{NSLocalizedDescriptionKey: @"Security error has occurred."}];
+    NSString *message = @"Security error has occurred.";
+#if !TARGET_OS_IPHONE
+    CFStringRef description = SecCopyErrorMessageString(status, NULL);
+    if (description) {
+        message = (__bridge_transfer NSString *)description;
+    }
+#endif
+    NSError *error = [NSError errorWithDomain:UICKeyChainStoreErrorDomain code:status userInfo:@{NSLocalizedDescriptionKey: message}];
     NSLog(@"OSStatus error: [%@] %@", @(error.code), error.localizedDescription);
     return error;
 }

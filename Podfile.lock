@@ -34,11 +34,11 @@ PODS:
   - ODRefreshControl (1.1.0)
   - SMXMLDocument (1.0.1)
   - TNRadioButtonGroup (0.4)
-  - UICKeyChainStore (2.0.2)
+  - UICKeyChainStore (2.0.5)
 
 DEPENDENCIES:
   - DTPickerPresenter
-  - Liferay-iOS-SDK (from `https://github.com/liferay/liferay-mobile-sdk.git`)
+  - Liferay-iOS-SDK (<= 6.2.0.10)
   - MBProgressHUD (from `https://github.com/jmnavarro/MBProgressHUD`, branch `cancel-delayed-hide`)
   - MDRadialProgress
   - ODRefreshControl
@@ -47,29 +47,24 @@ DEPENDENCIES:
   - UICKeyChainStore
 
 EXTERNAL SOURCES:
-  Liferay-iOS-SDK:
-    :git: https://github.com/liferay/liferay-mobile-sdk.git
   MBProgressHUD:
     :branch: cancel-delayed-hide
     :git: https://github.com/jmnavarro/MBProgressHUD
 
 CHECKOUT OPTIONS:
-  Liferay-iOS-SDK:
-    :commit: 73c4244b9df3e063d7f9c8bb81e11065a8e04029
-    :git: https://github.com/liferay/liferay-mobile-sdk.git
   MBProgressHUD:
     :commit: c7dab19abf956af632446bc0dfbbd372657ca7ce
     :git: https://github.com/jmnavarro/MBProgressHUD
 
 SPEC CHECKSUMS:
-  AFNetworking: 6d7b76aa5d04c8c37daad3eef4b7e3f2a7620da3
-  DTPickerPresenter: 0ed2826ddccf675a3e2f9728ee8a3ca443fb7dbf
-  Liferay-iOS-SDK: 3f7d628657bffd35512b06f177a7354aea870383
-  MBProgressHUD: 85f9608e8473269aba4f6603958bb8bafcb60388
-  MDRadialProgress: 0499b76b2bd25711ac1d6687c07ac915bad1b8bd
-  ODRefreshControl: 7bc75258d9dba1f93c4e34654d1e4b5aa39529f0
-  SMXMLDocument: aff6ceafde0c3cd6e6838cf549d08c481a6bd2ba
-  TNRadioButtonGroup: d68e0edffde953da536b9f40a575fc0ce96584af
-  UICKeyChainStore: 14bf8cb308432c2ca7c1b8b600398d4d6af8cb8d
+  AFNetworking: 05b9f6e3aa5ac45bc383b4bb108ef338080a26c7
+  DTPickerPresenter: 1976573e3475534559b6ec1dad64b2ece16c966d
+  Liferay-iOS-SDK: ad5d214e4a6e4b409b930cfb363b3df41995cc25
+  MBProgressHUD: d8e7ea388dc1549a42e0d219067cf5f2c898fb66
+  MDRadialProgress: 6af31db0315f1b687df825a73481a2a443182402
+  ODRefreshControl: 4c4c413bf70d2ea0c02a28ac0a0b3b4bf4dbfdea
+  SMXMLDocument: 4ff79d0d7586239e93758c8610698b57cc0acd82
+  TNRadioButtonGroup: f5fb9b545d8913bbabe6a72ea1fa6fba4d833bb6
+  UICKeyChainStore: a389515ca090d4d49780fd563fec961571caa92b
 
-COCOAPODS: 0.35.0
+COCOAPODS: 0.37.2

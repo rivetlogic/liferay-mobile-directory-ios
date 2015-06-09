@@ -9,5 +9,5 @@ target "MobilePeopleDirectory" do
     pod 'TNRadioButtonGroup'
     pod 'MDRadialProgress'
     pod 'ODRefreshControl'
-    pod 'Liferay-iOS-SDK', :git => 'https://github.com/liferay/liferay-mobile-sdk.git'
+    pod 'Liferay-iOS-SDK', '<= 6.2.0.10'
 end
