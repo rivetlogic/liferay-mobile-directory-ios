@@ -31,7 +31,7 @@ public class LiferayDDLFormLoadOperation: ServerOperation {
 	}
 
 	internal var formData: DDLFormData {
-		return screenlet.screenletView as DDLFormData
+		return screenlet.screenletView as! DDLFormData
 	}
 
 
@@ -65,7 +65,7 @@ public class LiferayDDLFormLoadOperation: ServerOperation {
 				result = (record, userId)
 			}
 			else {
-				lastError = createError(cause: .InvalidServerResponse)
+				lastError = createError(cause: ScreenletsErrorCause.InvalidServerResponse)
 			}
 		}
 	}

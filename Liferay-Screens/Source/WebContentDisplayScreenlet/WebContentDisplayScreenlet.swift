@@ -32,7 +32,7 @@ import UIKit
 	@IBOutlet public var delegate: WebContentDisplayScreenletDelegate?
 
 	internal var webContentDisplayData: WebContentDisplayData {
-		return screenletView as WebContentDisplayData
+		return screenletView as! WebContentDisplayData
 	}
 
 

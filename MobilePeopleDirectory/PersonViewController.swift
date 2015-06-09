@@ -123,16 +123,16 @@ class PersonViewController: UITableViewController, UIScrollViewDelegate {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("PersonDetailCell", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("PersonDetailCell", forIndexPath: indexPath) as! UITableViewCell
         
-        let lblTitel: UILabel = cell.contentView.viewWithTag(102) as UILabel
-        let lblValue: UILabel = cell.contentView.viewWithTag(103) as UILabel
-        let imgIcon: UIImageView = cell.contentView.viewWithTag(101) as UIImageView
+        let lblTitel: UILabel = cell.contentView.viewWithTag(102) as! UILabel
+        let lblValue: UILabel = cell.contentView.viewWithTag(103) as! UILabel
+        let imgIcon: UIImageView = cell.contentView.viewWithTag(101) as! UIImageView
         
-        let cellData = detailsArray.objectAtIndex(indexPath.row) as NSDictionary
+        let cellData = detailsArray.objectAtIndex(indexPath.row) as! NSDictionary
         lblTitel.text = cellData["title"] as? String
         lblValue.text = cellData["value"] as? String
-        imgIcon.image = UIImage(named:(cellData["icon"] as String))
+        imgIcon.image = UIImage(named:(cellData["icon"] as! String))
         
         if indexPath.row % 2 == 0 {
             cell.contentView.backgroundColor = UIColor(red: 241.0/255.0, green: 241.0/255.0, blue: 241.0/255.0, alpha: 1.0)
@@ -146,8 +146,8 @@ class PersonViewController: UITableViewController, UIScrollViewDelegate {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let cellData = detailsArray.objectAtIndex(indexPath.row) as NSDictionary
-        let value: String = cellData["value"] as String
+        let cellData = detailsArray.objectAtIndex(indexPath.row) as! NSDictionary
+        let value: String = cellData["value"] as! String
         let whitespaceSet = NSCharacterSet.whitespaceCharacterSet()
         
         switch indexPath.row

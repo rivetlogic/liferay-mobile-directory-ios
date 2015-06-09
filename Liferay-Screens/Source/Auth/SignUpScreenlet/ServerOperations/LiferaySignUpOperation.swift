@@ -26,7 +26,7 @@ public class LiferaySignUpOperation: ServerOperation {
 	}
 
 	private var signUpData: SignUpData {
-		return screenlet.screenletView as SignUpData
+		return screenlet.screenletView as! SignUpData
 	}
 
 	//MARK: ServerOperation
@@ -75,9 +75,9 @@ public class LiferaySignUpOperation: ServerOperation {
 				birthdayYear: 1970,
 				jobTitle: emptyIfNull(signUpData.jobTitle),
 				groupIds: [NSNumber(longLong: LiferayServerContext.groupId)],
-				organizationIds: emptyDict,
-				roleIds: emptyDict,
-				userGroupIds: emptyDict,
+				organizationIds: emptyDict as [AnyObject],
+				roleIds: emptyDict as [AnyObject],
+				userGroupIds: emptyDict as [AnyObject],
 				sendEmail: true,
 				serviceContext: nil,
 				error: &outError)

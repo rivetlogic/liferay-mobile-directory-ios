@@ -34,21 +34,21 @@ class ServerAsyncCallback:NSObject, LRCallback {
         }
     }
     func onSuccess(result: AnyObject!) {
-        var response = result as NSDictionary
-        var items = response[self._listKey] as NSArray
-        var activeItemsCount = response[self._itemsCountKey] as NSInteger
+        var response = result as! NSDictionary
+        var items = response[self._listKey] as! NSArray
+        var activeItemsCount = response[self._itemsCountKey] as! NSInteger
         println("Items retrieved from server : \(items.count)")
         
         var managedObjectContext = appHelper.getManagedContext()
         for item in items {
             // checks if item exists
-            if self._syncable.itemExists(item[self._primaryKey] as NSInteger) {
-                var existentItem = self._syncable.getItemById(item[self._primaryKey] as NSInteger) as NSManagedObject
+            if self._syncable.itemExists(item[self._primaryKey] as! NSInteger) {
+                var existentItem = self._syncable.getItemById(item[self._primaryKey] as! NSInteger) as NSManagedObject
                 // update item with latest data
-                existentItem = self._syncable.fillItem(item as NSDictionary, managedObject: existentItem)
+                existentItem = self._syncable.fillItem(item as! NSDictionary, managedObject: existentItem)
                 managedObjectContext!.save(nil)
             } else {
-                self._syncable.addItem(item as NSDictionary)
+                self._syncable.addItem(item as! NSDictionary)
             }
         }
         

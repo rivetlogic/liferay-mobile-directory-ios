@@ -63,7 +63,7 @@ import UIKit
 	@IBOutlet public var delegate: DDLFormScreenletDelegate?
 
 	internal var formView: DDLFormView {
-		return screenletView as DDLFormView
+		return screenletView as! DDLFormView
 	}
 
 	private var uploadStatus = UploadStatus.Idle
@@ -155,7 +155,7 @@ import UIKit
 				? self.groupId : LiferayServerContext.groupId
 
 		submitOperation.userId = (self.userId != 0)
-				? self.userId : Int64((SessionContext.userAttribute("userId") ?? 0) as Int)
+				? self.userId : Int64((SessionContext.userAttribute("userId") ?? 0) as! Int)
 
 		submitOperation.recordId = (self.recordId != 0) ? self.recordId : nil
 		submitOperation.recordSetId = self.recordSetId
@@ -317,7 +317,7 @@ import UIKit
 				details: LocalizedString("ddlform-screenlet", "uploading-retry-details", self))
 
 			for failedDocumentField in failedUploads {
-				uploadDocument(failedDocumentField as DDLFieldDocument)
+				uploadDocument(failedDocumentField as! DDLFieldDocument)
 			}
 
 			uploadStatus = .Uploading(failedUploads.count, true)

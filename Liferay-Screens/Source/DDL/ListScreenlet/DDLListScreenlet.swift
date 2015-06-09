@@ -38,7 +38,7 @@ import UIKit
 	@IBOutlet public var delegate: DDLListScreenletDelegate?
 
 	internal var ddlListData: DDLListData {
-		return screenletView as DDLListData
+		return screenletView as! DDLListData
 	}
 
 
@@ -83,7 +83,7 @@ import UIKit
 
 		let rowObjects = super.onLoadPageResult(page: page, serverRows: serverRows, rowCount: rowCount)
 
-		let records = rowObjects.map() { $0 as DDLRecord }
+		let records = rowObjects.map() { $0 as! DDLRecord }
 
 		delegate?.onDDLListResponse?(records)
 
@@ -91,7 +91,7 @@ import UIKit
 	}
 
 	override internal func onSelectedRow(row: AnyObject) {
-		delegate?.onDDLRecordSelected?(row as DDLRecord)
+		delegate?.onDDLRecordSelected?(row as! DDLRecord)
 	}
 
 

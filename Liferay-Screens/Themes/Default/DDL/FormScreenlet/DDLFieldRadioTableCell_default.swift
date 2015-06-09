@@ -56,7 +56,7 @@ public class DDLFieldRadioTableCell_default: DDLFieldTableCell {
 		label?.textColor = valid ? UIColor.blackColor() : UIColor.redColor()
 		let radioColor = valid ? DefaultThemeBasicBlue : UIColor.redColor()
 
-		for radioButton in radioGroup!.radioButtons as [TNRectangularRadioButton] {
+		for radioButton in radioGroup!.radioButtons as! [TNRectangularRadioButton] {
 			radioButton.data.labelColor = label?.textColor
 			radioButton.data.borderColor = radioColor
 			radioButton.data.rectangleColor = radioColor
@@ -80,7 +80,7 @@ public class DDLFieldRadioTableCell_default: DDLFieldTableCell {
 			data.rectangleColor = DefaultThemeBasicBlue
 			data.rectangleHeight = 8
 			data.rectangleWidth = 8
-			data.selected = filter(field.currentValue as [DDLFieldStringWithOptions.Option]) {
+			data.selected = filter(field.currentValue as! [DDLFieldStringWithOptions.Option]) {
 				$0.name == option.name
 			}.count > 0
 

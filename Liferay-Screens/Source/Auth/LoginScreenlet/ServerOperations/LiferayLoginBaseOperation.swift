@@ -26,7 +26,7 @@ public class LiferayLoginBaseOperation: ServerOperation {
 	}
 
 	internal var loginData: LoginData {
-		return screenlet.screenletView as LoginData
+		return screenlet.screenletView as! LoginData
 	}
 
 

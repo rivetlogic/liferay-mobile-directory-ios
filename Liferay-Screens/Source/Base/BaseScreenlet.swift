@@ -281,7 +281,7 @@ import QuartzCore
 		let views = bundle.loadNibNamed(nibName, owner:self, options:nil)
 		assert(views.count > 0, "Xib seems to be malformed. There're no views inside it");
 
-		let foundView = (views[0] as BaseScreenletView)
+		let foundView = (views[0] as! BaseScreenletView)
 
 		return foundView
 	}

@@ -31,7 +31,7 @@ public class LiferayDDLFormUploadOperation: ServerOperation, LRCallback, LRProgr
 	}
 
 	internal var formData: DDLFormData {
-		return screenlet.screenletView as DDLFormData
+		return screenlet.screenletView as! DDLFormData
 	}
 
 	private var requestSemaphore: dispatch_semaphore_t?
@@ -91,7 +91,7 @@ public class LiferayDDLFormUploadOperation: ServerOperation, LRCallback, LRProgr
 				serviceContext: nil,
 				error: &lastError)
 
-		dispatch_semaphore_wait(requestSemaphore, DISPATCH_TIME_FOREVER)
+		dispatch_semaphore_wait(requestSemaphore!, DISPATCH_TIME_FOREVER)
 	}
 
 
@@ -109,14 +109,14 @@ public class LiferayDDLFormUploadOperation: ServerOperation, LRCallback, LRProgr
 		lastError = error
 		uploadResult = nil
 
-		dispatch_semaphore_signal(requestSemaphore)
+		dispatch_semaphore_signal(requestSemaphore!)
 	}
 
 	public func onSuccess(result: AnyObject?) {
 		lastError = nil
 		uploadResult = result as? [String:AnyObject]
 
-		dispatch_semaphore_signal(requestSemaphore)
+		dispatch_semaphore_signal(requestSemaphore!)
 	}
 
 }

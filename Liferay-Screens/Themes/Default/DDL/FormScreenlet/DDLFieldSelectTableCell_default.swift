@@ -70,12 +70,14 @@ public class DDLFieldSelectTableCell_default: DDLBaseFieldTextboxTableCell_defau
 		let onChangeClosure = {
 			(selectedComponents:[AnyObject]!, selectedIndexPath:NSIndexPath!) -> Void in
 
-			let text = selectedComponents.first?.description as NSString?
-
+			var text = ""
+            if let t = selectedComponents.first?.description as NSString? {
+                text = t as String
+            }
 			self.textField?.text = text
 			field.currentValue = text
 
-			let fullRange = NSMakeRange(0, text!.length)
+			let fullRange = NSMakeRange(0, count(text))
 
 			self.textField(self.textField,
 					shouldChangeCharactersInRange:fullRange,

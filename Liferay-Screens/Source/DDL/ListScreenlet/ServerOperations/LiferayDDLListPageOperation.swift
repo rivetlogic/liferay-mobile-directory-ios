@@ -19,11 +19,11 @@ public class LiferayDDLListPageOperation: LiferayPaginationOperation {
 	public var recordSetId: Int64?
 
 	internal var ddlListScreenlet: DDLListScreenlet {
-		return self.screenlet as DDLListScreenlet
+		return self.screenlet as! DDLListScreenlet
 	}
 
 	internal var ddlListData: DDLListData {
-		return screenlet.screenletView as DDLListData
+		return screenlet.screenletView as! DDLListData
 	}
 
 	override func validateData() -> Bool {

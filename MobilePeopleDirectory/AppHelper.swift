@@ -12,11 +12,11 @@ import CoreData
 class AppHelper {
     
     func getAppDelegate() -> AppDelegate {
-    	return UIApplication.sharedApplication().delegate as AppDelegate
+    	return UIApplication.sharedApplication().delegate as! AppDelegate
     }
     
     func getManagedContext() -> NSManagedObjectContext? {
-        return (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
+        return (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     }
     
     func logout(controller:UIViewController) {

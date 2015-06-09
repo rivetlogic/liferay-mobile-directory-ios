@@ -8,6 +8,7 @@
 
 import UIKit
 import Foundation
+import CoreGraphics
 
 class ImageHelper: NSObject {
     
@@ -31,7 +32,7 @@ class ImageHelper: NSObject {
         ciFilter.setValue(image, forKey: kCIInputImageKey)
         
         ciFilter.setValue(1, forKey: "inputRadius")
-        var cgImage = ciContext.createCGImage(ciFilter.outputImage, fromRect: image.extent())?
+        var cgImage = ciContext.createCGImage(ciFilter.outputImage, fromRect: image.extent())
         var blurredImage = UIImage(CGImage: cgImage)!
         
         imageView?.image = blurredImage
@@ -44,7 +45,7 @@ class ImageHelper: NSObject {
         
         let imageRect: CGRect = CGRectMake(0, 0, image.size.width, image.size.height)
         let colorSpace: CGColorSpaceRef = CGColorSpaceCreateDeviceGray();
-        let context:CGContextRef = CGBitmapContextCreate(nil, UInt(image.size.width), UInt(image.size.height), 8, 0, colorSpace, nil)
+        let context:CGContextRef = CGBitmapContextCreate(nil, Int(image.size.width), Int(image.size.height), 8, 0, colorSpace, CGBitmapInfo(0))
         CGContextDrawImage(context, imageRect, image.CGImage);
         let imageRef: CGImageRef = CGBitmapContextCreateImage(context);
         let newImage: UIImage = UIImage(CGImage: imageRef)!

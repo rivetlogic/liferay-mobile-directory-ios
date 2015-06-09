@@ -44,7 +44,7 @@ import UIKit
 
 
 	internal var signUpData: SignUpData {
-		return screenletView as SignUpData
+		return screenletView as! SignUpData
 	}
 
 

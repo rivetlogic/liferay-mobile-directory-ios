@@ -29,31 +29,31 @@ import UIKit
 	public let attributes:[String:AnyObject]
 
 	public var title: String {
-		return attributes["title"] as String
+		return attributes["title"] as! String
 	}
 
 	override public var description: String {
-		return attributes["description"] as String
+		return attributes["description"] as! String
 	}
 
 	public var classNameId: Int64 {
-		return Int64(attributes["classNameId"] as Int)
+		return Int64(attributes["classNameId"] as! Int)
 	}
 
 	public var classPK: Int64 {
-		return Int64(attributes["classPK"] as Int)
+		return Int64(attributes["classPK"] as! Int)
 	}
 
 	public var groupId: Int64 {
-		return Int64(attributes["groupId"] as Int)
+		return Int64(attributes["groupId"] as! Int)
 	}
 
 	public var companyId: Int64 {
-		return Int64(attributes["companyId"] as Int)
+		return Int64(attributes["companyId"] as! Int)
 	}
 
 	public var entryId: Int64 {
-		return Int64(attributes["entryId"] as Int)
+		return Int64(attributes["entryId"] as! Int)
 	}
 
 
@@ -114,7 +114,7 @@ import UIKit
 				serverRows: serverRows,
 				rowCount: rowCount)
 
-		let assetEntries = rowObjects.map() { $0 as AssetListScreenletEntry }
+		let assetEntries = rowObjects.map() { $0 as! AssetListScreenletEntry }
 
 		delegate?.onAssetListResponse?(assetEntries)
 
@@ -122,7 +122,7 @@ import UIKit
 	}
 
 	override internal func onSelectedRow(row: AnyObject) {
-		delegate?.onAssetSelected?(row as AssetListScreenletEntry)
+		delegate?.onAssetSelected?(row as! AssetListScreenletEntry)
 	}
 
 }

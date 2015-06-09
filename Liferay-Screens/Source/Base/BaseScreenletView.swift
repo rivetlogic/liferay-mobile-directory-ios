@@ -86,7 +86,7 @@ public class BaseScreenletView: UIView, UITextFieldDelegate {
 
 				case _
 				where nextResponder is UIControl:
-					(nextResponder as UIControl).sendActionsForControlEvents(
+					(nextResponder as! UIControl).sendActionsForControlEvents(
 							UIControlEvents.TouchUpInside)
 
 				default: ()
@@ -222,7 +222,7 @@ public class BaseScreenletView: UIView, UITextFieldDelegate {
 
 		addDefaultDelegatesForView(view)
 
-		for subview:UIView in view.subviews as [UIView] {
+		for subview:UIView in view.subviews as! [UIView] {
 			setUpView(subview)
 		}
 	}

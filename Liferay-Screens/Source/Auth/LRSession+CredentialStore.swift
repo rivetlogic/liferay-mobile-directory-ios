@@ -52,7 +52,7 @@ extension LRSession {
 					protectionSpace) as NSDictionary?
 		
 		if let credentialDictValue = credentialDict {
-			let username = credentialDictValue.keyEnumerator().nextObject() as NSString
+			let username = credentialDictValue.keyEnumerator().nextObject() as! NSString
 			
 			return (credentialDictValue.objectForKey(username) as? NSURLCredential, protectionSpace)
 		}

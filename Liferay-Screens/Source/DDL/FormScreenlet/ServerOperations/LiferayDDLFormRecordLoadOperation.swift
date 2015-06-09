@@ -30,7 +30,7 @@ public class LiferayDDLFormRecordLoadOperation: ServerOperation {
 	}
 
 	internal var formData: DDLFormData {
-		return screenlet.screenletView as DDLFormData
+		return screenlet.screenletView as! DDLFormData
 	}
 
 
@@ -63,7 +63,7 @@ public class LiferayDDLFormRecordLoadOperation: ServerOperation {
 
 		if lastError == nil {
 			if recordDictionary is [String:AnyObject] {
-				result = (recordDictionary as [String:AnyObject], self.recordId!)
+				result = (recordDictionary as! [String:AnyObject], self.recordId!)
 			}
 			else {
 				lastError = createError(cause: .InvalidServerResponse)

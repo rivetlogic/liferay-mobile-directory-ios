@@ -151,10 +151,10 @@ class PeopleListViewController: UITableViewController, NSFetchedResultsControlle
                 if searchActive && self.searchResultsList.count > 0 {
                     person = searchResultsList[indexPath.row]
                 } else {
-                    person = self.fetchedResultsController.objectAtIndexPath(indexPath) as Person
+                    person = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Person
                 }
                 
-                let controller = (segue.destinationViewController as UINavigationController).topViewController as PersonViewController
+                let controller = (segue.destinationViewController as! UINavigationController).topViewController as! PersonViewController
                 controller.detailItem = person
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
                 controller.navigationItem.leftItemsSupplementBackButton = true
@@ -172,7 +172,7 @@ class PeopleListViewController: UITableViewController, NSFetchedResultsControlle
         if self.searchActive {
             return self.searchResultsList.count
         }
-        let sectionInfo = self.fetchedResultsController.sections![section] as NSFetchedResultsSectionInfo
+        let sectionInfo = self.fetchedResultsController.sections![section] as! NSFetchedResultsSectionInfo
         return sectionInfo.numberOfObjects
     }
 
@@ -181,7 +181,7 @@ class PeopleListViewController: UITableViewController, NSFetchedResultsControlle
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("PersonCell", forIndexPath: indexPath) as PersonViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("PersonCell", forIndexPath: indexPath) as! PersonViewCell
         
         self.configureCell(cell, atIndexPath: indexPath)
         
@@ -203,7 +203,7 @@ class PeopleListViewController: UITableViewController, NSFetchedResultsControlle
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             let context = self.fetchedResultsController.managedObjectContext
-            context.deleteObject(self.fetchedResultsController.objectAtIndexPath(indexPath) as NSManagedObject)
+            context.deleteObject(self.fetchedResultsController.objectAtIndexPath(indexPath) as! NSManagedObject)
                 
             var error: NSError? = nil
             if !context.save(&error) {
@@ -221,7 +221,7 @@ class PeopleListViewController: UITableViewController, NSFetchedResultsControlle
         if searchActive && self.searchResultsList.count > 0 {
             person = searchResultsList[indexPath.row]
         } else {
-            person = self.fetchedResultsController.objectAtIndexPath(indexPath) as Person
+            person = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Person
         }
 
         imageHelper.addThumbnailStyles(cell.thumbnailImage, radius: 30.0)
@@ -354,15 +354,15 @@ class PeopleListViewController: UITableViewController, NSFetchedResultsControlle
         
         if !searchString.isEmpty {
             let filter:Person -> Bool = { person in
-                let nameLength = countElements(person.fullName)
+                let nameLength = count(person.fullName)
                 let fullNameRange = person.fullName.rangeOfString(searchString, options: NSStringCompareOptions.CaseInsensitiveSearch)
                 let screenNameRange = person.screenName.rangeOfString(searchString, options: NSStringCompareOptions.CaseInsensitiveSearch)
                 let emailAddress = person.emailAddress.rangeOfString(searchString, options: NSStringCompareOptions.CaseInsensitiveSearch)
                 return fullNameRange != nil || screenNameRange != nil || emailAddress != nil
             }
             
-            let sectionInfo = self.fetchedResultsController.sections![0] as NSFetchedResultsSectionInfo
-            let persons = sectionInfo.objects as [Person]
+            let sectionInfo = self.fetchedResultsController.sections![0] as! NSFetchedResultsSectionInfo
+            let persons = sectionInfo.objects as! [Person]
             searchResultsList = persons.filter(filter)
         }
         

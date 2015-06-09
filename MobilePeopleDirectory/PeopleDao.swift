@@ -37,7 +37,7 @@ class PeopleDao:ServerSyncableProtocol {
         var error : NSError?
         if let result = managedObjectContext!.executeFetchRequest(fetchRequest, error: &error) {
             if result.count > 0 {
-                var lastModifiedPerson = result[0] as Person
+                var lastModifiedPerson = result[0] as! Person
                 return lastModifiedPerson.modifiedDate
             }
         }
@@ -72,7 +72,7 @@ class PeopleDao:ServerSyncableProtocol {
         
         if let result = managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) {
             if result.count > 0 {
-                return result[0] as NSManagedObject
+                return result[0] as! NSManagedObject
             }
         }
         
@@ -90,23 +90,23 @@ class PeopleDao:ServerSyncableProtocol {
     
     // fill new or update existing managed class object/person
     func fillItem(itemData: NSDictionary, managedObject: NSManagedObject) -> NSManagedObject {
-        var person = managedObject as Person
-        person.fullName = itemData["fullName"] as NSString
-        person.birthDateEpoch = itemData["birthDate"] as Double
-        person.city = itemData["city"] as NSString
-        person.wasDeleted = itemData["deleted"] as Bool
-        person.emailAddress = itemData["emailAddress"] as NSString
-        person.jobTitle = itemData["jobTitle"] as NSString
-        person.male = itemData["male"] as Bool
-        person.modifiedDateEpoch = itemData["modifiedDate"] as Double
-        person.screenName = itemData["screenName"] as NSString
-        person.skypeName = itemData["skypeName"] as NSString
-        person.userId = itemData["userId"] as NSInteger
-        person.userPhone = itemData["userPhone"] as NSString
+        var person = managedObject as! Person
+        person.fullName = itemData["fullName"] as! NSString as String
+        person.birthDateEpoch = itemData["birthDate"] as! Double
+        person.city = itemData["city"] as! NSString as String
+        person.wasDeleted = itemData["deleted"] as! Bool
+        person.emailAddress = itemData["emailAddress"] as! NSString as String
+        person.jobTitle = itemData["jobTitle"] as! NSString as String
+        person.male = itemData["male"] as! Bool
+        person.modifiedDateEpoch = itemData["modifiedDate"] as! Double
+        person.screenName = itemData["screenName"] as! NSString as String
+        person.skypeName = itemData["skypeName"] as! NSString as String
+        person.userId = itemData["userId"] as! NSInteger
+        person.userPhone = itemData["userPhone"] as! NSString as String
         
         if let portraitUrl = itemData["portraitUrl"] as? NSString {
             if imageHelper.hasUserImage(portraitUrl) {
-                person.portraitUrl = itemData["portraitUrl"] as NSString
+                person.portraitUrl = itemData["portraitUrl"] as! NSString as String
                 person.portraitImage = imageHelper.getImageData(LiferayServerContext.server + person.portraitUrl)
             } else {
                 person.portraitUrl = ""
@@ -135,7 +135,7 @@ class PeopleDao:ServerSyncableProtocol {
     func getAllUsers() -> [NSManagedObject] {
         var managedObjectContext = appHelper.getManagedContext()
         let request = NSFetchRequest(entityName: "Person")
-        var usersData = managedObjectContext?.executeFetchRequest(request, error: nil) as [NSManagedObject]
+        var usersData = managedObjectContext?.executeFetchRequest(request, error: nil) as! [NSManagedObject]
         return usersData
     }
 }

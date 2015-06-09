@@ -40,7 +40,7 @@ public class LiferayDDLFormSubmitOperation: ServerOperation {
 	}
 
 	internal var formData: DDLFormData {
-		return screenlet.screenletView as DDLFormData
+		return screenlet.screenletView as! DDLFormData
 	}
 
 

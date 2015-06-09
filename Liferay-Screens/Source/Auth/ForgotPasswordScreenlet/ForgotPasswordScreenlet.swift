@@ -51,7 +51,7 @@ import UIKit
 	}
 
 	internal var forgotPasswordData: ForgotPasswordData {
-		return screenletView as ForgotPasswordData
+		return screenletView as! ForgotPasswordData
 	}
 
 

@@ -52,7 +52,7 @@ public class LoginScreenlet: BaseScreenlet, AuthBasedData {
 
 
 	internal var loginData: LoginData {
-		return screenletView as LoginData
+		return screenletView as! LoginData
 	}
 
 
