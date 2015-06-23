@@ -223,7 +223,7 @@ class PeopleListViewController: UITableViewController, NSFetchedResultsControlle
         } else {
             person = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Person
         }
-
+        //NSLog(person.description)
         imageHelper.addThumbnailStyles(cell.thumbnailImage, radius: 30.0)
 
         if imageHelper.hasUserImage(person.portraitUrl) {

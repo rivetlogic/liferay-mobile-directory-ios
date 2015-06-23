@@ -177,8 +177,6 @@
 		3B697F971B1CB59E009EB445 /* SpiralView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B697F921B1CB59E009EB445 /* SpiralView.m */; };
 		3B697F981B1CB59E009EB445 /* ZEFraction.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B697F941B1CB59E009EB445 /* ZEFraction.m */; };
 		3B697F991B1CB59E009EB445 /* ZESpiral.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B697F961B1CB59E009EB445 /* ZESpiral.m */; };
-		3B697F9C1B1CB5CE009EB445 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B697F9A1B1CB5CE009EB445 /* SplashScreen.swift */; };
-		3B697F9D1B1CB5CE009EB445 /* SplashScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B697F9B1B1CB5CE009EB445 /* SplashScreen.xib */; };
 		9444FCA35B99DC549877D20D /* libPods-MobilePeopleDirectory.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D43E8E39248C7CF591616D3 /* libPods-MobilePeopleDirectory.a */; };
 		BA1483E01A6C9ADE00778808 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1483DF1A6C9ADE00778808 /* Person.swift */; };
 		BA1483E41A6CBAC200778808 /* PeopleDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1483E31A6CBAC200778808 /* PeopleDao.swift */; };
@@ -403,8 +401,6 @@
 		3B697F941B1CB59E009EB445 /* ZEFraction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZEFraction.m; sourceTree = "<group>"; };
 		3B697F951B1CB59E009EB445 /* ZESpiral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZESpiral.h; sourceTree = "<group>"; };
 		3B697F961B1CB59E009EB445 /* ZESpiral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZESpiral.m; sourceTree = "<group>"; };
-		3B697F9A1B1CB5CE009EB445 /* SplashScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
-		3B697F9B1B1CB5CE009EB445 /* SplashScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SplashScreen.xib; sourceTree = "<group>"; };
 		700E0C06DDBC38A8CF934A3B /* Pods-MobilePeopleDirectory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobilePeopleDirectory.release.xcconfig"; path = "Pods/Target Support Files/Pods-MobilePeopleDirectory/Pods-MobilePeopleDirectory.release.xcconfig"; sourceTree = "<group>"; };
 		7D43E8E39248C7CF591616D3 /* libPods-MobilePeopleDirectory.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MobilePeopleDirectory.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA1483DF1A6C9ADE00778808 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
@@ -482,7 +478,6 @@
 				0F82FC341A5C5048008EE20B /* Main.storyboard */,
 				0F82FC371A5C5048008EE20B /* Images.xcassets */,
 				0F82FC391A5C5048008EE20B /* LaunchScreen.xib */,
-				3B697F9B1B1CB5CE009EB445 /* SplashScreen.xib */,
 				0F82FC2D1A5C5048008EE20B /* MobilePeopleDirectory.xcdatamodeld */,
 				0F82FC291A5C5048008EE20B /* Supporting Files */,
 				0F2823DA1A62CD51000E0617 /* Login.storyboard */,
@@ -1068,7 +1063,6 @@
 		BA1483E21A6C9E5800778808 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				3B697F9A1B1CB5CE009EB445 /* SplashScreen.swift */,
 				0F2823DC1A62D00C000E0617 /* LoginViewController.swift */,
 				BA6975011A6860CE00E3CB41 /* ForgotPasswordViewController.swift */,
 				0F82FC321A5C5048008EE20B /* PersonViewController.swift */,
@@ -1297,7 +1291,6 @@
 				0F82FDA11A5C569D008EE20B /* default-field-failed.png in Resources */,
 				0F82FDB11A5C569D008EE20B /* default-multiline-field.png in Resources */,
 				0F82FC381A5C5048008EE20B /* Images.xcassets in Resources */,
-				3B697F9D1B1CB5CE009EB445 /* SplashScreen.xib in Resources */,
 				0F82FDA81A5C569D008EE20B /* default-form-gradient-bottom@2x.png in Resources */,
 				0F82FDC81A5C569D008EE20B /* flat7-field@2x.png in Resources */,
 				0F82FD911A5C569D008EE20B /* DDLFieldSelectTableCell_default.xib in Resources */,
@@ -1460,7 +1453,6 @@
 				0F82FD3D1A5C569D008EE20B /* LoginScreenlet.swift in Sources */,
 				0F82FD841A5C569D008EE20B /* DDLFieldCheckboxTableCell_default.swift in Sources */,
 				BA422E541AD4DA18000AFCB0 /* ForgotPasswordView_mpd.swift in Sources */,
-				3B697F9C1B1CB5CE009EB445 /* SplashScreen.swift in Sources */,
 				0F82FC331A5C5048008EE20B /* PersonViewController.swift in Sources */,
 				0F82FD971A5C569D008EE20B /* DDLFormView_default.swift in Sources */,
 				0F82FDC11A5C569D008EE20B /* SignUpView_flat7.swift in Sources */,
